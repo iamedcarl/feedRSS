@@ -32,7 +32,7 @@
     1: {
       id: 1,
       title: 'The Cheetos Restaurant Has 1,000 Person Waitlist',
-      body: 'Will Cheetos dethrone Doritos as Frito-Lay's most marketable and gimmicky snack? Well, the three nights of the Cheetos pop-up restaurant sold out six hours after it was announced earlier this month, so anything's possible. I'm pulling for you, Funyuns.',
+      body: 'Will Cheetos dethrone Doritos as Frito-Lay's most marketable and gimmicky snack?
       date: 'Mon, 16 August 2017 09:00:00 EST',
     }
   }
