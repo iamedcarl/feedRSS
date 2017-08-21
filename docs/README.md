@@ -53,9 +53,9 @@ sufficient CSS styling:
 
 **Objective:** Ability to add new feeds or explore from existing feeds.
 
-### Phase 5: Popular Article of the Day (.5 day)
+### Phase 5: Latest Articles of the Day (.5 day)
 
-**Objective:** Once user logs in, it directs to homepage showing popular articles of the day from user's feeds.
+**Objective:** Once user logs in, it directs to homepage showing latest articles of the day from all feeds.
 
 ### Phase 6: Ability To Save Articles Or Copy Article Link (.5 day)
 
