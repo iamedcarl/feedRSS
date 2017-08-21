@@ -1,4 +1,4 @@
-# FeedRSS Routes
+# feedRSS API Endpoints
 
 Routes are a work in progress. Probably will trim it down to get the MVP
 done.
