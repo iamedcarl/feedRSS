@@ -1,17 +1,17 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import Header from './header/header';
+import HeaderContainer from './header/header_container';
 import AuthFormContainer from './auth/auth_form_container';
 
 const App = () => {
   return(
     <div className='app'>
       <header>
-        <Header />
+        <HeaderContainer />
       </header>
-      <Route path='/login' component={AuthFormContainer} />
-      <Route path='/signup' component={AuthFormContainer} />
+      <Route path="/login" component={AuthFormContainer} />
+      <Route path="/signup" component={AuthFormContainer} />
     </div>
   );
 };

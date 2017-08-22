@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
   render() {
-    if (this.props.session) {
+    if (this.props.loggedIn) {
       return(
         <div className='header-logged-in'>
           <h1><Link to="/">feedRSS</Link></h1>

@@ -3,7 +3,9 @@ import { logout } from '../../actions/session_actions';
 import Header from './header';
 
 const mapStateToProps = state => {
+  const loggedIn = Boolean(state.session.username);
   return({
+    loggedIn: loggedIn,
     user: state.session,
   });
 };

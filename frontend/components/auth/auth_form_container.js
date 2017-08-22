@@ -3,8 +3,9 @@ import { login, signup } from '../../actions/session_actions';
 import AuthForm from './auth_form';
 
 const mapStateToProps = (state, ownProps) => {
-  const loggedIn = Boolean(state.session);
+  const loggedIn = Boolean(state.session.username);
   const formType = ownProps.location.pathname.slice(1);
+
   return({
     loggedIn: loggedIn,
     errors: state.ui.errors,

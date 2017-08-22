@@ -22,7 +22,7 @@ export const login = user => {
 export const logout = () => {
   return dispatch => {
     return APIUtil.logout()
-      .then(() => dispatch(receiveCurrentUser(null)),
+      .then(() => dispatch(receiveCurrentUser(resetUser)),
         errors => dispatch(receiveErrors(errors.responseJSON)));
   };
 };
@@ -39,4 +39,11 @@ export const receiveErrors = errors => {
     type: RECEIVE_ERRORS,
     errors,
   });
+};
+
+const resetUser = {
+  username: '',
+  fname: '',
+  lname: '',
+  img_url: '',
 };
