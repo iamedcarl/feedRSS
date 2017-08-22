@@ -13,9 +13,8 @@ const App = () => {
       <header>
         <HeaderContainer />
       </header>
-      <AuthRoute path="/login" component={AuthFormContainer} />
-      <AuthRoute path="/signup" component={AuthFormContainer} />
-      <AuthModal />
+      <AuthRoute path="/login" component={AuthModal} />
+      <AuthRoute path="/signup" component={AuthModal} />
     </div>
   );
 };

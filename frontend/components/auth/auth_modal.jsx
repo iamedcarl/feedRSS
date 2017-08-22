@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { withRouter, Route } from 'react-router-dom';
 import { AuthRoute } from '../../util/route_util';
 import AuthFormContainer from './auth_form_container';
 
@@ -10,7 +11,10 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+  },
+  overlay : {
+    backgroundColor    : 'rgba(0, 0, 0, 0.45)',
   }
 };
 
@@ -19,7 +23,7 @@ class AuthModal extends React.Component {
     super();
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: true,
     };
 
     this.openModal = this.openModal.bind(this);
@@ -31,30 +35,30 @@ class AuthModal extends React.Component {
     this.setState({modalIsOpen: true});
   }
 
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00';
-  }
-
   closeModal() {
     this.setState({modalIsOpen: false});
+    this.props.history.push(`/`);
   }
 
   render() {
+    const formType = this.props.match.path.slice(1);
+
+    let title;
+    if (formType === 'login') { title = "Login to feedRSS"; }
+    else { title = "Sign up to feedRSS"; }
+
     return (
-      <div>
-        <button onClick={this.openModal}>Open Modal</button>
+      <div onClick={this.closeModal} className='auth-modal'>
         <Modal
           isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="Auth Form Modal"
         >
 
-          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-          <AuthRoute path="/login" component={AuthFormContainer} />
-          <AuthRoute path="/signup" component={AuthFormContainer} />
+          <h2>{title}</h2>
+          <Route path="/login" component={AuthFormContainer} />
+          <Route path="/signup" component={AuthFormContainer} />
         </Modal>
       </div>
     );
@@ -62,4 +66,4 @@ class AuthModal extends React.Component {
 
 } // end of AuthModal
 
-export default AuthModal;
+export default withRouter(AuthModal);
