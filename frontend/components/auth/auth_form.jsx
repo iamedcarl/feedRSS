@@ -27,12 +27,6 @@ class AuthForm extends React.Component {
     return e => this.setState({ [property]: e.target.value });
   }
 
-  errors() {
-    this.props.errors.map(error => {
-      return(<li key={error}>{error}</li>);
-    });
-  }
-
   renderAdditionalSignUpFields(inputType){
     return(
       <div>
@@ -73,9 +67,7 @@ class AuthForm extends React.Component {
     return(
       <div className='auth-form'>
         <div className='auth-form-errors'>
-          <ul className='auth-form-errors'>
-            {this.props.errors}
-          </ul>
+          {this.props.errors}
         </div>
 
         <form id='auth-form-form' onSubmit={this.handleOnSubmit}>
