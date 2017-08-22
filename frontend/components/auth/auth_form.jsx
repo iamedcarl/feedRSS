@@ -33,17 +33,41 @@ class AuthForm extends React.Component {
     });
   }
 
+  renderAdditionalSignUpFields(inputType){
+    return(
+      <div>
+        <input
+          id='auth-form-fname-input'
+          type={inputType}
+          value={this.state.fname}
+          placeholder="First Name"
+          onChange={this.update('fname')}
+        />
+        <br/>
+        <input
+          id='auth-form-lname-input'
+          type={inputType}
+          value={this.state.lname}
+          placeholder="Last Name"
+          onChange={this.update('lname')}
+        />
+        <br/>
+      </div>
+    );
+  }
+
   render() {
     const { loggedIn, formType } = this.props;
     if (loggedIn) { return null; }
 
-    let header, inputType;
+    let header, inputType, nameInput;
     if (formType === 'login') {
       header = "Log in to feedRSS";
       inputType = "hidden";
     } else {
       header = "Sign up to feedRSS";
       inputType = "text";
+      nameInput = this.renderAdditionalSignUpFields(inputType);
     }
 
     return(
@@ -53,21 +77,7 @@ class AuthForm extends React.Component {
         </ul>
 
         <form id='auth-form-form' onSubmit={this.handleOnSubmit}>
-          <input
-            id='auth-form-fname-input'
-            type={inputType}
-            value={this.state.fname}
-            placeholder="First Name"
-            onChange={this.update('fname')}
-          />
-          <input
-            id='auth-form-lname-input'
-            type={inputType}
-            value={this.state.lname}
-            placeholder="Last Name"
-            onChange={this.update('lname')}
-          />
-          <br/>
+          {nameInput}
           <input
             id='auth-form-username-input'
             type="text"
