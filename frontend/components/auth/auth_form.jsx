@@ -27,6 +27,18 @@ class AuthForm extends React.Component {
     return e => this.setState({ [property]: e.target.value });
   }
 
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   renderAdditionalSignUpFields(inputType){
     return(
       <div>
@@ -65,30 +77,32 @@ class AuthForm extends React.Component {
     }
 
     return(
-      <div className='auth-form'>
-        <div className='auth-form-errors'>
-          {this.props.errors}
-        </div>
+      <div className='auth-form-container'>
 
-        <form id='auth-form-form' onSubmit={this.handleOnSubmit}>
-          {nameInput}
-          <input
-            id='auth-form-username-input'
-            type="text"
-            value={this.state.username}
-            placeholder="Username"
-            onChange={this.update('username')}
-          />
-          <br/>
-          <input
-            id='auth-form-password-input'
-            type="password"
-            value={this.state.password}
-            placeholder="Password"
-            onChange={this.update('password')}
-          />
-          <br/>
-          <button id='auth-form-button'>Submit</button>
+        <form onSubmit={this.handleOnSubmit}>
+          <h2>{header}</h2>
+          {this.renderErrors()}
+          <div className='auth-form'>
+            <br/>
+            {nameInput}
+            <input
+              id='auth-form-username-input'
+              type="text"
+              value={this.state.username}
+              placeholder="Username"
+              onChange={this.update('username')}
+            />
+            <br/>
+            <input
+              id='auth-form-password-input'
+              type="password"
+              value={this.state.password}
+              placeholder="Password"
+              onChange={this.update('password')}
+            />
+            <br/>
+            <button id='auth-form-button'>Submit</button>
+          </div>
         </form>
 
       </div>

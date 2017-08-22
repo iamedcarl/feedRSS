@@ -40,12 +40,6 @@ class AuthModal extends React.Component {
   }
 
   render() {
-    const formType = this.props.match.path.slice(1);
-
-    let title;
-    if (formType === 'login') { title = "Login to feedRSS"; }
-    else { title = "Sign up to feedRSS"; }
-
     return (
       <div onClick={this.closeModal} className='auth-modal'>
         <Modal
@@ -54,8 +48,6 @@ class AuthModal extends React.Component {
           style={customStyles}
           contentLabel="Auth Form Modal"
         >
-
-          <h2>{title}</h2>
           <Route path="/login" component={AuthFormContainer} />
           <Route path="/signup" component={AuthFormContainer} />
         </Modal>
