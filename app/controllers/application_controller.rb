@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_user_logged_in
+    render '/api/session/new' unless logged_in?
   end
 
 end
