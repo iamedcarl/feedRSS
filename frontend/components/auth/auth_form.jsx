@@ -72,9 +72,11 @@ class AuthForm extends React.Component {
 
     return(
       <div className='auth-form'>
-        <ul className='auth-form-errors'>
-          {this.errors()}
-        </ul>
+        <div className='auth-form-errors'>
+          <ul className='auth-form-errors'>
+            {this.props.errors}
+          </ul>
+        </div>
 
         <form id='auth-form-form' onSubmit={this.handleOnSubmit}>
           {nameInput}
