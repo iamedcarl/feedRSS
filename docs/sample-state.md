@@ -1,9 +1,11 @@
 ```js
 {
-  user: {
+  session: {
     id: 1,
     username: 'rickjames@haha.com',
-    name: 'Rick James'
+    fname: 'Rick',
+    lname: 'James',
+    img_url: '/pic.png',
   },
 
   collections: {
