@@ -1,8 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { AuthRoute } from '../util/route_util';
 
 import HeaderContainer from './header/header_container';
 import AuthFormContainer from './auth/auth_form_container';
+
+import AuthModal from './auth/auth_modal';
 
 const App = () => {
   return(
@@ -10,8 +13,8 @@ const App = () => {
       <header>
         <HeaderContainer />
       </header>
-      <Route path="/login" component={AuthFormContainer} />
-      <Route path="/signup" component={AuthFormContainer} />
+      <AuthRoute path="/login" component={AuthModal} />
+      <AuthRoute path="/signup" component={AuthModal} />
     </div>
   );
 };
