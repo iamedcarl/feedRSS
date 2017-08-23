@@ -13,8 +13,10 @@
  *= require_tree .
  *= require_self
  */
- @import './reset.css';
 
+@import "reset.css";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 body {
   display: block;

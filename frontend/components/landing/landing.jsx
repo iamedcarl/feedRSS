@@ -34,14 +34,18 @@ const LandingPage = () => {
 
             <div className='app-features-grid'>
               <div className='feature-1'>
-                <div className='feature-1-img'></div>
+                <div className='feature-1-img'>
+                  <i className="fa fa-newspaper-o" aria-hidden="true"></i>
+                </div>
                 <h3>Your News Feed</h3>
                 <p>Whether it's real news, fake news, gossip, or
                   more - don't miss out from the news feeds your trust.
                 </p>
               </div>
               <div className='feature-2'>
-                <div className='feature-2-img'></div>
+                <div className='feature-2-img'>
+                  <i className="fa fa-folder-open-o" aria-hidden="true"></i>
+                </div>
                 <h3>Your Collections</h3>
                 <p>Keep things organized in specific categories so your
                   fake news doesn't get mixed in with your real news...
@@ -49,7 +53,9 @@ const LandingPage = () => {
                 </p>
               </div>
               <div className='feature-3'>
-                <div className='feature-3-img'></div>
+                <div className='feature-3-img'>
+                  <i className="fa fa-th" aria-hidden="true"></i>
+                </div>
                 <h3>Your Blogs</h3>
                 <p>Follow any one on the web who has a blog and writes about
                   stuff. Keep up with trends and learn something new on from
