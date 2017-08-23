@@ -12,6 +12,7 @@ class AuthForm extends React.Component {
       img_url: "",
     };
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   handleOnSubmit(e){
@@ -27,9 +28,21 @@ class AuthForm extends React.Component {
     return e => this.setState({ [property]: e.target.value });
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    const user = {
+      username: "demo",
+      password: "password",
+    };
+    this.props.processForm(user)
+      .then(currentUser => {
+        this.props.history.push(`/user`);
+      });
+  }
+
   renderErrors() {
     return(
-      <ul>
+      <ul className='auth-errors-list'>
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -107,10 +120,17 @@ class AuthForm extends React.Component {
           </div>
         </form>
 
+        <div className='demo-login'>
+          <form onSubmit={this.demoLogin}>
+            <button id='demo-button' style={signUpLink}>Demo</button>
+          </form>
+        </div>
+
         <div className='auth-form-footer'>
           <Link to="/signup" style={signUpLink}>New user? Sign up</Link>
           <Link to="/login" style={loginLink}>Existing user? Login</Link>
         </div>
+
       </div>
     );
   }
