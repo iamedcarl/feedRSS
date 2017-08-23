@@ -20,7 +20,7 @@ class AuthForm extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.processForm(user)
       .then(currentUser => {
-        this.props.history.push(`/user`);
+        this.props.history.push(`/my`);
       });
   }
 
@@ -36,7 +36,7 @@ class AuthForm extends React.Component {
     };
     this.props.processForm(user)
       .then(currentUser => {
-        this.props.history.push(`/user`);
+        this.props.history.push(`/my`);
       });
   }
 

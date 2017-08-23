@@ -2,6 +2,35 @@
   z-index: 700;
 }
 
+.ReactModal__Overlay {
+  opacity: 0;
+
+  &--after-open {
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+  }
+
+  &--before-close {
+    opacity: 0;
+  }
+}
+
+.ReactModal__Content {
+  transition: all 500ms ease-in-out;
+  transform: translateY(30px);
+  opacity: 0;
+
+  &--after-open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &--before-close {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
 .auth-form-container {
   margin: auto;
   text-align: center;
