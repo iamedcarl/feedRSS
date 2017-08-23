@@ -15,6 +15,11 @@ const LandingPage = () => {
           <div className='welcome-button'>
             <Link to="/signup">Get started for free</Link>
           </div>
+          <div className='welcome-img'>
+            <div className='img-placeholder'>
+              <img src='https://s3.feedly.com/production/head/images/landing/screenshot-web@2x.png' />
+            </div>
+          </div>
         </div>
       </header>
     </div>

@@ -34,6 +34,11 @@
   margin: 2px 0px 2px 0px;
 }
 
+.auth-form > input:focus, .auth-form-fname-lname > input:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
 .auth-form > button, .demo-login > form > button {
   background-color: #2BB24C;
   border-radius: 4px;
