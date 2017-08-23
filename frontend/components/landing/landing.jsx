@@ -50,9 +50,10 @@ const LandingPage = () => {
               </div>
               <div className='feature-3'>
                 <div className='feature-3-img'></div>
-                <h3>Your Control</h3>
-                <p>Read when you want and what you want. You can save articles to
-                  read while doing things or share with friends. 
+                <h3>Your Blogs</h3>
+                <p>Follow any one on the web who has a blog and writes about
+                  stuff. Keep up with trends and learn something new on from
+                  one app.
                 </p>
               </div>
             </div>
@@ -60,6 +61,17 @@ const LandingPage = () => {
         </div>
       </div>
 
+      <div className='footer-button container'>
+        <div className='footer-button'>
+          <Link to="/signup">Get started for free</Link>
+        </div>
+      </div>
+
+      <div className='landing-footer'>
+        <div className='footer-info container'>
+          <p>Created by Edcarl Adraincem for educational purposes only</p>
+        </div>
+      </div>
     </div>
   );
 };
