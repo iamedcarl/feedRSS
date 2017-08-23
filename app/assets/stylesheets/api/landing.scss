@@ -35,9 +35,9 @@
 }
 
 .welcome-button > a, .footer-button > a {
-  background-color: #2BB24C;
+  background-color: #d7694c;
   border-radius: 4px;
-  border: 1px solid #2BB24C;
+  border: 1px solid #d7694c;
   color: white;
   cursor: pointer;
   display: block;
@@ -53,7 +53,8 @@
 }
 
 .welcome-button > a:hover, .footer-button > a:hover {
-  background-color: #249540;
+  background-color: #9a3e27;
+  border: 1px solid #9a3e27;
 }
 
 .welcome-img {
@@ -167,7 +168,7 @@
 }
 
 .landing-footer {
-  background-color: #2BB24C;
+  background-color: #d7694c;
   height: 50px;
   font-size: 16px;
   color: white;

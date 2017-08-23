@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
-
 import HeaderContainer from './header/header_container';
 import LandingPage from './landing/landing';
 import AuthModal from './auth/auth_modal';

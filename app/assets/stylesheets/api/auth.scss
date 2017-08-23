@@ -73,9 +73,9 @@
 }
 
 .auth-form > button, .demo-login > form > button {
-  background-color: #2BB24C;
+  background-color: #d7694c;
   border-radius: 4px;
-  border: 1px solid #2BB24C;
+  border: 1px solid #d7694c;
   color: white;
   cursor: pointer;
   display: block;
@@ -92,7 +92,8 @@
 }
 
 .auth-form > button:hover, .demo-login > form > button:hover {
-  background-color: #249540;
+  background-color: #9a3e27;
+  border: 1px solid #9a3e27;
 }
 
 .auth-form-footer {
