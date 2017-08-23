@@ -16,6 +16,10 @@
  @import 'reset-css/reset.css';
 
 body {
+  display: block;
+  margin: 0px;
+  font-size: 12px;
   font-family: sans-serif;
-  color: rgba(0, 0, 0, 0.5);
+  color: #333333;
+  background-color: white;
 }
