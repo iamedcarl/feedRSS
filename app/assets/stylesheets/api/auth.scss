@@ -1,8 +1,12 @@
+.ReactModal__Overlay, .ReactModal__Overlay--after-open {
+  z-index: 700;
+}
+
 .auth-form-container {
   margin: auto;
   text-align: center;
   width: 304px;
-  height: 400px;
+  height: 450px;
 }
 
 .auth-form-container > h2 {
