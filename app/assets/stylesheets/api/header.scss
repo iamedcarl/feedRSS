@@ -1,0 +1,45 @@
+.header-bar {
+  display: block;
+  font-family: sans-serif;
+  font-size: 12px;
+  background-color: white;
+  box-shadow: 1px 0 0 1px rgba(0, 0, 0, 0.05);
+  height: 32px;
+  line-height: 24px;
+  padding: 12px 0;
+  z-index: 497;
+}
+
+.header-logged-out {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.header-logged-out > h1 {
+  height: 40px;
+  padding: 0px 12px 0px 12px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.header-logged-out > h1 > a {
+  color: #333333;
+  text-decoration: none;
+}
+
+.header-login-link > a {
+  display: flex;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #757575;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: transparent;
+  border-radius: 4px;
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 2px 17px 2px 17px;
+}

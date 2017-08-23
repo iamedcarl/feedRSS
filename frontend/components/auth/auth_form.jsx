@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -66,13 +66,15 @@ class AuthForm extends React.Component {
     const { loggedIn, formType } = this.props;
     if (loggedIn) { return null; }
 
-    let header, inputType, nameInput;
+    let header, inputType, nameInput, signUpLink, loginLink;
     if (formType === 'login') {
       header = "Log in to feedRSS";
       inputType = "hidden";
+      loginLink = { display: 'none' };
     } else {
       header = "Sign up to feedRSS";
       inputType = "text";
+      signUpLink = { display: 'none' };
       nameInput = this.renderAdditionalSignUpFields(inputType);
     }
 
@@ -105,6 +107,8 @@ class AuthForm extends React.Component {
           </div>
         </form>
 
+        <Link to="/signup" style={signUpLink}>New user? Sign up</Link>
+        <Link to="/login" style={loginLink}>Existing user? Login</Link>
       </div>
     );
   }

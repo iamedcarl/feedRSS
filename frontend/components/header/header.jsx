@@ -14,9 +14,10 @@ class Header extends React.Component {
   renderLoggedOut() {
     return(
       <div className='header-logged-out'>
-        <h1><Link to="/">feedRSS</Link></h1>
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Sign Up</Link>
+        <h1><Link to="/">Welcome to feedRSS</Link></h1>
+        <div className='header-login-link'>
+          <Link to="/login">Login</Link>
+        </div>
       </div>
     );
   }

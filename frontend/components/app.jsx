@@ -10,7 +10,7 @@ import AuthModal from './auth/auth_modal';
 const App = () => {
   return(
     <div className='app'>
-      <header>
+      <header className='header-bar'>
         <HeaderContainer />
       </header>
       <AuthRoute path="/login" component={AuthModal} />
