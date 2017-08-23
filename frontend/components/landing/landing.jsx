@@ -67,9 +67,15 @@ const LandingPage = () => {
         </div>
       </div>
 
-      <div className='footer-button container'>
-        <div className='footer-button'>
-          <Link to="/signup">Get started for free</Link>
+      <div className='landing-bottom'>
+        <div className='footer-message container'>
+          <h1>Stay ahead of the curve</h1>
+          <div className='message-kicker'>
+            If you're not first, you're last.
+          </div>
+          <div className='footer-button'>
+            <Link to="/signup">Get started for free</Link>
+          </div>
         </div>
       </div>
 

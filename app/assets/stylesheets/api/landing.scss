@@ -76,18 +76,24 @@
   padding: 64px 24px 64px 24px;
 }
 
-.app-features, .footer-info, .footer-button {
+.app-features, .footer-info, .footer-message {
   margin-left: auto;
   margin-right: auto;
 }
 
 .footer-button {
-  display: flex;
-  justify-content: center;
   a {
     width: 52px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
+}
+
+.landing-bottom {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding-top: 90px;
 }
 
 .app-features > .app-features-kicker, h2 {
@@ -193,4 +199,24 @@
   display: flex;
   justify-content: center;
   padding: 15px 24px 0px 24px;
+}
+
+.footer-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-message > h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.message-kicker {
+  font-size: 20px;
+  font-weight: normal;
+  margin: 24px 0px 32px 0px;
+  letter-spacing: 1px;
+  color: #757575;
 }
