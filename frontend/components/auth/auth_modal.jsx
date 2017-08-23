@@ -6,7 +6,7 @@ import AuthFormContainer from './auth_form_container';
 
 const customStyles = {
   content : {
-    top                   : '50%',
+    top                   : '40%',
     left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
@@ -14,7 +14,7 @@ const customStyles = {
     transform             : 'translate(-50%, -50%)',
   },
   overlay : {
-    backgroundColor    : 'rgba(0, 0, 0, 0.45)',
+    backgroundColor    : 'rgba(0, 0, 0, 0.5)',
   }
 };
 
