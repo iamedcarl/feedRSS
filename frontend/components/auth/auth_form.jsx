@@ -41,7 +41,7 @@ class AuthForm extends React.Component {
 
   renderAdditionalSignUpFields(inputType){
     return(
-      <div>
+      <div className='auth-form-fname-lname'>
         <input
           id='auth-form-fname-input'
           type={inputType}
@@ -81,8 +81,8 @@ class AuthForm extends React.Component {
     return(
       <div className='auth-form-container'>
 
+        <h2>{header}</h2>
         <form onSubmit={this.handleOnSubmit}>
-          <h2>{header}</h2>
           {this.renderErrors()}
           <div className='auth-form'>
             <br/>
@@ -107,8 +107,10 @@ class AuthForm extends React.Component {
           </div>
         </form>
 
-        <Link to="/signup" style={signUpLink}>New user? Sign up</Link>
-        <Link to="/login" style={loginLink}>Existing user? Login</Link>
+        <div className='auth-form-footer'>
+          <Link to="/signup" style={signUpLink}>New user? Sign up</Link>
+          <Link to="/login" style={loginLink}>Existing user? Login</Link>
+        </div>
       </div>
     );
   }

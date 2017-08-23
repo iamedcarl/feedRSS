@@ -10,7 +10,7 @@
   z-index: 497;
 }
 
-.header-logged-out {
+.header-logged-out, .header-logged-in {
   display: flex;
   justify-content: space-between;
   margin-left: auto;
@@ -19,13 +19,13 @@
   padding-right: 24px;
 }
 
-.header-logged-out > h1 {
+.header-logged-out > h1, .header-logged-in > h1 {
   height: 40px;
   padding: 0px 12px 0px 12px;
   font-size: 16px;
   font-weight: bold;
 }
-.header-logged-out > h1 > a {
+.header-logged-in > h1 > a, .header-logged-out > h1 > a {
   color: #333333;
   text-decoration: none;
 }

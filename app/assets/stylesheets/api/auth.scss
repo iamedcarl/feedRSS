@@ -1,0 +1,62 @@
+.auth-form-container {
+  margin: auto;
+  text-align: center;
+  width: 304px;
+}
+
+.auth-form-container > h2 {
+  display: block;
+  color: black;
+  font-size: 19px;
+  font-weight: bold;
+  margin-top: 34px;
+}
+
+.auth-form-container > form {
+  display: block;
+  margin-top: 34px;
+}
+
+.auth-form > input, .auth-form-fname-lname > input {
+  box-sizing: border-box;
+  height: 44px;
+  width: 100%;
+  border: 1px solid #D6D6D6;
+  background-color: #FAFAFA;
+  font-size: 17px;
+  padding: 8px;
+  border-radius: 3px;
+  margin: 2px 0px 2px 0px;
+}
+
+.auth-form > button {
+  background-color: #2BB24C;
+  border-radius: 4px;
+  border: 1px solid #2BB24C;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  height: 46px;
+  min-width: 50px;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-top: 17px
+}
+
+.auth-form-footer {
+  margin-top: 17px;
+  text-align: left;
+  width: 100%;
+}
+
+.auth-form-footer > a {
+  display: block;
+  color: inherit;
+  font-size: 14px;
+  line-height: 44px;
+}
