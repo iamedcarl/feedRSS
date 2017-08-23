@@ -3,8 +3,7 @@ import { Route } from 'react-router-dom';
 import { AuthRoute } from '../util/route_util';
 
 import HeaderContainer from './header/header_container';
-import AuthFormContainer from './auth/auth_form_container';
-
+import LandingPage from './landing/landing';
 import AuthModal from './auth/auth_modal';
 
 const App = () => {
@@ -13,6 +12,7 @@ const App = () => {
       <header className='header-bar'>
         <HeaderContainer />
       </header>
+      <Route path="/" component={LandingPage} />
       <AuthRoute path="/login" component={AuthModal} />
       <AuthRoute path="/signup" component={AuthModal} />
     </div>

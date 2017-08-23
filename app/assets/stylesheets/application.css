@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- @import 'reset-css/reset.css';
+ @import './reset.css';
 
 body {
   display: block;
@@ -22,4 +22,28 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: #333333;
   background-color: white;
+}
+
+@media (min-width: 544px) {
+  .container {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 960px) {
+  .container {
+    max-width: 888px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 888px;
+  }
 }

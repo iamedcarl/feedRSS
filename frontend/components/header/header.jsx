@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
   renderLoggedIn() {
     return(
-      <div className='header-logged-in'>
+      <div className='header-logged-in container'>
         <h1><Link to="/">feedRSS</Link></h1>
         <button onClick={this.props.logout}>Logout</button>
       </div>
@@ -13,7 +13,7 @@ class Header extends React.Component {
 
   renderLoggedOut() {
     return(
-      <div className='header-logged-out'>
+      <div className='header-logged-out container'>
         <h1><Link to="/">Welcome to feedRSS</Link></h1>
         <div className='header-login-link'>
           <Link to="/login">Login</Link>

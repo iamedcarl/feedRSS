@@ -1,0 +1,55 @@
+.landing-page {
+  padding-top: 56px;
+}
+
+.welcome-header {
+  background-color: rgba(0, 0, 0, 0.05);
+  height: 700px;
+  padding: 64px 24px 64px 24px;
+}
+
+.welcome {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 24px 0px 24px;
+
+  h1 {
+    font-size: 38px;
+    font-weight: bold;
+    width: 50%;
+  }
+
+}
+
+.welcome-sub {
+  width: 50%;
+  font-size: 20px;
+  font-weight: normal;
+  margin: 24px 0px 32px 0px;
+  letter-spacing: 1px;
+}
+
+.welcome-button > a {
+  background-color: #2BB24C;
+  border-radius: 4px;
+  border: 1px solid #2BB24C;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 28px;
+  height: 28px;
+  padding: 12px 12px 10px 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  min-width: 240px;
+}
+
+.welcome-button > a:hover {
+  background-color: #249540;
+}

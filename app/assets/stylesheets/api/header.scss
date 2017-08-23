@@ -32,6 +32,7 @@
 .header-logged-in > h1 > a, .header-logged-out > h1 > a {
   color: #333333;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .header-login-link > a {
@@ -46,4 +47,8 @@
   margin-left: 8px;
   margin-right: 8px;
   padding: 2px 17px 2px 17px;
+}
+
+.header-login-link > a:hover {
+  border: 1px solid grey;
 }

@@ -53,6 +53,10 @@
   margin-top: 17px
 }
 
+.auth-form > button:hover, .demo-login > form > button:hover {
+  background-color: #249540;
+}
+
 .auth-form-footer {
   margin-top: 17px;
   text-align: left;
@@ -60,7 +64,6 @@
 }
 
 .auth-form-footer > a {
-  display: block;
   color: inherit;
   font-size: 14px;
   line-height: 44px;
