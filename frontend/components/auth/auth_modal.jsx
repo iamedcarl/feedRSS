@@ -47,6 +47,8 @@ class AuthModal extends React.Component {
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Auth Form Modal"
+          animationType={"slide"}
+          closeTimeoutMS={500}
         >
           <Route path="/login" component={AuthFormContainer} />
           <Route path="/signup" component={AuthFormContainer} />

@@ -2,6 +2,10 @@
   z-index: 700;
 }
 
+.ReactModal__Body--open {
+    overflow: hidden;
+}
+
 .ReactModal__Overlay {
   opacity: 0;
 
