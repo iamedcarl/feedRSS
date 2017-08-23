@@ -12,9 +12,9 @@ const App = () => {
       <header className='header-bar'>
         <HeaderContainer />
       </header>
-      <Route path="/" component={LandingPage} />
       <AuthRoute path="/login" component={AuthModal} />
       <AuthRoute path="/signup" component={AuthModal} />
+      <Route path="/" component={LandingPage} />
     </div>
   );
 };

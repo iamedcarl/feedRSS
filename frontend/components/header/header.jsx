@@ -1,12 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleClickLogout = this.handleClickLogout.bind(this);
+  }
+
+  handleClickLogout(e) {
+    this.props.logout();
+    this.props.history.push(`/`);
+  }
+
   renderLoggedIn() {
     return(
       <div className='header-logged-in container'>
         <h1><Link to="/">feedRSS</Link></h1>
-        <button onClick={this.props.logout}>Logout</button>
+        <button onClick={this.handleClickLogout}>Logout</button>
       </div>
     );
   }
@@ -32,4 +43,4 @@ class Header extends React.Component {
 
 } // end of Header
 
-export default Header;
+export default withRouter(Header);
