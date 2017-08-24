@@ -23,6 +23,7 @@ gem 'aws-sdk', '>= 2.0'
 gem 'feedjira'
 gem 'font-awesome-sass'
 gem 'httparty'
+gem 'whenever'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

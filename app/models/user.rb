@@ -30,8 +30,9 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  has_many :collections
-  has_many :articles
+  has_many :collections, dependent: :destroy
+  has_many :saved_articles, dependent: :destroy
+  has_many :articles, through: :saved_articles, source: :article
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

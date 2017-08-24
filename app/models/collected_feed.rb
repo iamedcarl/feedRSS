@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: collections_feeds
+# Table name: collected_feeds
 #
 #  id            :integer          not null, primary key
 #  collection_id :integer          not null
@@ -9,7 +9,7 @@
 #  updated_at    :datetime         not null
 #
 
-class CollectionsFeeds < ApplicationRecord
+class CollectedFeed < ApplicationRecord
   validates :collection_id, :feed_id, presence: true, uniqueness: true
 
   belongs_to :collection

@@ -10,24 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824173525) do
+ActiveRecord::Schema.define(version: 20170824213439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
     t.string "title", null: false
-    t.text "content", null: false
+    t.text "content"
     t.date "date", null: false
     t.string "url", null: false
     t.boolean "viewed", default: false, null: false
     t.string "image_url"
-    t.integer "user_id"
     t.integer "feed_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["feed_id"], name: "index_articles_on_feed_id"
-    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "collected_feeds", force: :cascade do |t|
+    t.integer "collection_id", null: false
+    t.integer "feed_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collection_id", "feed_id"], name: "index_collected_feeds_on_collection_id_and_feed_id"
+    t.index ["collection_id"], name: "index_collected_feeds_on_collection_id", unique: true
+    t.index ["feed_id"], name: "index_collected_feeds_on_feed_id", unique: true
   end
 
   create_table "collections", force: :cascade do |t|
@@ -38,23 +46,23 @@ ActiveRecord::Schema.define(version: 20170824173525) do
     t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
-  create_table "collections_feeds", force: :cascade do |t|
-    t.integer "collection_id", null: false
-    t.integer "feed_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["collection_id", "feed_id"], name: "index_collections_feeds_on_collection_id_and_feed_id"
-    t.index ["collection_id"], name: "index_collections_feeds_on_collection_id", unique: true
-    t.index ["feed_id"], name: "index_collections_feeds_on_feed_id", unique: true
-  end
-
   create_table "feeds", force: :cascade do |t|
     t.string "title", null: false
-    t.string "description", null: false
+    t.string "description"
     t.string "rss_url", null: false
     t.string "icon_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "saved_articles", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_saved_articles_on_article_id", unique: true
+    t.index ["user_id", "article_id"], name: "index_saved_articles_on_user_id_and_article_id", unique: true
+    t.index ["user_id"], name: "index_saved_articles_on_user_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|

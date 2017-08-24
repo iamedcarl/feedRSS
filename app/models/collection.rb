@@ -9,10 +9,11 @@
 #  updated_at :datetime         not null
 #
 
-class Collections < ApplicationRecord
+class Collection < ApplicationRecord
   validates :title, :user_id, presence: true
 
   belongs_to :user
-  has_many :feeds
+  has_many :collected_feeds, dependent: :destroy
+  has_many :feeds, through: :collected_feeds, source: :feed
 
 end

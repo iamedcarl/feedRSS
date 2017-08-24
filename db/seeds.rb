@@ -7,9 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-Collections.destroy_all
-Feeds.destroy_all
-Articles.destroy_all
 
 user = User.create(
             username: "demo",
@@ -20,11 +17,11 @@ user = User.create(
 
 url1 = 'http://nypost.com/feed/'
 url2 = 'https://www.theverge.com/rss/index.xml'
-url3 = 'http://www.nytimes.com/timeswire/feeds/'
+url3 = 'http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml'
 url4 = 'http://www.espn.com/espn/rss/news'
 
 def get_domain(url)
-  /https*:\/\/(?:www.)*(\w+.\w+)\//.match(url).captures.first
+  /https*:\/\/(?:\w{3}.)*(\w+.\w+)\//.match(url).captures.first
 end
 
 favicon1 = "https://www.google.com/s2/favicons?domain=#{get_domain(url1)}"
@@ -37,45 +34,51 @@ xml2 = HTTParty.get(url2).body
 xml3 = HTTParty.get(url3).body
 xml4 = HTTParty.get(url4).body
 
-Collections.create!(title: "News", user_id: user.id)
-Collections.create!(title: "Sports", user_id: user.id)
-Collections.create!(title: "Tech", user_id: user.id)
+Collection.destroy_all
+
+Collection.create!(title: "News", user_id: user.id)
+Collection.create!(title: "Sports", user_id: user.id)
+Collection.create!(title: "Tech", user_id: user.id)
 
 feed_nypost = Feedjira::Feed.parse(xml1)
 feed_theverge = Feedjira::Feed.parse(xml2)
 feed_nytimes = Feedjira::Feed.parse(xml3)
 feed_espn = Feedjira::Feed.parse(xml4)
 
-feed1 = Feeds.create!(
+Feed.destroy_all
+
+feed1 = Feed.create!(
   title: feed_nypost.title,
   description: feed_nypost.description,
   rss_url: url1,
   icon_url: favicon1
 )
 
-feed2 = Feeds.create!(
+feed2 = Feed.create!(
   title: feed_theverge.title,
   description: feed_theverge.description,
   rss_url: url2,
   icon_url: favicon2
 )
 
-feed3 = Feeds.create!(
+feed3 = Feed.create!(
   title: feed_nytimes.title,
-   description: feed_nytimes.description,
-   rss_url: url3,
-   icon_url: favicon3
+  description: feed_nytimes.description,
+  rss_url: url3,
+  icon_url: favicon3
 )
 
-feed4 = Feeds.create!(
+feed4 = Feed.create!(
   title: feed_espn.title,
   description: feed_espn.description,
   rss_url: url4,
   icon_url: favicon4
 )
 
+Article.destroy_all
+
 feed_nypost.entries.each do |article|
-  Articles.create!(
+  Article.create!(
     title: article.title,
     content: article.content || article.summary,
     date: article.published,
@@ -87,7 +90,7 @@ feed_nypost.entries.each do |article|
 end
 
 feed_theverge.entries.each do |article|
-  Articles.create!(
+  Article.create!(
     title: article.title,
     content: article.content || article.summary,
     date: article.published,
@@ -99,7 +102,7 @@ feed_theverge.entries.each do |article|
 end
 
 feed_nytimes.entries.each do |article|
-  Articles.create!(
+  Article.create!(
     title: article.title,
     content: article.content || article.summary,
     date: article.published,
@@ -111,7 +114,7 @@ feed_nytimes.entries.each do |article|
 end
 
 feed_espn.entries.each do |article|
-  Articles.create!(
+  Article.create!(
     title: article.title,
     content: article.content || article.summary,
     date: article.published,
