@@ -61,6 +61,7 @@ class AuthForm extends React.Component {
           value={this.state.fname}
           placeholder="First Name"
           onChange={this.update('fname')}
+          required
         />
         <br/>
         <input
@@ -69,6 +70,7 @@ class AuthForm extends React.Component {
           value={this.state.lname}
           placeholder="Last Name"
           onChange={this.update('lname')}
+          required
         />
         <br/>
       </div>
@@ -106,6 +108,7 @@ class AuthForm extends React.Component {
               value={this.state.username}
               placeholder="Username"
               onChange={this.update('username')}
+              required
             />
             <br/>
             <input
@@ -114,6 +117,7 @@ class AuthForm extends React.Component {
               value={this.state.password}
               placeholder="Password"
               onChange={this.update('password')}
+              required
             />
             <br/>
             <button id='auth-form-button'>Submit</button>

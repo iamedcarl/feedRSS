@@ -16,7 +16,8 @@
 #
 
 class Articles < ApplicationRecord
-  validates :title, :content, :date, :url, :viewed, presence: true
+  validates :title, :content, :date, :url, presence: true
+  validates :viewed, inclusion: { in: [true, false] }
   validates :user_id, :feed_id, presence: true
 
   belongs_to :user

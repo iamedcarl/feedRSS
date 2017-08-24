@@ -15,6 +15,6 @@ class Feeds < ApplicationRecord
   validates :title, :description, :rss_url
 
   has_many :collections
-  has_many :articles
+  has_many :articles, dependent: :destroy
 
 end
