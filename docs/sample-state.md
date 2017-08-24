@@ -25,6 +25,7 @@
       rss_url: 'http://feeds.gothamistllc.com/gothamist05',
       icon_url: 'http://assets.gothamistllc.com/images/spacer.gif',
       collection_id: 1,
+      article_ids: [11, 53, 67, 90, 100],
     },
     2: {
       id: 2,
@@ -33,6 +34,7 @@
       rss_url: 'http://nypost.com/feed/',
       icon_url: 'http://nypdigital.com/webassets/icons/flipboard.png',
       collection_id: 1,
+      article_ids: [1, 4, 6, 7],
     }
   },
 

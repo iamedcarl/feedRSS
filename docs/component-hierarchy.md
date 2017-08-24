@@ -77,7 +77,7 @@
 
 Path                       | Component
 ---------------------------| ------------------------
-"/"                        | "Homepage (logged out)"
+"/"                        | "Landing Page (logged out)"
 "/signup"                  | "AuthFormContainer"
 "/login"                   | "AuthFormContainer"
 "/account"                 | "UserContainer"

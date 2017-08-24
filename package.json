@@ -9,12 +9,12 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-modal": "^2.2.4",
+    "react-motion": "^0.5.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.1.2",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-    "reset-css": "^2.2.1",
     "webpack": "^3.5.5"
   },
   "description": "",
