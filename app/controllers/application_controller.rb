@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def ensure_user_logged_in
+  def require_user!
     redirect_to root_url unless logged_in?
   end
 

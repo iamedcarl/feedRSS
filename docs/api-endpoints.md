@@ -25,7 +25,7 @@
 - `GET /api/collections/:id` - show single collection
 - `PATCH /api/collections/:id` - edit collection
 - `POST /api/collections` - add/new collection
-- `DELETE /api/collection` - delete collection
+- `DELETE /api/collections/:id` - delete collection
 
 ---
 ## RSS Feeds
@@ -33,7 +33,7 @@
 - `GET /api/feeds` - all feeds
 - `GET /api/feeds/:id` - show single feed
 - `POST /api/feeds` - add/new feed
-- `DELETE /api/feed` - delete feed
+- `DELETE /api/feeds/:id` - delete feed
 
 ---
 ## Articles
