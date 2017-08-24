@@ -10,11 +10,18 @@ class Api::FeedsController < ApplicationController
   end
 
   def create
-
+    @feed = Feeds.new(feeds_params)
+    if @feed.save
+      render :show
+    else
+      render json: @feed.errors.full_messages, status: 422
+    end
   end
 
   def destroy
-
+    feed = Feeds.find(params[:id])
+    feed.destroy
+    render :index
   end
 
   private

@@ -9,6 +9,15 @@ class Api::ArticlesController < ApplicationController
     @article = Articles.find(params[:id])
   end
 
+  def create
+    @article = Articles.new(articles_params)
+    if @article.save
+      render :show
+    else
+      render json: @article.errors.full_messages, status: 422
+    end
+  end
+
   private
 
   def articles_params
