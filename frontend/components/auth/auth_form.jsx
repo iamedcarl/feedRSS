@@ -52,6 +52,10 @@ class AuthForm extends React.Component {
     );
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   renderAdditionalSignUpFields(inputType){
     return(
       <div className='auth-form-fname-lname'>
