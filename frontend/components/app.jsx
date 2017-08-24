@@ -4,6 +4,7 @@ import { AuthRoute } from '../util/route_util';
 import HeaderContainer from './header/header_container';
 import LandingPage from './landing/landing';
 import AuthModal from './auth/auth_modal';
+import Main from './main/main';
 
 const App = () => {
   return(
@@ -13,6 +14,7 @@ const App = () => {
       </header>
       <AuthRoute path="/login" component={AuthModal} />
       <AuthRoute path="/signup" component={AuthModal} />
+      <Route path="/my" component={Main} />
       <Route path="/" component={LandingPage} />
     </div>
   );
