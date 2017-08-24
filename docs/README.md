@@ -1,10 +1,10 @@
 # feedRSS
 
-[Heroku link][heroku] **Note:** TBD
+[Heroku link][heroku]
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://thefeedrss.herokuapp.com
 [trello]: https://trello.com/b/RVGW0ZSR/feedrss
 
 ## Minimum Viable Product
