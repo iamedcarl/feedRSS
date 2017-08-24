@@ -12,7 +12,7 @@
 #
 
 class Feeds < ApplicationRecord
-  validates :title, :description, :rss_url
+  validates :title, :description, :rss_url, presence: true
 
   has_many :collections
   has_many :articles, dependent: :destroy
