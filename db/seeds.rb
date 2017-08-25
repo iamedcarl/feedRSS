@@ -15,10 +15,10 @@ user = User.create(
             lname: "Account",
 )
 
-url1 = 'http://nypost.com/feed/'
-url2 = 'https://www.theverge.com/rss/index.xml'
-url3 = 'http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml'
-url4 = 'http://www.espn.com/espn/rss/news'
+url1 = "http://nypost.com/feed/"
+url2 = "https://www.theverge.com/rss/index.xml"
+url3 = "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+url4 = "http://www.espn.com/rss"
 
 def get_domain(url)
   /https*:\/\/(?:\w{3}.)*(\w+.\w+)\//.match(url).captures.first
@@ -29,21 +29,16 @@ favicon2 = "https://www.google.com/s2/favicons?domain=#{get_domain(url2)}"
 favicon3 = "https://www.google.com/s2/favicons?domain=#{get_domain(url3)}"
 favicon4 = "https://www.google.com/s2/favicons?domain=#{get_domain(url4)}"
 
-xml1 = HTTParty.get(url1).body
-xml2 = HTTParty.get(url2).body
-xml3 = HTTParty.get(url3).body
-xml4 = HTTParty.get(url4).body
-
 Collection.destroy_all
 
 Collection.create!(title: "News", user_id: user.id)
 Collection.create!(title: "Sports", user_id: user.id)
 Collection.create!(title: "Tech", user_id: user.id)
 
-feed_nypost = Feedjira::Feed.parse(xml1)
-feed_theverge = Feedjira::Feed.parse(xml2)
-feed_nytimes = Feedjira::Feed.parse(xml3)
-feed_espn = Feedjira::Feed.parse(xml4)
+feed_nypost = Feedjira::Feed.fetch_and_parse(url1)
+feed_theverge = Feedjira::Feed.fetch_and_parse(url2)
+feed_nytimes = Feedjira::Feed.fetch_and_parse(url3)
+feed_espn = Feedjira::Feed.fetch_and_parse(url4)
 
 Feed.destroy_all
 

@@ -1,9 +1,10 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import { AuthRoute } from '../util/route_util';
+import { Route, Switch } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import HeaderContainer from './header/header_container';
 import LandingPage from './landing/landing';
 import AuthModal from './auth/auth_modal';
+import Main from './main/main';
 
 const App = () => {
   return(
@@ -13,7 +14,8 @@ const App = () => {
       </header>
       <AuthRoute path="/login" component={AuthModal} />
       <AuthRoute path="/signup" component={AuthModal} />
-      <Route path="/" component={LandingPage} />
+      <AuthRoute path="/" component={LandingPage} />
+      <ProtectedRoute path="/my" component={Main} />
     </div>
   );
 };

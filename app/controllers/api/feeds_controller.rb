@@ -2,15 +2,15 @@ class Api::FeedsController < ApplicationController
   before_action :require_user!
 
   def index
-    @feeds = Feeds.all
+    @feeds = Feed.all
   end
 
   def show
-    @feed = Feeds.find(params[:id])
+    @feed = Feed.find(params[:id])
   end
 
   def create
-    @feed = Feeds.new(feeds_params)
+    @feed = Feed.new(feeds_params)
     if @feed.save
       render :show
     else
@@ -19,7 +19,7 @@ class Api::FeedsController < ApplicationController
   end
 
   def destroy
-    feed = Feeds.find(params[:id])
+    feed = Feed.find(params[:id])
     feed.destroy
     render :index
   end

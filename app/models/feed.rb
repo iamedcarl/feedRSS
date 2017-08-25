@@ -19,4 +19,16 @@ class Feed < ApplicationRecord
 
   has_many :articles, dependent: :destroy
 
+  def parse_feed(url)
+    feed = Feedjira::Feed.fetch_and_parse(url)
+    favicon = "https://www.google.com/s2/favicons?domain=".concat(url)
+
+    feed_attributes = {
+      title: feed.title,
+      description: feed.description,
+      rss_url: feed.feed_url,
+      icon_url: favicon,
+      entries: feed.entries
+    }
+  end
 end

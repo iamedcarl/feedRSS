@@ -2,15 +2,15 @@ class Api::ArticlesController < ApplicationController
   before_action :require_user!
 
   def index
-    @articles = Articles.all
+    @articles = Article.all
   end
 
   def show
-    @article = Articles.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def create
-    @article = Articles.new(articles_params)
+    @article = Article.new(articles_params)
     if @article.save
       render :show
     else
