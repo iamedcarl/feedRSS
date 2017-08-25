@@ -24,4 +24,7 @@ class Article < ApplicationRecord
   has_many :saved_articles, dependent: :destroy
   has_many :users, through: :saved_articles, source: :user
 
+  def parse_article(entries)
+    entries
+  end
 end

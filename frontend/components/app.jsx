@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import HeaderContainer from './header/header_container';
 import LandingPage from './landing/landing';
@@ -14,8 +14,8 @@ const App = () => {
       </header>
       <AuthRoute path="/login" component={AuthModal} />
       <AuthRoute path="/signup" component={AuthModal} />
+      <AuthRoute path="/" component={LandingPage} />
       <ProtectedRoute path="/my" component={Main} />
-      <Route path="/" component={LandingPage} />
     </div>
   );
 };
