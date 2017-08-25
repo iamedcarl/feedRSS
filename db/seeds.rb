@@ -17,7 +17,7 @@ user = User.create(
 
 url1 = "http://nypost.com/feed/"
 url2 = "https://www.theverge.com/rss/index.xml"
-url3 = "http://www.npr.org/"
+url3 = "http://www.businessinsider.com/clusterstock/contributor.rss"
 
 def get_domain(url)
   /https*:\/\/(?:\w{3}.)*(\w+.\w+)\//.match(url).captures.first

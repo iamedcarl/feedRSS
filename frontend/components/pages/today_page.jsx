@@ -7,9 +7,11 @@ import ArticleIndexContainer from '../article/article_index_container';
 const Main = () => {
   return(
     <div className='centered container'>
-      <h1>Today</h1>
-      <div className='today-subtitle'>
-        The most popular articles in your FeedRSS
+      <div className='today-header'>
+        <h1>Today</h1>
+        <div className='today-sub'>
+          The most popular articles in your FeedRSS
+        </div>
       </div>
       <ArticleIndexContainer />
     </div>

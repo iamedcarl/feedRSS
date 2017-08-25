@@ -19,10 +19,8 @@ class ArticleIndex extends React.Component {
     });
 
     return(
-      <div className='article-index'>
-        <ul>
-          {articles}
-        </ul>
+      <div className='article-stream'>
+        {articles}
       </div>
     );
   }
