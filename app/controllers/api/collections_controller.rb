@@ -2,11 +2,11 @@ class Api::CollectionsController < ApplicationController
   before_action :require_user!
 
   def index
-    @collections = Collections.all
+    @collections = Collection.all
   end
 
   def show
-    @collection = Collections.find(params[:id])
+    @collection = Collection.find(params[:id])
   end
 
   def create
