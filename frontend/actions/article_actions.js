@@ -13,7 +13,6 @@ export const fetchAllArticles = () => {
 };
 
 export const receiveAllArticles = articles => {
-  debugger
   return {
     type: RECEIVE_ALL_ARTICLES,
     articles,

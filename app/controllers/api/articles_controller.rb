@@ -2,7 +2,7 @@ class Api::ArticlesController < ApplicationController
   before_action :require_user!
 
   def index
-    @articles = Article.order(:date)
+    @articles = Article.order(:date).reverse_order
   end
 
   def show

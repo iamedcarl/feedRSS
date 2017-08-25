@@ -5,7 +5,8 @@ import ArticleIndex from './article_index';
 
 const maptStateToProps = state => {
   return {
-    articles: selectAllArticles(state),
+    articles: state.articles,
+    latestArticles: state.articles.latest_articles,
   };
 };
 
