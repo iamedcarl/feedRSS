@@ -4,10 +4,13 @@ import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 
 import ArticleIndexContainer from '../article/article_index_container';
 
-
 const Main = () => {
   return(
-    <div className='main-page'>
+    <div className='centered container'>
+      <h1>Today</h1>
+      <div className='today-subtitle'>
+        The most popular articles in your FeedRSS
+      </div>
       <ArticleIndexContainer />
     </div>
   );

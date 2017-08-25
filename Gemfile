@@ -21,6 +21,7 @@ gem 'paperclip', '~> 5.0.0'
 gem 'figaro'
 gem 'aws-sdk', '>= 2.0'
 gem 'feedjira'
+gem 'nokogiri'
 gem 'font-awesome-sass'
 
 group :development, :test do

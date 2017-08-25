@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  title      :string           not null
 #  content    :text
-#  date       :date             not null
+#  date       :datetime         not null
 #  url        :string           not null
 #  viewed     :boolean          default(FALSE), not null
 #  image_url  :string

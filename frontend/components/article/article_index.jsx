@@ -8,15 +8,11 @@ class ArticleIndex extends React.Component {
 
   render() {
     const articles = this.props.articles.map(article => {
-      return(
-        <li key={article.id}>
-        <ArticleIndexItem  article={article} />
-        </li>
-      );
+      return(<ArticleIndexItem key={article.id} article={article} />);
     });
 
     return(
-      <div className='article-index main'>
+      <div className='article-index'>
         <ul>
           {articles}
         </ul>

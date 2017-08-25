@@ -26,7 +26,7 @@ const LandingPage = () => {
       </header>
 
       <div className='list-features'>
-        <div className='app-features container'>
+        <div className='app-features container centered'>
             <div className='app-features-kicker'>
               You are in control
             </div>
@@ -68,7 +68,7 @@ const LandingPage = () => {
       </div>
 
       <div className='landing-bottom'>
-        <div className='footer-message container'>
+        <div className='footer-message container centered'>
           <h1>Stay ahead of the curve</h1>
           <div className='message-kicker'>
             If you're not first, you're last.
@@ -80,7 +80,7 @@ const LandingPage = () => {
       </div>
 
       <div className='landing-footer'>
-        <div className='footer-info container'>
+        <div className='footer-info container centered'>
           <p>Created by Edcarl Adraincem for educational purposes only</p>
         </div>
       </div>
