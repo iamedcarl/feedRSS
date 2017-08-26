@@ -39,7 +39,7 @@ const LandingPage = () => {
                 </div>
                 <h3>Your News Feed</h3>
                 <p>Whether it's real news, fake news, gossip, or
-                  more - don't miss out from the news feeds your trust.
+                  more - don't miss out from the feeds you trust.
                 </p>
               </div>
               <div className='feature-2'>
@@ -58,7 +58,7 @@ const LandingPage = () => {
                 </div>
                 <h3>Your Blogs</h3>
                 <p>Follow any one on the web who has a blog and writes about
-                  stuff. Keep up with trends and learn something new on from
+                  stuff. Keep up with trends and learn something new from
                   one app.
                 </p>
               </div>
