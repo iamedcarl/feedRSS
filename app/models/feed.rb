@@ -19,9 +19,9 @@ class Feed < ApplicationRecord
 
   has_many :articles, dependent: :destroy
 
-  def parse_feed(url)
+  def self.parse_feed(url)
     feed = Feedjira::Feed.fetch_and_parse(url)
-    favicon = "https://www.google.com/s2/favicons?domain=".concat(url)
+    favicon = favicon(url)
 
     feed_attributes = {
       title: feed.title,
@@ -30,5 +30,10 @@ class Feed < ApplicationRecord
       icon_url: favicon,
       entries: feed.entries
     }
+  end
+
+  def favicon(url)
+    domain = /https*:\/\/(?:\w{3}.)*(\w+.\w+)\//.match(url).captures.first
+    "https://www.google.com/s2/favicons?domain=#{domain}"
   end
 end

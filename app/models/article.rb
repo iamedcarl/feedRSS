@@ -12,11 +12,14 @@
 #  feed_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  author     :string
+#  saved      :boolean          default(FALSE), not null
 #
 
 class Article < ApplicationRecord
   validates :title, :date, :url, presence: true
   validates :viewed, inclusion: { in: [true, false] }
+  validates :saved, inclusion: { in: [true, false] }
   validates :feed_id, presence: true
 
   belongs_to :feed
@@ -24,7 +27,9 @@ class Article < ApplicationRecord
   has_many :saved_articles, dependent: :destroy
   has_many :users, through: :saved_articles, source: :user
 
-  def parse_article(entries)
-    entries
+  def self.parse_content(content)
+    # (/(<img>.+<\/img>|<img.+\/>)/)
+    # (/<p>.+<\/p>/)
+    # (/<a>.+<\/a>/)
   end
 end

@@ -53,14 +53,16 @@ icon_url    | string    |
 ## articles
 
 column name | data type | details
------------ | --------- | --------------------------------------
+----------- | --------- | ---------------------
 id          | integer   | not null, primary key
 title       | string    | not null
+author      | string    |
 content     | text      | not null
 date        | date      | not null
 url         | string    | not null
 image_url   | string    |
 viewed      | boolean   | not null, default false
+saved       | boolean   | not null, default false
 user_id     | integer   | not null, foreign key (users), indexed
 feed_id     | integer   | not null, foreign key (feed), indexed
 

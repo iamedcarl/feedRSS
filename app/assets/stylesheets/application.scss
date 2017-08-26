@@ -80,8 +80,22 @@ body {
   background-color: white;
   font-size: 25px;
   color: #757575;
+  user-select: none;
 }
 
 .refresh-button:hover {
   background-color: rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+button {
+  outline: none;
+}
+
+a {
+  outline: none;
+}
+
+input {
+  outline: none;
 }
