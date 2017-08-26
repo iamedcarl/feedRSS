@@ -6,14 +6,21 @@ import ArticleIndexContainer from '../article/article_index_container';
 
 const Main = () => {
   return(
-    <div className='centered container'>
-      <div className='today-header'>
-        <h1>Today</h1>
-        <div className='today-sub'>
-          The most popular articles in your FeedRSS
+    <div className='today-page main'>
+      <div className='centered container'>
+        <div className='today-header'>
+          <div>
+            <h1>Today</h1>
+            <div className='today-sub'>
+              The most popular articles in your FeedRSS
+            </div>
+          </div>
+          <button className='refresh-button today-refresh-button'>
+            <i className="fa fa-refresh" aria-hidden="true"></i>
+          </button>
         </div>
+        <ArticleIndexContainer />
       </div>
-      <ArticleIndexContainer />
     </div>
   );
 };

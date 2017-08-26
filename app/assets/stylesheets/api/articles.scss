@@ -1,7 +1,6 @@
 .article-index-item {
   display: flex;
   margin-bottom: 32px;
-  max-width: 624px;
   padding-left: 12px;
   img {
     width: 100%;
@@ -32,9 +31,6 @@
 }
 
 .article-stream {
-  padding: 0px 12px 0px 12px;
-  float: left;
-  position: relative;
 }
 
 .article-img > img {

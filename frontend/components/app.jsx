@@ -19,10 +19,7 @@ const App = () => {
       <AuthRoute path="/login" component={AuthModal} />
       <AuthRoute path="/signup" component={AuthModal} />
       <AuthRoute path="/" component={LandingPage} />
-
-      <div className='today-page main'>
-        <ProtectedRoute path="/my" component={TodayPage} />
-      </div>
+      <ProtectedRoute path="/my" component={TodayPage} />
     </div>
   );
 };

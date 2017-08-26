@@ -71,3 +71,17 @@ body {
 .read {
   color: #888888;
 }
+
+.refresh-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 25px;
+  color: #757575;
+}
+
+.refresh-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
