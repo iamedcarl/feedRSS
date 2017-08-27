@@ -2,16 +2,15 @@ class Api::CollectionsController < ApplicationController
   before_action :require_user!
 
   def index
-    @collections = Collection.all
+    @collections = current_user.collections
   end
 
   def show
-    @collection = Collection.find(params[:id])
+    @collection = current_user.collections.find(params[:id])
   end
 
   def create
-    @collection = Collection.new(collection_params)
-    @collection.user_id = current_user.id
+    @collection = current_user.collections.new(collection_params)
     if @collection.save
       render :show
     else
@@ -29,7 +28,7 @@ class Api::CollectionsController < ApplicationController
   end
 
   def destroy
-    collection = Collection.find(params[:id])
+    collection = current_user.collections.find(params[:id])
     collection.destroy
     render :index
   end

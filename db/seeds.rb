@@ -8,10 +8,17 @@
 
 User.destroy_all
 
-user = User.create(
+user1 = User.create(
             username: "demo",
             password: "password",
             fname: "Demo",
+            lname: "Account",
+)
+
+user2 = User.create(
+            username: "user",
+            password: "password",
+            fname: "User",
             lname: "Account",
 )
 
@@ -29,9 +36,9 @@ favicon3 = "https://www.google.com/s2/favicons?domain=#{get_domain(url3)}"
 
 Collection.destroy_all
 
-Collection.create!(title: "News", user_id: user.id)
-Collection.create!(title: "Sports", user_id: user.id)
-Collection.create!(title: "Tech", user_id: user.id)
+news1 = Collection.create!(title: "News", user_id: user1.id)
+tech = Collection.create!(title: "Tech", user_id: user1.id)
+news2 = Collection.create!(title: "News", user_id: user2.id)
 
 feed_nypost = Feedjira::Feed.fetch_and_parse(url1)
 feed_theverge = Feedjira::Feed.fetch_and_parse(url2)
@@ -59,6 +66,14 @@ feed3 = Feed.create!(
   rss_url: url3,
   icon_url: favicon3
 )
+
+CollectedFeed.destroy_all
+
+CollectedFeed.create!(collection_id: news1.id, feed_id: feed1.id)
+CollectedFeed.create!(collection_id: tech.id, feed_id: feed2.id)
+CollectedFeed.create!(collection_id: news1.id, feed_id: feed3.id)
+CollectedFeed.create!(collection_id: news2.id, feed_id: feed1.id)
+CollectedFeed.create!(collection_id: news2.id, feed_id: feed3.id)
 
 Article.destroy_all
 

@@ -23,9 +23,10 @@ class Article < ApplicationRecord
   validates :saved, inclusion: { in: [true, false] }
   validates :feed_id, presence: true
 
-  belongs_to :feed
+  belongs_to :feed, inverse_of: :articles
+  has_one :collection, through: :feed, source: :collections
 
-  has_many :saved_articles, dependent: :destroy
+  has_many :saved_articles, inverse_of: :article, dependent: :destroy
   has_many :users, through: :saved_articles, source: :user
 
   def self.create_articles(entries, feed)

@@ -2,7 +2,9 @@ class Api::FeedsController < ApplicationController
   before_action :require_user!
 
   def index
-    @feeds = Feed.all
+    @feeds = Feed
+      .joins(:collections)
+      .where('collections.user_id = ?', current_user.id)
   end
 
   def show
@@ -10,18 +12,21 @@ class Api::FeedsController < ApplicationController
   end
 
   def create
-    @feed = Feed.new(feeds_params)
+    @feed = current_user.collections.feeds.new(feeds_params)
     create_feed(@feed.rss_url)
-    if @feed.save
-      Article.create_articles(@entries, @feed)
-      render :show
+
+    if Feed.exists?(title: @feed.title)
+
     else
+      @feed.save
+      current_user.collections.articles.create_articles(@entries, @feed)
+      render :show
       render json: @feed.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    feed = Feed.find(params[:id])
+    feed = current_user.collections.feeds.find(params[:id])
     feed.destroy
     render :index
   end
@@ -42,4 +47,5 @@ class Api::FeedsController < ApplicationController
     @entries = feed.entries
     nil
   end
+
 end

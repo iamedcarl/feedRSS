@@ -14,10 +14,10 @@
 class Feed < ApplicationRecord
   validates :title, :rss_url, presence: true
 
-  has_many :collected_feeds, dependent: :destroy
+  has_many :collected_feeds, inverse_of: :feed, dependent: :destroy
   has_many :collections, through: :collected_feeds, source: :collection
 
-  has_many :articles, dependent: :destroy
+  has_many :articles, inverse_of: :feed, dependent: :destroy
 
   def self.update_all
     feed_id = Feed.pluck(:id)
