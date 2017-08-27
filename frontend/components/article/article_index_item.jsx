@@ -25,7 +25,7 @@ const ArticleIndexItem = ({article}) => {
           <Moment fromNow>{date}</Moment>
         </div>
         <div className='article-summary'>
-          { content }
+          { ReactHtmlParser(content) }
         </div>
       </div>
     </div>

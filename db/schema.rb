@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170826193512) do
+ActiveRecord::Schema.define(version: 20170826213012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170826193512) do
     t.datetime "updated_at", null: false
     t.string "author"
     t.boolean "saved", default: false, null: false
+    t.string "entry_id", null: false
     t.index ["feed_id"], name: "index_articles_on_feed_id"
   end
 

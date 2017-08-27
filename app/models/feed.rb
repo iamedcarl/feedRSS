@@ -19,21 +19,22 @@ class Feed < ApplicationRecord
 
   has_many :articles, dependent: :destroy
 
-  def self.parse_feed(url)
-    feed = Feedjira::Feed.fetch_and_parse(url)
-    favicon = favicon(url)
+  def self.update_all
+    feed_id = Feed.pluck(:id)
+    feed_id.each do |id|
+      Feed.update_feed(id)
+    end
+  end
 
-    feed_attributes = {
-      title: feed.title,
-      description: feed.description,
-      rss_url: feed.feed_url,
-      icon_url: favicon,
-      entries: feed.entries
-    }
+  def self.update_feed(feed_id)
+    feed = Feed.find(feed_id)
+    feed_data = Feedjira::Feed.fetch_and_parse(feed.rss_url)
+    Article.create_articles(feed_data.entries, feed)
   end
 
   def favicon(url)
     domain = /https*:\/\/(?:\w{3}.)*(\w+.\w+)\//.match(url).captures.first
-    "https://www.google.com/s2/favicons?domain=#{domain}"
+    "https://www.google.com/s2/favicons?domain=".concat(domain)
   end
+
 end

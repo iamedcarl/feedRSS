@@ -23,11 +23,13 @@ class Api::ArticlesController < ApplicationController
   def articles_params
     params.require(:article).permit(
       :title,
+      :entry_id,
       :content,
       :date,
       :url,
       :image_url,
       :viewed,
+      :saved,
       :user_id,
       :feed_id
     )

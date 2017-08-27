@@ -11,7 +11,9 @@ class Api::FeedsController < ApplicationController
 
   def create
     @feed = Feed.new(feeds_params)
+    create_feed(@feed.rss_url)
     if @feed.save
+      Article.create_articles(@entries, @feed)
       render :show
     else
       render json: @feed.errors.full_messages, status: 422
@@ -27,6 +29,17 @@ class Api::FeedsController < ApplicationController
   private
 
   def feeds_params
-    params.require(:feed).permit(:title, :description, :rss_url, :icon_url)
+    params.require(:feed).permit(:rss_url)
+  end
+
+  def create_feed(url)
+    new_feed = Feedjira::Feed.fetch_and_parse(url)
+    favicon = feed.favicon(url)
+
+    @feed.title = new_feed.title
+    @feed.description = feed.description
+    @feed.icon_url = favicon
+    @entries = feed.entries
+    nil
   end
 end

@@ -237,6 +237,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  faraday
   feedjira
   figaro
   font-awesome-sass

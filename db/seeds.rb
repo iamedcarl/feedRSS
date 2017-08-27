@@ -64,6 +64,7 @@ Article.destroy_all
 
 feed_nypost.entries.each do |article|
   Article.create!(
+    entry_id: article.entry_id,
     title: article.title,
     content: article.content || article.summary,
     date: article.published,
@@ -71,11 +72,14 @@ feed_nypost.entries.each do |article|
     viewed: false,
     image_url: article.image,
     feed_id: feed1.id,
+    author: article.author,
+    saved: false
   )
 end
 
 feed_theverge.entries.each do |article|
   Article.create!(
+    entry_id: article.entry_id,
     title: article.title,
     content: article.content || article.summary,
     date: article.published,
@@ -83,11 +87,14 @@ feed_theverge.entries.each do |article|
     viewed: false,
     image_url: article.image,
     feed_id: feed2.id,
+    author: article.author,
+    saved: false
   )
 end
 
 feed_nytimes.entries.each do |article|
   Article.create!(
+    entry_id: article.entry_id,
     title: article.title,
     content: article.content || article.summary,
     date: article.published,
@@ -95,5 +102,7 @@ feed_nytimes.entries.each do |article|
     viewed: false,
     image_url: article.image,
     feed_id: feed3.id,
+    author: article.author,
+    saved: false
   )
 end
