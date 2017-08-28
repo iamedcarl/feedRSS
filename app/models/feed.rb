@@ -33,8 +33,8 @@ class Feed < ApplicationRecord
   end
 
   def favicon(url)
-    # domain = /https*:\/\/(?:\w{3}.)*(\w+.\w+)\//.match(url).captures.first
-    "https://www.google.com/s2/favicons?domain=".concat(url)
+    domain = /https*:\/\/(?:\w{3}.)(\w+.\w+)?\//.match(url).to_s
+    "https://www.google.com/s2/favicons?domain=".concat(domain)
   end
 
 end

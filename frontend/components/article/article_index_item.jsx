@@ -16,7 +16,7 @@ const ArticleIndexItem = ({article}) => {
     <div className='article-index-item'>
 
       <div className={hidden}>
-        <img src={image_url} height="200px" width="200px"/>
+        <img src={image_url} />
       </div>
       <div className='article-content'>
         <a href={url}>{title}</a>

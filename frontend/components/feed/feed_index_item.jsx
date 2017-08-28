@@ -6,11 +6,15 @@ const FeedIndexItem = ({feed}) => {
   return(
     <div className='feed-index-item'>
       <div className='feed-index-item-icon'>
-        <img src={icon_url} />
+        <div className='feed-img'>
+          <img src={icon_url} />
+        </div>
       </div>
-      <Link to={`/feeds/${title}`}>{title}</Link>
-      <div className='feed-index-item-description'>
-        {description}
+      <div className='feed-content'>
+        <Link to={`/feeds/${title}`}>{title}</Link>
+        <div className='feed-description'>
+          {description}
+        </div>
       </div>
     </div>
   );

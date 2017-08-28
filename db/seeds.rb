@@ -26,13 +26,14 @@ url1 = "http://nypost.com/feed/"
 url2 = "https://www.theverge.com/rss/index.xml"
 url3 = "http://www.businessinsider.com/clusterstock/contributor.rss"
 
-def get_domain(url)
-  /https*:\/\/(?:\w{3}.)*(\w+.\w+)\//.match(url).captures.first
+def favicon(url)
+  domain = /https*:\/\/(?:\w{3}.)(\w+.\w+)?\//.match(url).to_s
+  "https://www.google.com/s2/favicons?domain=".concat(domain)
 end
 
-favicon1 = "https://www.google.com/s2/favicons?domain=#{get_domain(url1)}"
-favicon2 = "https://www.google.com/s2/favicons?domain=#{get_domain(url2)}"
-favicon3 = "https://www.google.com/s2/favicons?domain=#{get_domain(url3)}"
+favicon1 = favicon(url1)
+favicon2 = favicon(url2)
+favicon3 = favicon(url3)
 
 Collection.destroy_all
 
