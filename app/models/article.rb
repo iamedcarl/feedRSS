@@ -32,23 +32,27 @@ class Article < ApplicationRecord
   def self.create_articles(entries, feed)
     entries.each do |entry|
       next if Article.find_by(entry_id: entry.id)
-
+      img = entry.image ||
+            Article.parse_img_from_content(entry.content) ||
+            Article.parse_img_from_content(entry.summary)
       Article.create!(
-        entry_id: entry.entry_id,
-        title: entry.title,
         author: entry.author,
-        date: entry.published,
-        url: entry.url,
-        image_url: entry.image || parse_img_from_content(entry.content),
         content: entry.content || entry.summary,
+        date: entry.published,
+        entry_id: entry.entry_id,
         feed_id: feed.id,
-        viewed: false,
-        saved: false
+        image_url: img,
+        saved: false,
+        title: entry.title,
+        url: entry.url,
+        viewed: false
       )
     end
   end
 
-  def parse_img_from_content(content)
-    content.scan(/(<img.*?>|<img.*?>.+<\/img>)/)[0][0]
+  def self.parse_img_from_content(content)
+    return nil if content.nil?
+    img = content.scan(/(<img.*?>|<img.*?>.+<\/img>)/)[0][0]
+    img.scan(/http.+jpg|http.+jpeg|http.+png|http.+gif/)[0]
   end
 end

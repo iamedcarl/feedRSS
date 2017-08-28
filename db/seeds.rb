@@ -77,47 +77,6 @@ CollectedFeed.create!(collection_id: news2.id, feed_id: feed3.id)
 
 Article.destroy_all
 
-feed_nypost.entries.each do |article|
-  Article.create!(
-    entry_id: article.entry_id,
-    title: article.title,
-    content: article.content || article.summary,
-    date: article.published,
-    url: article.url,
-    viewed: false,
-    image_url: article.image,
-    feed_id: feed1.id,
-    author: article.author,
-    saved: false
-  )
-end
-
-feed_theverge.entries.each do |article|
-  Article.create!(
-    entry_id: article.entry_id,
-    title: article.title,
-    content: article.content || article.summary,
-    date: article.published,
-    url: article.url,
-    viewed: false,
-    image_url: article.image,
-    feed_id: feed2.id,
-    author: article.author,
-    saved: false
-  )
-end
-
-feed_nytimes.entries.each do |article|
-  Article.create!(
-    entry_id: article.entry_id,
-    title: article.title,
-    content: article.content || article.summary,
-    date: article.published,
-    url: article.url,
-    viewed: false,
-    image_url: article.image,
-    feed_id: feed3.id,
-    author: article.author,
-    saved: false
-  )
-end
+Article.create_articles(feed_nypost.entries, feed1)
+Article.create_articles(feed_theverge.entries, feed2)
+Article.create_articles(feed_nytimes.entries, feed3)
