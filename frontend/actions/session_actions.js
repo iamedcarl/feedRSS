@@ -27,6 +27,14 @@ export const logout = () => {
   };
 };
 
+export const fetchUser = () => {
+  return dispatch => {
+    return APIUtil.fetchUser()
+      .then(user => dispatch(receiveCurrentUser(user)),
+            errors => dispatch(receiveErrors(errors.responseJSON)));
+  };
+};
+
 export const receiveCurrentUser = user => {
   return({
     type: RECEIVE_CURRENT_USER,
