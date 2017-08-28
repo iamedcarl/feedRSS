@@ -7,3 +7,7 @@ export const selectAllArticles = ({articles}) => {
 export const selectAllCollections = ({collections}) => {
   return values(collections);
 };
+
+export const selectAllFeeds = ({feeds}) => {
+  return values(feeds);
+};

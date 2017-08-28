@@ -5,7 +5,7 @@ export const fetchAllFeeds = () => {
   });
 };
 
-export const fetchSingleFeed = (feedId) => {
+export const fetchFeed = (feedId) => {
   return $.ajax({
     method: 'GET',
     url: `/api/feeds/${feedId}`,

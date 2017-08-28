@@ -2,11 +2,11 @@ class Api::FeedsController < ApplicationController
   before_action :require_user!
 
   def index
-    @feeds = Feed
-      .joins(:collections)
-      .where('collections.user_id = ?', current_user.id)
-
-    @feeds.each do |feed|
+    # @feeds = Feed
+    #   .joins(:collections)
+    #   .where('collections.user_id = ?', current_user.id)
+    #
+    @feeds = Feed.all.each do |feed|
       Feed.update_feed(feed.id)
     end
   end
@@ -23,8 +23,8 @@ class Api::FeedsController < ApplicationController
       .new(feeds_params)
     create_feed(@feed.rss_url)
 
-    if Feed.exists?(title: @feed.title)
-
+    if Feed.exists?(rss_url: @feed.rss_url)
+      Feed.find_by(rss_url: @feed.rss_url)
     else
       @feed.save
       current_user.collections.articles.create_articles(@entries, @feed)

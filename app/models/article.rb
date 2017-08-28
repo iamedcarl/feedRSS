@@ -52,7 +52,11 @@ class Article < ApplicationRecord
 
   def self.parse_img_from_content(content)
     return nil if content.nil?
-    img = content.scan(/(<img.*?>|<img.*?>.+<\/img>)/)[0][0]
-    img.scan(/http.+jpg|http.+jpeg|http.+png|http.+gif/)[0]
+    img = content.scan(/(<img.*?>|<img.*?>.+<\/img>)/)
+    if img.empty? || img.nil?
+      return nil
+    else
+      img[0][0].scan(/http.+jpg|http.+jpeg|http.+png|http.+gif/)[0]
+    end
   end
 end
