@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Popover } from 'react-bootstrap';
 
 class FeedIndexItem extends React.Component {
   constructor(props) {
@@ -29,12 +30,17 @@ class FeedIndexItem extends React.Component {
             </div>
           </div>
         </div>
-          <button
-            id='follow-button'
-            onClick={this.handleOnClick}
+          <Popover
+            placement='bottom'
+            title='testing'
           >
-            Follow
-          </button>
+            <button
+              id='follow-button'
+              onClick={this.handleOnClick}
+            >
+              Follow
+            </button>
+          </Popover>
       </div>
     );
   }

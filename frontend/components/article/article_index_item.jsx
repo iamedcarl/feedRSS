@@ -19,7 +19,7 @@ const ArticleIndexItem = ({article}) => {
         <img src={image_url} />
       </div>
       <div className='article-content'>
-        <a href={url}>{title}</a>
+        <a href={url} target='_blank'>{title}</a>
         <div className='article-date'>
           <Moment fromNow>{date}</Moment>
         </div>

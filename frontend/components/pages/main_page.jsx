@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
-import TodayPage from './today_page';
+import TodayPageContainer from './today_page_container';
 import DiscoverPage from './discover_page';
 
 class MainPage extends React.Component {
@@ -20,7 +20,7 @@ class MainPage extends React.Component {
     } else {
       return(
         <div className='main-page main'>
-          <TodayPage />
+          <TodayPageContainer />
         </div>
       );
     }

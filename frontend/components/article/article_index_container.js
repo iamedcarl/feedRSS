@@ -15,5 +15,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-
 export default connect(maptStateToProps, mapDispatchToProps)(ArticleIndex);
