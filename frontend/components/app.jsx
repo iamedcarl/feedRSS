@@ -5,6 +5,7 @@ import HeaderContainer from './header/header_container';
 import LandingPage from './pages/landing_page';
 import AuthModal from './auth/auth_modal';
 import TodayPage from './pages/today_page';
+import MainPage from './pages/main_page';
 import SideBar from './collection/sidebar';
 
 const App = () => {
@@ -19,7 +20,7 @@ const App = () => {
       <AuthRoute path="/login" component={AuthModal} />
       <AuthRoute path="/signup" component={AuthModal} />
       <AuthRoute path="/" component={LandingPage} />
-      <ProtectedRoute path="/my" component={TodayPage} />
+      <ProtectedRoute path="/my" component={MainPage} />
     </div>
   );
 };

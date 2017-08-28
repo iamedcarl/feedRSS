@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import Moment from 'react-moment';

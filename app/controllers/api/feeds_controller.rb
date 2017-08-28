@@ -5,14 +5,22 @@ class Api::FeedsController < ApplicationController
     @feeds = Feed
       .joins(:collections)
       .where('collections.user_id = ?', current_user.id)
+
+    @feeds.each do |feed|
+      Feed.update_feed(feed.id)
+    end
   end
 
   def show
     @feed = Feed.find(params[:id])
+    Feed.update_feed(@feed.id)
   end
 
   def create
-    @feed = current_user.collections.feeds.new(feeds_params)
+    @feed = Feed
+      .joins(:collections)
+      .where('collections.user_id = ?', current_user.id)
+      .new(feeds_params)
     create_feed(@feed.rss_url)
 
     if Feed.exists?(title: @feed.title)

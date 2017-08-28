@@ -19,9 +19,9 @@ export const receiveAllArticles = articles => {
   };
 };
 
-export const fetchSingleArticles = () => {
+export const fetchArticle = articleId => {
   return dispatch => {
-    return APIUtil.fetchSingleArticles()
+    return APIUtil.fetchArticle(articleId)
         .then(article => dispatch(receiveArticle(article)),
           errors => dispatch(receiveErrors(errors.responseJSON)));
   };

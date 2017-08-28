@@ -4,9 +4,9 @@ import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 
 import ArticleIndexContainer from '../article/article_index_container';
 
-const Main = () => {
+const TodayPage = () => {
   return(
-    <div className='today-page main'>
+    <div className='today-page'>
       <div className='centered container'>
         <div className='today-header'>
           <div>
@@ -25,4 +25,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default TodayPage;
