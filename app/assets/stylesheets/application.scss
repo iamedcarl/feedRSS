@@ -104,3 +104,8 @@ input {
 .simple-container {
   display: flex;
 }
+
+#popover {
+  border: 1px solid grey;
+  z-index: 999;
+}
