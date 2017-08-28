@@ -8,17 +8,23 @@
 
 User.destroy_all
 
-user = User.create(
+user1 = User.create(
             username: "demo",
             password: "password",
             fname: "Demo",
             lname: "Account",
 )
 
+user2 = User.create(
+            username: "user",
+            password: "password",
+            fname: "User",
+            lname: "Account",
+)
+
 url1 = "http://nypost.com/feed/"
 url2 = "https://www.theverge.com/rss/index.xml"
-url3 = "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-url4 = "http://www.espn.com/rss"
+url3 = "http://www.businessinsider.com/clusterstock/contributor.rss"
 
 def get_domain(url)
   /https*:\/\/(?:\w{3}.)*(\w+.\w+)\//.match(url).captures.first
@@ -27,18 +33,16 @@ end
 favicon1 = "https://www.google.com/s2/favicons?domain=#{get_domain(url1)}"
 favicon2 = "https://www.google.com/s2/favicons?domain=#{get_domain(url2)}"
 favicon3 = "https://www.google.com/s2/favicons?domain=#{get_domain(url3)}"
-favicon4 = "https://www.google.com/s2/favicons?domain=#{get_domain(url4)}"
 
 Collection.destroy_all
 
-Collection.create!(title: "News", user_id: user.id)
-Collection.create!(title: "Sports", user_id: user.id)
-Collection.create!(title: "Tech", user_id: user.id)
+news1 = Collection.create!(title: "News", user_id: user1.id)
+tech = Collection.create!(title: "Tech", user_id: user1.id)
+news2 = Collection.create!(title: "News", user_id: user2.id)
 
 feed_nypost = Feedjira::Feed.fetch_and_parse(url1)
 feed_theverge = Feedjira::Feed.fetch_and_parse(url2)
 feed_nytimes = Feedjira::Feed.fetch_and_parse(url3)
-feed_espn = Feedjira::Feed.fetch_and_parse(url4)
 
 Feed.destroy_all
 
@@ -63,59 +67,16 @@ feed3 = Feed.create!(
   icon_url: favicon3
 )
 
-feed4 = Feed.create!(
-  title: feed_espn.title,
-  description: feed_espn.description,
-  rss_url: url4,
-  icon_url: favicon4
-)
+CollectedFeed.destroy_all
+
+CollectedFeed.create!(collection_id: news1.id, feed_id: feed1.id)
+CollectedFeed.create!(collection_id: tech.id, feed_id: feed2.id)
+CollectedFeed.create!(collection_id: news1.id, feed_id: feed3.id)
+CollectedFeed.create!(collection_id: news2.id, feed_id: feed1.id)
+CollectedFeed.create!(collection_id: news2.id, feed_id: feed3.id)
 
 Article.destroy_all
 
-feed_nypost.entries.each do |article|
-  Article.create!(
-    title: article.title,
-    content: article.content || article.summary,
-    date: article.published,
-    url: article.url,
-    viewed: false,
-    image_url: article.image,
-    feed_id: feed1.id,
-  )
-end
-
-feed_theverge.entries.each do |article|
-  Article.create!(
-    title: article.title,
-    content: article.content || article.summary,
-    date: article.published,
-    url: article.url,
-    viewed: false,
-    image_url: article.image,
-    feed_id: feed2.id,
-  )
-end
-
-feed_nytimes.entries.each do |article|
-  Article.create!(
-    title: article.title,
-    content: article.content || article.summary,
-    date: article.published,
-    url: article.url,
-    viewed: false,
-    image_url: article.image,
-    feed_id: feed3.id,
-  )
-end
-
-feed_espn.entries.each do |article|
-  Article.create!(
-    title: article.title,
-    content: article.content || article.summary,
-    date: article.published,
-    url: article.url,
-    viewed: false,
-    image_url: article.image,
-    feed_id: feed4.id,
-  )
-end
+Article.create_articles(feed_nypost.entries, feed1)
+Article.create_articles(feed_theverge.entries, feed2)
+Article.create_articles(feed_nytimes.entries, feed3)

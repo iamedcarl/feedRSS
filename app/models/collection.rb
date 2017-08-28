@@ -10,10 +10,11 @@
 #
 
 class Collection < ApplicationRecord
-  validates :title, :user_id, presence: true
+  validates :title, :user, presence: true
 
-  belongs_to :user
-  has_many :collected_feeds, dependent: :destroy
+  belongs_to :user, inverse_of: :collections
+
+  has_many :collected_feeds, inverse_of: :collection, dependent: :destroy
   has_many :feeds, through: :collected_feeds, source: :feed
-
+  has_many :articles, through: :feeds, source: :articles
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824213439) do
+ActiveRecord::Schema.define(version: 20170827035343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,13 +18,16 @@ ActiveRecord::Schema.define(version: 20170824213439) do
   create_table "articles", force: :cascade do |t|
     t.string "title", null: false
     t.text "content"
-    t.date "date", null: false
+    t.datetime "date", null: false
     t.string "url", null: false
     t.boolean "viewed", default: false, null: false
     t.string "image_url"
     t.integer "feed_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "author"
+    t.boolean "saved", default: false, null: false
+    t.string "entry_id", null: false
     t.index ["feed_id"], name: "index_articles_on_feed_id"
   end
 
@@ -33,9 +36,9 @@ ActiveRecord::Schema.define(version: 20170824213439) do
     t.integer "feed_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["collection_id", "feed_id"], name: "index_collected_feeds_on_collection_id_and_feed_id"
-    t.index ["collection_id"], name: "index_collected_feeds_on_collection_id", unique: true
-    t.index ["feed_id"], name: "index_collected_feeds_on_feed_id", unique: true
+    t.index ["collection_id", "feed_id"], name: "index_collected_feeds_on_collection_id_and_feed_id", unique: true
+    t.index ["collection_id"], name: "index_collected_feeds_on_collection_id"
+    t.index ["feed_id"], name: "index_collected_feeds_on_feed_id"
   end
 
   create_table "collections", force: :cascade do |t|

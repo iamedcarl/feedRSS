@@ -54,3 +54,48 @@ body {
 .main {
   padding-top: 56px;
 }
+
+.hidden {
+  display: none;
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.unread {
+  color: #333333;
+}
+
+.read {
+  color: #888888;
+}
+
+.refresh-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 25px;
+  color: #757575;
+  user-select: none;
+}
+
+.refresh-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+button {
+  outline: none;
+}
+
+a {
+  outline: none;
+}
+
+input {
+  outline: none;
+}

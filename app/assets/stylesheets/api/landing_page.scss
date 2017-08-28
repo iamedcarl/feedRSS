@@ -59,7 +59,7 @@
 }
 
 .img-placeholder {
-  box-shadow: 5px 5px 8px lightgrey;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
   height: 550px;
 
   img {
@@ -70,11 +70,6 @@
 
 .list-features {
   padding: 64px 24px 64px 24px;
-}
-
-.app-features, .footer-info, .footer-message {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .footer-button {

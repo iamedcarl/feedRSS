@@ -13,7 +13,8 @@ firstname       | string    |
 lastname        | string    |
 
 - **has_many** :collections
-- **has_many** :articles
+- **has_many** :saved_articles
+- **has_many** :articles, through: :saved_articles
 
 ## collections
 
@@ -24,7 +25,9 @@ title       | string    | not null
 user_id     | integer   | not null, foreign_key, indexed
 
 - **belongs_to** :user
-- **has_many** :feeds through :collection_feeds
+- **has_many** :collected_feeds
+- **has_many** :feeds, through: :collection_feeds
+- **has_many** :articles, through: :feeds
 
 ## collection_feeds
 
@@ -53,16 +56,19 @@ icon_url    | string    |
 ## articles
 
 column name | data type | details
------------ | --------- | --------------------------------------
+----------- | --------- | ---------------------
 id          | integer   | not null, primary key
+entry_id    | string    | not null
 title       | string    | not null
+author      | string    |
 content     | text      | not null
-date        | date      | not null
+date        | datetime  | not null
 url         | string    | not null
 image_url   | string    |
 viewed      | boolean   | not null, default false
-user_id     | integer   | not null, foreign key (users), indexed
+saved       | boolean   | not null, default false
 feed_id     | integer   | not null, foreign key (feed), indexed
 
-- **belongs_to** :user
 - **belongs_to** :feed
+- **has_many** :saved_articles
+- **has_many** :users, through: :saved_articles

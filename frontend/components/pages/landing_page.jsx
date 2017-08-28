@@ -26,7 +26,7 @@ const LandingPage = () => {
       </header>
 
       <div className='list-features'>
-        <div className='app-features container'>
+        <div className='app-features container centered'>
             <div className='app-features-kicker'>
               You are in control
             </div>
@@ -39,7 +39,7 @@ const LandingPage = () => {
                 </div>
                 <h3>Your News Feed</h3>
                 <p>Whether it's real news, fake news, gossip, or
-                  more - don't miss out from the news feeds your trust.
+                  more - don't miss out from the feeds you trust.
                 </p>
               </div>
               <div className='feature-2'>
@@ -58,7 +58,7 @@ const LandingPage = () => {
                 </div>
                 <h3>Your Blogs</h3>
                 <p>Follow any one on the web who has a blog and writes about
-                  stuff. Keep up with trends and learn something new on from
+                  stuff. Keep up with trends and learn something new from
                   one app.
                 </p>
               </div>
@@ -68,7 +68,7 @@ const LandingPage = () => {
       </div>
 
       <div className='landing-bottom'>
-        <div className='footer-message container'>
+        <div className='footer-message container centered'>
           <h1>Stay ahead of the curve</h1>
           <div className='message-kicker'>
             If you're not first, you're last.
@@ -80,7 +80,7 @@ const LandingPage = () => {
       </div>
 
       <div className='landing-footer'>
-        <div className='footer-info container'>
+        <div className='footer-info container centered'>
           <p>Created by Edcarl Adraincem for educational purposes only</p>
         </div>
       </div>

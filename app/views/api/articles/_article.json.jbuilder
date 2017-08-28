@@ -1,1 +1,12 @@
-json.extract! article, :id, :title, :content, :date, :url, :image_url, :viewed, :feed_id, :user_ids
+json.extract! article,
+              :id,
+              :entry_id,
+              :title,
+              :author,
+              :content,
+              :date,
+              :url,
+              :image_url,
+              :viewed,
+              :saved,
+              :feed_id

@@ -7,19 +7,20 @@ class ArticleIndex extends React.Component {
   }
 
   render() {
-    const articles = this.props.articles.map(article => {
+    if(this.props.latestArticles === undefined) { return null; }
+
+    const articles = this.props.latestArticles.map(articleId => {
       return(
-        <li key={article.id}>
-        <ArticleIndexItem  article={article} />
-        </li>
+        <ArticleIndexItem
+          key={articleId}
+          article={this.props.articles[articleId]}
+        />
       );
     });
 
     return(
-      <div className='article-index main'>
-        <ul>
-          {articles}
-        </ul>
+      <div className='article-stream'>
+        {articles}
       </div>
     );
   }

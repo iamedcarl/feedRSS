@@ -2,7 +2,11 @@ class Api::ArticlesController < ApplicationController
   before_action :require_user!
 
   def index
-    @articles = Article.all
+    @articles = Article
+      .joins(:feed, :collection)
+      .where('collections.user_id = ?', current_user.id)
+      .order(:date)
+      .reverse_order
   end
 
   def show
@@ -10,7 +14,7 @@ class Api::ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(articles_params)
+    @article = current_user.collections.articles.new(articles_params)
     if @article.save
       render :show
     else
@@ -23,11 +27,13 @@ class Api::ArticlesController < ApplicationController
   def articles_params
     params.require(:article).permit(
       :title,
+      :entry_id,
       :content,
       :date,
       :url,
       :image_url,
       :viewed,
+      :saved,
       :user_id,
       :feed_id
     )
