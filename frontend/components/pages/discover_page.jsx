@@ -3,18 +3,8 @@ import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import FeedIndexContainer from '../feed/feed_index_container';
 
-class DiscoverPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
+const DiscoverPage = () => {
 
-  handleClick(e) {
-    e.preventDefault();
-
-  }
-
-  render() {
     return(
       <div className='discover-page main'>
         <div className='container centered'>
@@ -29,18 +19,11 @@ class DiscoverPage extends React.Component {
           </div>
           <div className='discover-feed-box'>
             <FeedIndexContainer />
-            <button
-              className='follow-button'
-              onclick={this.handleClick}
-            >
-              Follow
-            </button>
           </div>
         </div>
       </div>
     );
-  }
 
-} // end of DiscoverPage
+}; // end of DiscoverPage
 
 export default DiscoverPage;
