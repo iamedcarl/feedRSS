@@ -5,7 +5,7 @@ import CollectionIndex from './collection_index';
 
 const maptStateToProps = state => {
   return {
-    collections: selectAllCollections(state.collections),
+    collections: selectAllCollections(state),
   };
 };
 

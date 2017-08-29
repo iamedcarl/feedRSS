@@ -20,7 +20,9 @@ class CollectionIndex extends React.Component {
 
     return(
       <div className='collection-index'>
-        {collections}
+        <ul>
+          {collections}
+        </ul>
       </div>
     );
   }

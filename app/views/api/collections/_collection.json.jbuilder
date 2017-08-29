@@ -1,1 +1,5 @@
-json.extract! collection, :id, :title, :feed_ids, :user_id
+json.extract! collection,
+              :id,
+              :title,
+              :user_id,
+              :feed_ids

@@ -1,12 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import HeaderContainer from './header/header_container';
 import LandingPage from './pages/landing_page';
 import AuthModal from './auth/auth_modal';
 import MainPageContainer from './pages/main_page_container';
 import DiscoverPage from './pages/discover_page';
-import SideBar from './sidebar/sidebar';
 
 const App = () => {
   return(

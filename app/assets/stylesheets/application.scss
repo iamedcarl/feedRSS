@@ -27,6 +27,10 @@ body {
   background-color: white;
 }
 
+div {
+  display: block;
+}
+
 @media (min-width: 544px) {
   .container {
     max-width: 576px;

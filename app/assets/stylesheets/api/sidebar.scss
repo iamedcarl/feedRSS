@@ -1,4 +1,4 @@
-.navbar {
+.navbar-holder {
   line-height: 28px;
     font-weight: normal;
     position: fixed;
@@ -18,4 +18,47 @@ transform: translateZ(0);
 
 .nav-open {
   margin-left: 268px;
+}
+
+.navbar {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 51px;
+  padding-right: 23px;
+  padding-left: 17px;
+  background: #2c3e50;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.navbar-top-spacer {
+  height: 26px;
+}
+
+.navbar-tabs {
+  margin-bottom: 40px;
+}
+
+.navbar-link {
+  a {
+    color: rgba( 255, 255, 255, 0.85 );
+    cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 180px;
+  overflow: hidden;
+  font-size: 13px;
+  text-decoration: none;
+  }
+}
+
+.navbar-separator {
+  margin-top: 40px;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: rgba( 255, 255, 255, 0.9 );
 }
