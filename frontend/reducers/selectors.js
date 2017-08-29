@@ -16,3 +16,7 @@ export const selectFeed = ({ feeds }, id) => {
   const feed = feeds[id] || {};
   return feed;
 };
+
+export const selectFeedsInCollection = state => {
+  
+};

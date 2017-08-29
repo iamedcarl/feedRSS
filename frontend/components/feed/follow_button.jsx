@@ -1,37 +1,43 @@
 import React from 'react';
-import { OverlayTrigger, Popover, ButtonToolbar, Button } from 'react-bootstrap';
-
-const popoverBottom = (
-  <Popover id="popover" title="Collections">
-    INSERT COLLECTION INDEX OR CREATE NEW COLLECTION
-  </Popover>
-);
+import { Overlay, Popover, ButtonToolbar, Button } from 'react-bootstrap';
+import CollectionFormContainer from '../collection/collection_form_container';
 
 class FollowButton extends React.Component {
   constructor(props){
     super(props);
     this.state = { show: false };
     this.handleOnClick = this.handleOnClick.bind(this);
+    this.togglePopover = this.togglePopover.bind(this);
   }
 
   handleOnClick(e) {
     this.setState({ target: e.target, show: !this.state.show });
   }
 
+  togglePopover() {
+    this.setState({ show: !this.state.show });
+  }
+
   render() {
     return(
       <ButtonToolbar id='button-toolbar'>
-        <OverlayTrigger
-          container={this}
-          trigger="click"
+        <Button id='follow-button' onClick={this.handleOnClick}>
+          Follow
+        </Button>
+
+        <Overlay
+          show={this.state.show}
+          onHide={this.togglePopover}
+          target={this.state.target}
           placement="bottom"
-          overlay={popoverBottom}
-          rootClose
+          container={this}
+          containerPadding={20}
+          rootClose={true}
         >
-          <Button id='follow-button' onClick={this.handleOnClick}>
-            Follow
-          </Button>
-        </OverlayTrigger>
+          <Popover id="popover">
+            <CollectionFormContainer feedId={this.props.feedId}/>
+          </Popover>
+        </Overlay>
       </ButtonToolbar>
     );
   }

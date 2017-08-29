@@ -1,26 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { OverlayTrigger, Popover } from 'react-bootstrap';
 import FollowButton from './follow_button';
 
 class FeedIndexItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleOnClick = this.handleOnClick.bind(this);
-  }
-
-  handleOnClick(e) {
-
-  }
-
   render() {
     const {id, title, description, icon_url, rss_url} = this.props.feed;
-
-    const popover = (
-      <Popover id='popover' title='POPOVER'>
-        TESTING
-      </Popover>
-    );
 
     return(
       <div className='feed-index-item'>
@@ -38,7 +22,7 @@ class FeedIndexItem extends React.Component {
           </div>
         </div>
 
-      <FollowButton />
+      <FollowButton feedId={id}/>
 
       </div>
     );

@@ -1,15 +1,14 @@
 import React from 'react';
 import HeaderContainer from '../header/header_container';
 import SideBar from '../sidebar/sidebar';
-import ArticleIndexItem from '../article/article_index_item';
 
-class FeedShow extends React.Component {
+class CollectionShow extends React.Component {
   componentDidMount() {
-    this.props.fetchArticlesByFeed(this.props.feed.id);
+    this.props.fetchArticlesByCollection(this.props.feed.id);
   }
 
   render() {
-    const { feed } = this.props;
+    const { collection, feed } = this.props;
 
     if(this.props.latestArticles === undefined) { return null; }
     const articles = this.props.latestArticles.map(articleId => {
@@ -35,7 +34,7 @@ class FeedShow extends React.Component {
           <div className='container centered'>
             <div className='feed-show-header'>
               <div className='feed-show-header-title'>
-                <h1><a href={feed.url} target='_blank'>{feed.title}</a></h1>
+                <h1>{collection.title}</h1>
               </div>
               <div className='feed-show-desc'>
                 {feed.description}
@@ -51,4 +50,4 @@ class FeedShow extends React.Component {
   }
 }
 
-export default FeedShow;
+export default CollectionShow;

@@ -23,7 +23,7 @@ export const fetchCollection = collectionId => {
 
 export const createCollection = collection => {
   return dispatch => {
-    return APIUtil.fetchCollections(collection)
+    return APIUtil.createCollection(collection)
         .then(newCollection => dispatch(receiveCollection(newCollection)),
           errors => dispatch(receiveErrors(errors.responseJSON)));
   };
@@ -31,7 +31,7 @@ export const createCollection = collection => {
 
 export const updateCollection = collection => {
   return dispatch => {
-    return APIUtil.fetchCollections(collection)
+    return APIUtil.updateCollection(collection)
         .then(editCollection => dispatch(receiveCollection(editCollection)),
           errors => dispatch(receiveErrors(errors.responseJSON)));
   };

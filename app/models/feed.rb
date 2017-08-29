@@ -9,10 +9,11 @@
 #  icon_url    :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  url         :string           not null
 #
 
 class Feed < ApplicationRecord
-  validates :title, :rss_url, presence: true
+  validates :title, :rss_url, :url, presence: true
 
   has_many :collected_feeds, inverse_of: :feed, dependent: :destroy
   has_many :collections, through: :collected_feeds, source: :collection
@@ -37,4 +38,7 @@ class Feed < ApplicationRecord
     "https://logo.clearbit.com/".concat(domain)
   end
 
+  def domain(url)
+    /https*:\/\/(?:\w{3}.)(\w+.\w+)?\//.match(url).to_s
+  end
 end
