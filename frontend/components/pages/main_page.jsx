@@ -19,7 +19,7 @@ class MainPage extends React.Component {
       );
     } else {
       return(
-        <div className='main-page main'>
+        <div className='main-page main nav-open'>
           <TodayPageContainer />
         </div>
       );

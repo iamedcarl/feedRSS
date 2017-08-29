@@ -26,14 +26,14 @@ url1 = "http://nypost.com/feed/"
 url2 = "https://www.theverge.com/rss/index.xml"
 url3 = "http://www.businessinsider.com/clusterstock/contributor.rss"
 
-def favicon(url)
+def icon(url)
   domain = /https*:\/\/(?:\w{3}.)(\w+.\w+)?\//.match(url).to_s
-  "https://www.google.com/s2/favicons?domain=".concat(domain)
+  "https://logo.clearbit.com/".concat(domain)
 end
 
-favicon1 = favicon(url1)
-favicon2 = favicon(url2)
-favicon3 = favicon(url3)
+icon1 = icon(url1)
+icon2 = icon(url2)
+icon3 = icon(url3)
 
 Collection.destroy_all
 
@@ -51,21 +51,21 @@ feed1 = Feed.create!(
   title: feed_nypost.title,
   description: feed_nypost.description,
   rss_url: url1,
-  icon_url: favicon1
+  icon_url: icon1
 )
 
 feed2 = Feed.create!(
   title: feed_theverge.title,
   description: feed_theverge.description,
   rss_url: url2,
-  icon_url: favicon2
+  icon_url: icon2
 )
 
 feed3 = Feed.create!(
   title: feed_nytimes.title,
   description: feed_nytimes.description,
   rss_url: url3,
-  icon_url: favicon3
+  icon_url: icon3
 )
 
 CollectedFeed.destroy_all

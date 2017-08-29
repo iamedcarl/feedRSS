@@ -1,7 +1,21 @@
 .navbar {
-  // float: left;
-  // z-index: 999;
-  // position: absolute;
-  // width: 270px;
-  // background-color: black;
+  line-height: 28px;
+    font-weight: normal;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    background: #2c3e50;
+    background-position: 14px 36px;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    opacity: 1;
+    width: 268px;
+    user-select: none;
+transform: translateZ(0);
+}
+
+.nav-open {
+  margin-left: 268px;
 }

@@ -47,11 +47,11 @@ class Api::FeedsController < ApplicationController
 
   def create_feed(url)
     new_feed = Feedjira::Feed.fetch_and_parse(url)
-    favicon = feed.favicon(url)
+    icon = feed.icon(url)
 
     @feed.title = new_feed.title
     @feed.description = feed.description
-    @feed.icon_url = favicon
+    @feed.icon_url = icon
     @entries = feed.entries
     nil
   end

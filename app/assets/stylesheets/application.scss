@@ -62,6 +62,7 @@ body {
 .centered {
   margin-left: auto;
   margin-right: auto;
+  padding: 0px 24px 0px 24px;
 }
 
 .unread {
@@ -106,6 +107,9 @@ input {
 }
 
 #popover {
-  border: 1px solid grey;
-  z-index: 999;
+  background-color: white;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 800;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2), 0px 0px 2px rgba(0, 0, 0, 0.38);
 }

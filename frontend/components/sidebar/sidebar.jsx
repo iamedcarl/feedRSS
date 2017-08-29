@@ -4,7 +4,7 @@ import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 
 const NavBar = () => {
   return(
-    <div className="navbar hidden">
+    <div className="navbar">
       NavBar
     </div>
   );

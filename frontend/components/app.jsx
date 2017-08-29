@@ -6,17 +6,11 @@ import LandingPage from './pages/landing_page';
 import AuthModal from './auth/auth_modal';
 import MainPageContainer from './pages/main_page_container';
 import DiscoverPage from './pages/discover_page';
-import SideBar from './collection/sidebar';
+import SideBar from './sidebar/sidebar';
 
 const App = () => {
   return(
     <div className='app'>
-      <header className='header-bar'>
-        <HeaderContainer />
-      </header>
-      <div className='sidebar'>
-        <SideBar />
-      </div>
       <AuthRoute path="/login" component={AuthModal} />
       <AuthRoute path="/signup" component={AuthModal} />
       <AuthRoute path="/" component={LandingPage} />
