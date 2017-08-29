@@ -19,3 +19,10 @@ export const createArticle = (article) => {
     data: { article }
   });
 };
+
+export const fetchArticlesByFeed = (feedId) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/feeds/${feedId}/articles`,
+  });
+};

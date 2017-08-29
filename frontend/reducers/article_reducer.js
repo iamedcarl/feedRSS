@@ -15,11 +15,13 @@ const initialState = {
 
 const articleReducer = (state = {}, action) => {
   Object.freeze(state);
+  let newState = {};
   switch(action.type) {
     case RECEIVE_ALL_ARTICLES:
       return action.articles;
     case RECEIVE_ARTICLE:
-      return action.article;
+      Object.assign(newState, state, { [action.article.id]: action.article });
+      return newState;
     default:
       return state;
   }

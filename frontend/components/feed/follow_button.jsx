@@ -2,8 +2,8 @@ import React from 'react';
 import { OverlayTrigger, Popover, ButtonToolbar, Button } from 'react-bootstrap';
 
 const popoverBottom = (
-  <Popover id="popover-positioned-scrolling-bottom" title="Popover bottom">
-    <strong>Holy guacamole!</strong> Check this info.
+  <Popover id="popover" title="Collections">
+    INSERT COLLECTION INDEX OR CREATE NEW COLLECTION
   </Popover>
 );
 
@@ -20,8 +20,14 @@ class FollowButton extends React.Component {
 
   render() {
     return(
-      <ButtonToolbar>
-        <OverlayTrigger container={this} trigger="click" placement="bottom" overlay={popoverBottom}>
+      <ButtonToolbar id='button-toolbar'>
+        <OverlayTrigger
+          container={this}
+          trigger="click"
+          placement="bottom"
+          overlay={popoverBottom}
+          rootClose
+        >
           <Button id='follow-button' onClick={this.handleOnClick}>
             Follow
           </Button>

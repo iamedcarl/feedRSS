@@ -13,7 +13,7 @@ const NavBar = () => {
             <Link to='/my'>Today</Link>
           </div>
           <div className='navbar-link label'>
-            <Link to='/laters'>Read Later</Link>
+            <Link to='/later'>Read Later</Link>
           </div>
         </div>
 

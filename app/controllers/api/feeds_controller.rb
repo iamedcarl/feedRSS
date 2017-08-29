@@ -39,6 +39,15 @@ class Api::FeedsController < ApplicationController
     render :index
   end
 
+  def articles
+    @articles = Article
+      .where(feed_id: params[:id])
+      .order(:date)
+      .reverse_order
+      
+    render 'api/articles/index'
+  end
+
   private
 
   def feeds_params
