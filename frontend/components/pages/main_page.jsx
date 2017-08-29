@@ -20,7 +20,7 @@ class MainPage extends React.Component {
 // FIX THIS!!!! ALWAYS REDIRECT HERE ON REFRESH
     return(
       <div className='main-page main nav-open'>
-        <Route path="/my" component={TodayPageContainer} />
+        <TodayPageContainer />
       </div>
     );
 

@@ -5,7 +5,9 @@ import ArticleIndexItem from '../article/article_index_item';
 
 class FeedShow extends React.Component {
   componentDidMount() {
-    this.props.fetchArticlesByFeed(this.props.feed.id);
+    const feedId = parseInt(this.props.match.params.id);
+    this.props.fetchArticlesByFeed(feedId);
+    this.props.fetchFeed(feedId);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -16,6 +18,7 @@ class FeedShow extends React.Component {
 
   render() {
     const { feed } = this.props;
+    if (feed === undefined) {return null;}
 
     if(this.props.latestArticles === undefined) { return null; }
     const articles = this.props.latestArticles.map(articleId => {

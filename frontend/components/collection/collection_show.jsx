@@ -5,12 +5,13 @@ import ArticleIndexItem from '../article/article_index_item';
 
 class CollectionShow extends React.Component {
   componentDidMount() {
-    this.props.fetchArticlesByCollection(this.props.collection.id);
+    this.props.fetchCollection(this.props.match.params.title);
+    this.props.fetchArticlesByCollection(this.props.match.params.title);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.title !== nextProps.match.params.title) {
-      this.props.fetchArticlesByCollection(nextProps.collection.id);
+      this.props.fetchArticlesByCollection(nextProps.collection.title);
     }
   }
 

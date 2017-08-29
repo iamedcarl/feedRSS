@@ -13,9 +13,9 @@ export const fetchAllCollections = () => {
   };
 };
 
-export const fetchCollection = collectionId => {
+export const fetchCollection = collectionTitle => {
   return dispatch => {
-    return APIUtil.fetchCollection(collectionId)
+    return APIUtil.fetchCollection(collectionTitle)
         .then(collection => dispatch(receiveCollection(collection)),
           errors => dispatch(receiveErrors(errors.responseJSON)));
   };

@@ -15,6 +15,7 @@ const mapStateToProps = (state, { match }) => {
 const mapDispatchToProps = dispatch => {
   return({
     fetchArticlesByFeed: feedId => dispatch(fetchArticlesByFeed(feedId)),
+    fetchFeed: feedId => dispatch(fetchFeed(feedId)),
   });
 };
 

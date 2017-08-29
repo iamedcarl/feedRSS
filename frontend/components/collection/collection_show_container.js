@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAllCollections } from '../../actions/collection_actions';
+import { fetchCollection } from '../../actions/collection_actions';
 import { fetchArticlesByCollection } from '../../actions/article_actions';
 import { selectCollection } from '../../reducers/selectors';
 import CollectionShow from './collection_show';
@@ -15,7 +15,7 @@ const mapStateToProps = (state, { match }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAllCollections: () => dispatch(fetchAllCollections()),
+    fetchCollection: collectionTitle => dispatch(fetchCollection(collectionTitle)),
     fetchArticlesByCollection: feedId => dispatch(fetchArticlesByCollection(feedId)),
   };
 };

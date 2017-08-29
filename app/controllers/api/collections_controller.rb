@@ -6,7 +6,7 @@ class Api::CollectionsController < ApplicationController
   end
 
   def show
-    @collection = current_user.collections.find(params[:id])
+    @collection = current_user.collections.find_by(title: params[:id])
   end
 
   def create
@@ -40,9 +40,10 @@ class Api::CollectionsController < ApplicationController
   def articles
     @articles = Article
       .joins(:feed, :collection)
-      .where('collections.id = ?', params[:id])
+      .where('collections.title = ?', params[:id])
       .order(:date)
       .reverse_order
+      .limit(10)
 
     render 'api/articles/index'
   end

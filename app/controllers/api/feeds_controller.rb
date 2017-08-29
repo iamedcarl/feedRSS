@@ -33,17 +33,12 @@ class Api::FeedsController < ApplicationController
     end
   end
 
-  def destroy
-    feed = current_user.collections.feeds.find(params[:id])
-    feed.destroy
-    render :index
-  end
-
   def articles
     @articles = Article
       .where(feed_id: params[:id])
       .order(:date)
       .reverse_order
+      .limit(10)
 
     render 'api/articles/index'
   end

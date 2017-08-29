@@ -5,10 +5,10 @@ export const fetchAllCollections = () => {
   });
 };
 
-export const fetchCollection = (collectionId) => {
+export const fetchCollection = (collectionTitle) => {
   return $.ajax({
     method: 'GET',
-    url: `/api/collections/${collectionId}`,
+    url: `/api/collections/${collectionTitle}`,
   });
 };
 

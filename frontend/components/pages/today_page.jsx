@@ -32,7 +32,7 @@ class TodayPage extends React.Component {
               <div>
                 <h1>Today</h1>
                 <div className='today-sub'>
-                  The most popular articles in your FeedRSS
+                  The most recent articles in your FeedRSS
                 </div>
               </div>
               <button
