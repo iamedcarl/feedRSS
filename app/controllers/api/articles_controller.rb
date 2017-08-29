@@ -8,9 +8,9 @@ class Api::ArticlesController < ApplicationController
       .order(:date)
       .reverse_order
 
-    @articles.all.each do |article|
-      Feed.update_feed(article.feed_id)
-    end
+    # @articles.all.each do |article|
+    #   Feed.update_feed(article.feed_id)
+    # end
   end
 
   def show

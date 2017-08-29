@@ -6,12 +6,13 @@ import {
 
 const feedReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState;
+  let newState = {};
   switch(action.type) {
     case RECEIVE_ALL_FEEDS:
       return action.feeds;
     case RECEIVE_FEED:
-      return action.feed;
+      Object.assign(newState, state, { [action.feed.id]: action.feed });
+      return newState;
     case REMOVE_FEED:
       Object.assign(newState, state);
       delete newState[action.feed.id];

@@ -9,6 +9,20 @@
   }
 }
 
+.feed-show-header {
+  margin: 24px 12px 32px 12px;
+}
+
+.feed-show-header-title > h1 > a {
+  font-size: 26px;
+  width: 100%;
+  color: #333333;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
 .feed-content > a {
   width: 100%;
   color: #333333;
@@ -16,9 +30,10 @@
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 8px;
+  cursor: pointer;
 }
 
-.feed-content {
+.feed-content, .feed-show-desc {
   display: flex;
   flex-direction: column;
   margin-top: 8px;
@@ -34,6 +49,7 @@
 }
 
 #follow-button {
+  position: relative;
   margin-left: 8px;
   padding: 4px 7px 2px 7px;
   border: 1px solid rgb(43, 178, 76);

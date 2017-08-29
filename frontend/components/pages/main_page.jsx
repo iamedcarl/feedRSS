@@ -1,8 +1,7 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import TodayPageContainer from './today_page_container';
-import DiscoverPage from './discover_page';
 
 class MainPage extends React.Component {
   componentDidMount() {
@@ -17,13 +16,14 @@ class MainPage extends React.Component {
           <Redirect to="/discover" push />
         </div>
       );
-    } else {
-      return(
-        <div className='main-page main nav-open'>
-          <TodayPageContainer />
-        </div>
-      );
     }
+// FIX THIS!!!! ALWAYS REDIRECT HERE ON REFRESH
+    return(
+      <div className='main-page main nav-open'>
+        <Route path="/my" component={TodayPageContainer} />
+      </div>
+    );
+
   }
 
 } // end of MainPage

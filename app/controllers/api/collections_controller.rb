@@ -11,7 +11,11 @@ class Api::CollectionsController < ApplicationController
 
   def create
     @collection = current_user.collections.new(collection_params)
-    if @collection.save
+    feed_id = params[:collection][:feed_ids][0].to_i
+    if Collection.exists?(title: @collection.title)
+      render json: ['Collection already exists'], status: 422
+    elsif @collection.save
+      CollectedFeed.create(feed_id: feed_id, collection_id: @collection.id)
       render :show
     else
       render json: @collection.errors.full_messages, status: 422
@@ -33,9 +37,19 @@ class Api::CollectionsController < ApplicationController
     render :index
   end
 
+  def articles
+    @articles = Article
+      .joins(:feed, :collection)
+      .where('collections.id = ?', params[:id])
+      .order(:date)
+      .reverse_order
+
+    render 'api/articles/index'
+  end
+
   private
 
   def collection_params
-    params.require(:collection).permit(:title, :user_id)
+    params.require(:collection).permit(:title, :user_id, :feed_ids)
   end
 end

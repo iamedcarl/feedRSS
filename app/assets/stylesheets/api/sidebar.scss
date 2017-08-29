@@ -1,19 +1,19 @@
 .navbar-holder {
   line-height: 28px;
-    font-weight: normal;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
-    background: #2c3e50;
-    background-position: 14px 36px;
-    background-repeat: no-repeat;
-    background-size: 24px;
-    opacity: 1;
-    width: 268px;
-    user-select: none;
-transform: translateZ(0);
+  font-weight: normal;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  background: #2c3e50;
+  background-position: 14px 36px;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  opacity: 1;
+  width: 268px;
+  user-select: none;
+  transform: translateZ(0);
 }
 
 .nav-open {
@@ -46,19 +46,19 @@ transform: translateZ(0);
   a {
     color: rgba( 255, 255, 255, 0.85 );
     cursor: pointer;
-  text-align: left;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 180px;
-  overflow: hidden;
-  font-size: 13px;
-  text-decoration: none;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 180px;
+    overflow: hidden;
+    font-size: 13px;
+    text-decoration: none;
   }
 }
 
 .navbar-separator {
   margin-top: 40px;
-    text-transform: uppercase;
-    font-size: 11px;
-    color: rgba( 255, 255, 255, 0.9 );
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgba( 255, 255, 255, 0.9 );
 }

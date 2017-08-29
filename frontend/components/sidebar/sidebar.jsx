@@ -13,14 +13,19 @@ const NavBar = () => {
             <Link to='/my'>Today</Link>
           </div>
           <div className='navbar-link label'>
-            <Link to='/laters'>Read Later</Link>
+            <Link to='/later'>Read Later</Link>
+          </div>
+          <div className='navbar-link label'>
+            <Link to='/discover'>Discover</Link>
           </div>
         </div>
 
         <div className='navbar-separator'>
           Feeds
         </div>
-      <CollectionIndexContainer />
+        <div className='navbar-link label'>
+          <CollectionIndexContainer />
+        </div>
       </div>
     </div>
   );

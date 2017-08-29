@@ -31,9 +31,16 @@ def icon(url)
   "https://logo.clearbit.com/".concat(domain)
 end
 
+def domain(url)
+  /https*:\/\/(?:\w{3}.)(\w+.\w+)?\//.match(url).to_s
+end
+
 icon1 = icon(url1)
 icon2 = icon(url2)
 icon3 = icon(url3)
+domain1 = domain(url1)
+domain2 = domain(url2)
+domain3 = domain(url3)
 
 Collection.destroy_all
 
@@ -51,21 +58,24 @@ feed1 = Feed.create!(
   title: feed_nypost.title,
   description: feed_nypost.description,
   rss_url: url1,
-  icon_url: icon1
+  icon_url: icon1,
+  url: domain1
 )
 
 feed2 = Feed.create!(
   title: feed_theverge.title,
   description: feed_theverge.description,
   rss_url: url2,
-  icon_url: icon2
+  icon_url: icon2,
+  url: domain2
 )
 
 feed3 = Feed.create!(
   title: feed_nytimes.title,
   description: feed_nytimes.description,
   rss_url: url3,
-  icon_url: icon3
+  icon_url: icon3,
+  url: domain3
 )
 
 CollectedFeed.destroy_all

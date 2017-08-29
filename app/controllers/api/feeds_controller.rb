@@ -39,6 +39,15 @@ class Api::FeedsController < ApplicationController
     render :index
   end
 
+  def articles
+    @articles = Article
+      .where(feed_id: params[:id])
+      .order(:date)
+      .reverse_order
+
+    render 'api/articles/index'
+  end
+
   private
 
   def feeds_params
@@ -48,11 +57,13 @@ class Api::FeedsController < ApplicationController
   def create_feed(url)
     new_feed = Feedjira::Feed.fetch_and_parse(url)
     icon = feed.icon(url)
+    domain = feed.domain(url)
 
     @feed.title = new_feed.title
     @feed.description = feed.description
     @feed.icon_url = icon
     @entries = feed.entries
+    @feed.url = fomain
     nil
   end
 

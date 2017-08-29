@@ -1,0 +1,58 @@
+import React from 'react';
+import HeaderContainer from '../header/header_container';
+import SideBar from '../sidebar/sidebar';
+import ArticleIndexItem from '../article/article_index_item';
+
+class CollectionShow extends React.Component {
+  componentDidMount() {
+    this.props.fetchArticlesByCollection(this.props.collection.id);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.title !== nextProps.match.params.title) {
+      this.props.fetchArticlesByCollection(nextProps.collection.id);
+    }
+  }
+
+  render() {
+    if(this.props.collection === undefined) { return null; }
+    const { collection } = this.props;
+
+    if(this.props.latestArticles === undefined) { return null; }
+    const articles = this.props.latestArticles.map(articleId => {
+      return(
+        <ArticleIndexItem
+          key={articleId}
+          article={this.props.articles[articleId]}
+        />
+      );
+    });
+
+    return(
+      <div>
+        <header className='header-bar nav-open'>
+          <HeaderContainer />
+        </header>
+
+        <div className='sidebar'>
+          <SideBar />
+        </div>
+
+        <div className='collection-show main nav-open'>
+          <div className='container centered'>
+            <div className='collection-show-header'>
+              <div className='collection-show-header-title'>
+                <h1>{collection.title}</h1>
+              </div>
+            </div>
+            <div className='collection-show-stream'>
+              {articles}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default CollectionShow;
