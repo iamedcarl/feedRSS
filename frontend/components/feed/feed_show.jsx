@@ -8,6 +8,12 @@ class FeedShow extends React.Component {
     this.props.fetchArticlesByFeed(this.props.feed.id);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.id !== nextProps.match.params.id) {
+      this.props.fetchArticlesByFeed(nextProps.feed.id);
+    }
+  }
+
   render() {
     const { feed } = this.props;
 

@@ -1,14 +1,22 @@
 import React from 'react';
 import HeaderContainer from '../header/header_container';
 import SideBar from '../sidebar/sidebar';
+import ArticleIndexItem from '../article/article_index_item';
 
 class CollectionShow extends React.Component {
   componentDidMount() {
-    this.props.fetchArticlesByCollection(this.props.feed.id);
+    this.props.fetchArticlesByCollection(this.props.collection.id);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.title !== nextProps.match.params.title) {
+      this.props.fetchArticlesByCollection(nextProps.collection.id);
+    }
   }
 
   render() {
-    const { collection, feed } = this.props;
+    if(this.props.collection === undefined) { return null; }
+    const { collection } = this.props;
 
     if(this.props.latestArticles === undefined) { return null; }
     const articles = this.props.latestArticles.map(articleId => {
@@ -30,17 +38,14 @@ class CollectionShow extends React.Component {
           <SideBar />
         </div>
 
-        <div className='feed-show main nav-open'>
+        <div className='collection-show main nav-open'>
           <div className='container centered'>
-            <div className='feed-show-header'>
-              <div className='feed-show-header-title'>
+            <div className='collection-show-header'>
+              <div className='collection-show-header-title'>
                 <h1>{collection.title}</h1>
               </div>
-              <div className='feed-show-desc'>
-                {feed.description}
-              </div>
             </div>
-            <div className='feed-show-feed-box'>
+            <div className='collection-show-stream'>
               {articles}
             </div>
           </div>

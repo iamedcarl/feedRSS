@@ -37,6 +37,16 @@ class Api::CollectionsController < ApplicationController
     render :index
   end
 
+  def articles
+    @articles = Article
+      .joins(:feed, :collection)
+      .where('collections.id = ?', params[:id])
+      .order(:date)
+      .reverse_order
+
+    render 'api/articles/index'
+  end
+
   private
 
   def collection_params

@@ -17,6 +17,13 @@ export const selectFeed = ({ feeds }, id) => {
   return feed;
 };
 
-export const selectFeedsInCollection = state => {
-  
+export const selectCollection = (state, title) => {
+  let selectedCollection;
+  let collections = values(state.collections);
+  collections.forEach(collection => {
+    if(collection.title === title) {
+      selectedCollection = collection;
+    }
+  });
+  return selectedCollection;
 };

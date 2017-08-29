@@ -1,25 +1,24 @@
 import { connect } from 'react-redux';
-import { fetchCollection } from '../../actions/collection_actions';
-import { fetchArticlesByFeed } from '../../actions/article_actions';
-import { selectFeedsInCollection } from '../../reducers/selectors';
+import { fetchAllCollections } from '../../actions/collection_actions';
+import { fetchArticlesByCollection } from '../../actions/article_actions';
+import { selectCollection } from '../../reducers/selectors';
 import CollectionShow from './collection_show';
 
 const mapStateToProps = (state, { match }) => {
-  const feedId = parseInt(match.params.id);
+  const collectionTitle = match.params.title;
   return({
-    feed: state.feeds[feedId],
+    collection: selectCollection(state, collectionTitle),
     articles: state.articles,
     latestArticles: state.articles.latest_articles,
-    collection: state.collection,
   });
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCollection: () => dispatch(fetchCollection()),
-    fetchArticlesByFeed: feedId => dispatch(fetchArticlesByFeed(feedId)),
+    fetchAllCollections: () => dispatch(fetchAllCollections()),
+    fetchArticlesByCollection: feedId => dispatch(fetchArticlesByCollection(feedId)),
   };
 };
 
 
-export default connect(maptStateToProps, mapDispatchToProps)(CollectionShow);
+export default connect(mapStateToProps, mapDispatchToProps)(CollectionShow);

@@ -27,6 +27,15 @@ export const fetchArticlesByFeed = feedId => {
       errors => dispatch(receiveErrors(errors.responseJSON)));
   };
 };
+
+export const fetchArticlesByCollection = collectionId => {
+  return dispatch => {
+    return APIUtil.fetchArticlesByCollection(collectionId)
+      .then(articles => dispatch(receiveAllArticles(articles)),
+      errors => dispatch(receiveErrors(errors.responseJSON)));
+  };
+};
+
 export const receiveAllArticles = articles => {
   return {
     type: RECEIVE_ALL_ARTICLES,
