@@ -25,25 +25,12 @@ user2 = User.create(
 url1 = "http://nypost.com/feed/"
 url2 = "https://www.theverge.com/rss/index.xml"
 url3 = "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-url4 = "http://www.businessinsider.com/clusterstock/contributor.rss"
+url4 = "http://feeds.feedburner.com/TechCrunch/"
 
 def icon(url)
-  domain = /https*:\/\/(?:\w{3}.)(\w+.\w+)?\//.match(url).to_s
+  domain = /(https*:\/\/.+?\/)|(https*:\/\/.+)/.match(url).to_s
   "https://logo.clearbit.com/".concat(domain)
 end
-
-def domain(url)
-  /https*:\/\/(?:\w{3}.)(\w+.\w+)?\//.match(url).to_s
-end
-
-icon1 = icon(url1)
-icon2 = icon(url2)
-icon3 = icon(url3)
-icon4 = icon(url4)
-domain1 = domain(url1)
-domain2 = domain(url2)
-domain3 = domain(url3)
-domain4 = domain(url4)
 
 Collection.destroy_all
 
@@ -54,7 +41,7 @@ news2 = Collection.create!(title: "News", user_id: user2.id)
 feed_nypost = Feedjira::Feed.fetch_and_parse(url1)
 feed_theverge = Feedjira::Feed.fetch_and_parse(url2)
 feed_nytimes = Feedjira::Feed.fetch_and_parse(url3)
-feed_bi = Feedjira::Feed.fetch_and_parse(url4)
+feed_techcrunch = Feedjira::Feed.fetch_and_parse(url4)
 
 Feed.destroy_all
 
@@ -62,32 +49,32 @@ feed1 = Feed.create!(
   title: feed_nypost.title,
   description: feed_nypost.description,
   rss_url: url1,
-  icon_url: icon1,
-  url: domain1
+  icon_url: icon(feed_nypost.url),
+  url: feed_nypost.url
 )
 
 feed2 = Feed.create!(
   title: feed_theverge.title,
   description: feed_theverge.description,
   rss_url: url2,
-  icon_url: icon2,
-  url: domain2
+  icon_url: icon(feed_theverge.url),
+  url: feed_theverge.url
 )
 
 feed3 = Feed.create!(
   title: feed_nytimes.title,
   description: feed_nytimes.description,
   rss_url: url3,
-  icon_url: icon3,
-  url: domain3
+  icon_url: icon(feed_nytimes.url),
+  url: feed_nytimes.url
 )
 
 feed4 = Feed.create!(
-  title: feed_bi.title,
-  description: feed_bi.description,
+  title: feed_techcrunch.title,
+  description: feed_techcrunch.description,
   rss_url: url4,
-  icon_url: icon4,
-  url: domain4
+  icon_url: icon(feed_techcrunch.url),
+  url: feed_techcrunch.url
 )
 
 CollectedFeed.destroy_all
@@ -103,4 +90,4 @@ Article.destroy_all
 Article.create_articles(feed_nypost.entries, feed1)
 Article.create_articles(feed_theverge.entries, feed2)
 Article.create_articles(feed_nytimes.entries, feed3)
-Article.create_articles(feed_bi.entries, feed3)
+Article.create_articles(feed_techcrunch.entries, feed4)

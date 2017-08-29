@@ -34,11 +34,8 @@ class Feed < ApplicationRecord
   end
 
   def icon(url)
-    domain = /https*:\/\/(?:\w{3}.)(\w+.\w+)?\//.match(url).to_s
+    domain = /(https*:\/\/.+?\/)|(https*:\/\/.+)/.match(url).to_s
     "https://logo.clearbit.com/".concat(domain)
   end
 
-  def domain(url)
-    /https*:\/\/(?:\w{3}.)(\w+.\w+)?\//.match(url).to_s
-  end
 end
