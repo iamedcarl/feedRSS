@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import Moment from 'react-moment';
@@ -17,10 +16,10 @@ const ArticleIndexItem = ({article}) => {
     <div className='article-index-item'>
 
       <div className={hidden}>
-        <img src={image_url} height="200px" width="200px"/>
+        <img src={image_url} />
       </div>
       <div className='article-content'>
-        <a href={url}>{title}</a>
+        <a href={url} target='_blank'>{title}</a>
         <div className='article-date'>
           <Moment fromNow>{date}</Moment>
         </div>

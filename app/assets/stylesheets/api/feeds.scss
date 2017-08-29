@@ -1,3 +1,55 @@
-// Place all the styles related to the api/feeds controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.feed-index-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-left: 12px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.feed-content > a {
+  width: 100%;
+  color: #333333;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.feed-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  color: #9e9e9e;
+  max-height: 54px;
+  overflow: hidden;
+}
+
+.feed-img > img {
+  margin-right: 20px;
+  height: 60px;
+  width: 60px;
+}
+
+#follow-button {
+  margin-left: 8px;
+  padding: 4px 7px 2px 7px;
+  border: 1px solid rgb(43, 178, 76);
+  border-radius: 3px;
+  color: rgb(43, 178, 76);
+  font-size: 11px;
+  font-weight: bold;
+  min-width: 84px;
+  height: 24px;
+  line-height: 16px;
+  text-transform: uppercase;
+  background-color: white;
+  cursor: pointer;
+}
+
+#follow-button:hover {
+  color: rgb(31, 126, 54);
+  border: 1px solid rgb(31, 126, 54);
+}

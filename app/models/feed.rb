@@ -32,9 +32,9 @@ class Feed < ApplicationRecord
     Article.create_articles(feed_data.entries, feed)
   end
 
-  def favicon(url)
-    domain = /https*:\/\/(?:\w{3}.)*(\w+.\w+)\//.match(url).captures.first
-    "https://www.google.com/s2/favicons?domain=".concat(domain)
+  def icon(url)
+    domain = /https*:\/\/(?:\w{3}.)(\w+.\w+)?\//.match(url).to_s
+    "https://logo.clearbit.com/".concat(domain)
   end
 
 end

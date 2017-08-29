@@ -2,21 +2,29 @@ class Api::FeedsController < ApplicationController
   before_action :require_user!
 
   def index
-    @feeds = Feed
-      .joins(:collections)
-      .where('collections.user_id = ?', current_user.id)
+    # @feeds = Feed
+    #   .joins(:collections)
+    #   .where('collections.user_id = ?', current_user.id)
+    #
+    @feeds = Feed.all.each do |feed|
+      Feed.update_feed(feed.id)
+    end
   end
 
   def show
     @feed = Feed.find(params[:id])
+    Feed.update_feed(@feed.id)
   end
 
   def create
-    @feed = current_user.collections.feeds.new(feeds_params)
+    @feed = Feed
+      .joins(:collections)
+      .where('collections.user_id = ?', current_user.id)
+      .new(feeds_params)
     create_feed(@feed.rss_url)
 
-    if Feed.exists?(title: @feed.title)
-
+    if Feed.exists?(rss_url: @feed.rss_url)
+      Feed.find_by(rss_url: @feed.rss_url)
     else
       @feed.save
       current_user.collections.articles.create_articles(@entries, @feed)
@@ -39,11 +47,11 @@ class Api::FeedsController < ApplicationController
 
   def create_feed(url)
     new_feed = Feedjira::Feed.fetch_and_parse(url)
-    favicon = feed.favicon(url)
+    icon = feed.icon(url)
 
     @feed.title = new_feed.title
     @feed.description = feed.description
-    @feed.icon_url = favicon
+    @feed.icon_url = icon
     @entries = feed.entries
     nil
   end

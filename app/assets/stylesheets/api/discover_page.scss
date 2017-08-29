@@ -1,0 +1,28 @@
+.discover-header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 36px;
+  margin-bottom: 48px;
+  i{
+    color: #d7694c;
+    font-size: 34px;
+    padding: 0px 12px 0px 12px;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: bold;
+  }
+}
+
+.discover-header-title {
+  display: flex;
+}
+
+.discover-sub {
+  padding: 0px 12px 0px 12px;
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 8px;
+  letter-spacing: 1px;
+  color: #757575;
+}

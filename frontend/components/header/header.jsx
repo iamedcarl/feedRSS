@@ -17,7 +17,9 @@ class Header extends React.Component {
     return(
       <div className='header-logged-in container'>
         <h1><Link to="/">feedRSS</Link></h1>
-        <button onClick={this.handleClickLogout}>Logout</button>
+        <button id='logout-button' onClick={this.handleClickLogout}>
+          Logout
+        </button>
       </div>
     );
   }

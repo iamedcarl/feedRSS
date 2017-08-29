@@ -35,7 +35,11 @@
   font-weight: bold;
 }
 
-.header-login-link > a {
+#logout-button {
+  height: 32px;
+}
+
+.header-login-link > a, #logout-button {
   display: flex;
   text-decoration: none;
   text-transform: uppercase;
@@ -47,8 +51,9 @@
   margin-left: 8px;
   margin-right: 8px;
   padding: 2px 17px 2px 17px;
+  cursor: pointer;
 }
 
-.header-login-link > a:hover {
+.header-login-link > a:hover, #logout-button:hover {
   border: 1px solid grey;
 }
