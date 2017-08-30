@@ -75,6 +75,20 @@ img#navbar-feed-icon {
   margin: 6px 6px 6px 0px;
 }
 
-.collected-feed {
+.navbar-feed, .navbar-item {
   display: flex;
+}
+
+i.fa.fa-angle-down {
+  margin-right: 6px;
+  font-size: 26px;
+}
+
+.fa-calendar-o, .fa-bookmark-o, .fa-search {
+  margin-right: 6px;
+  font-size: 13px;
+}
+
+.collected-feed-list {
+    padding-left: 24px;
 }
