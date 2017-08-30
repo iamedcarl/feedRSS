@@ -5,11 +5,12 @@ import {
   createCollection
 } from '../../actions/collection_actions';
 
+import { selectAllCollections } from '../../reducers/selectors';
 import CollectionForm from './collection_form';
 
 const mapStateToProps = state => {
   return({
-    collections: state.collections,
+    collections: selectAllCollections(state),
     errors: state.errors,
   });
 };
