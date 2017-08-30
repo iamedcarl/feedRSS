@@ -22,7 +22,7 @@ class FeedIndexItem extends React.Component {
           </div>
         </div>
 
-      <FollowButton feedId={id}/>
+      <FollowButton followed={this.props.followed} feedId={id}/>
 
       </div>
     );

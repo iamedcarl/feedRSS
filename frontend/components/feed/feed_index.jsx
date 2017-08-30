@@ -4,6 +4,15 @@ import FeedIndexItem from './feed_index_item';
 class FeedIndex extends React.Component {
   componentDidMount() {
     this.props.fetchAllFeeds();
+    this.props.fetchAllCollections();
+  }
+
+  userFollowed(feedId) {
+    let followed = false;
+    this.props.feedIds.forEach(collectionFeedId => {
+      if(collectionFeedId === feedId) { followed = true; }
+    });
+    return followed;
   }
 
   render() {
@@ -13,6 +22,7 @@ class FeedIndex extends React.Component {
       return(
         <FeedIndexItem
           key={feed.id}
+          followed={this.userFollowed(feed.id)}
           feed={feed}
         />
       );

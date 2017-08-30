@@ -5,7 +5,9 @@ import CollectionFormContainer from '../collection/collection_form_container';
 class FollowButton extends React.Component {
   constructor(props){
     super(props);
-    this.state = { show: false };
+    this.state = {
+      show: false,
+    };
     this.handleOnClick = this.handleOnClick.bind(this);
     this.togglePopover = this.togglePopover.bind(this);
   }
@@ -18,8 +20,17 @@ class FollowButton extends React.Component {
     this.setState({ show: !this.state.show });
   }
 
-  render() {
-    debugger
+  followingButton() {
+    return(
+      <ButtonToolbar id='button-toolbar'>
+        <Button id='following-button'>
+          <span>Following</span>
+        </Button>
+      </ButtonToolbar>
+    );
+  }
+
+  followButton() {
     return(
       <ButtonToolbar id='button-toolbar'>
         <Button id='follow-button' onClick={this.handleOnClick}>
@@ -42,6 +53,22 @@ class FollowButton extends React.Component {
           </Popover>
         </Overlay>
       </ButtonToolbar>
+    );
+  }
+
+  checkButton() {
+    if (this.props.followed) {
+      return(<div>{this.followingButton()}</div>);
+    } else {
+      return(<div>{this.followButton()}</div>);
+    }
+  }
+
+  render() {
+    return(
+      <div>
+        {this.checkButton()}
+      </div>
     );
   }
 }
