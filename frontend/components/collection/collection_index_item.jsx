@@ -6,9 +6,11 @@ const CollectionIndexItem = ({collection}) => {
 
   return(
     <div className='collection-index-item'>
-      <li>
-        <Link to={`/collections/${title}`}>{title}</Link>
-      </li>
+        <Link className='navbar-link' to={`/collections/${title}`}>
+          <div className='label nav-highlight'>
+            {title}
+          </div>
+        </Link>
     </div>
   );
 };

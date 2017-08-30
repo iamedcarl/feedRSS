@@ -9,23 +9,27 @@ const NavBar = () => {
       <div className='navbar'>
         <div className='navbar-top-spacer'></div>
         <div className='navbar-tabs'>
-          <div className='navbar-link label'>
-            <Link to='/my'>Today</Link>
-          </div>
-          <div className='navbar-link label'>
-            <Link to='/later'>Read Later</Link>
-          </div>
-          <div className='navbar-link label'>
-            <Link to='/discover'>Discover</Link>
-          </div>
+          <Link className='navbar-link' to='/my'>
+            <div className='label nav-highlight'>
+              Today
+            </div>
+          </Link>
+          <Link className='navbar-link' to='/later'>
+            <div className='label nav-highlight'>
+              Read Later
+            </div>
+          </Link>
+          <Link className='navbar-link' to='/discover'>
+            <div className='label nav-highlight'>
+              Discover
+            </div>
+          </Link>
         </div>
 
         <div className='navbar-separator'>
           Feeds
         </div>
-        <div className='navbar-link label'>
-          <CollectionIndexContainer />
-        </div>
+        <CollectionIndexContainer />
       </div>
     </div>
   );

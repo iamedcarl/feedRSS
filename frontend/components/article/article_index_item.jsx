@@ -14,19 +14,20 @@ const ArticleIndexItem = ({article}) => {
 
   return(
     <div className='article-index-item'>
-
-      <div className={hidden}>
-        <img src={image_url} />
-      </div>
-      <div className='article-content'>
-        <a href={url} target='_blank'>{title}</a>
-        <div className='article-date'>
-          <Moment fromNow>{date}</Moment>
+      <a href={url} target='_blank'>
+        <div className={hidden}>
+          <img src={image_url} />
         </div>
-        <div className='article-summary'>
-          { ReactHtmlParser(content) }
+        <div className='article-content'>
+          <h1>{title}</h1>
+          <div className='article-date'>
+            <Moment fromNow>{date}</Moment>
+          </div>
+          <div className='article-summary'>
+            { ReactHtmlParser(content) }
+          </div>
         </div>
-      </div>
+      </a>
     </div>
   );
 };
