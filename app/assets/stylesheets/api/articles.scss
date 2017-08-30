@@ -3,7 +3,7 @@
   margin-bottom: 8px;
   padding: 12px;
   border-radius: 3px;
-  border-left: 1px solid white;
+  border-left: 3px solid white;
   img {
     width: 100%;
     height: 100%;
@@ -24,7 +24,17 @@
 }
 
 .article-index-item:hover {
-  border-left: 1px solid #dddddd;
+  border-left: 3px solid #9e9e9e;
+}
+
+.article-viewed {
+  border-left: 3px solid #9e9e9e;
+  a, h1 {
+    color: #9e9e9e;
+  }
+  img {
+    opacity: 0.5;
+  }
 }
 
 .article-content {

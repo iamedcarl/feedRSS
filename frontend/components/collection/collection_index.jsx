@@ -3,7 +3,8 @@ import CollectionIndexItem from './collection_index_item';
 
 class CollectionIndex extends React.Component {
   componentDidMount() {
-    this.props.fetchAllCollections();
+    this.props.fetchAllFeeds()
+      .then(() => this.props.fetchAllCollections());
   }
 
   render() {
@@ -14,6 +15,7 @@ class CollectionIndex extends React.Component {
         <CollectionIndexItem
           key={collection.id}
           collection={collection}
+          feeds={this.props.feeds}
         />
       );
     });
