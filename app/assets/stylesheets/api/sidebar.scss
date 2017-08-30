@@ -68,3 +68,27 @@
   font-size: 11px;
   color: rgba( 255, 255, 255, 0.9 );
 }
+
+img#navbar-feed-icon {
+  width: 16px;
+  height: 16px;
+  margin: 6px 6px 6px 0px;
+}
+
+.navbar-feed, .navbar-item {
+  display: flex;
+}
+
+i.fa.fa-angle-down {
+  margin-right: 6px;
+  font-size: 26px;
+}
+
+.fa-calendar-o, .fa-bookmark-o, .fa-search {
+  margin-right: 6px;
+  font-size: 13px;
+}
+
+.collected-feed-list {
+    padding-left: 24px;
+}

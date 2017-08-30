@@ -27,3 +27,11 @@ export const selectCollection = (state, title) => {
   });
   return selectedCollection;
 };
+
+export const allCollectionFeedIds = state => {
+  let feedIds = [];
+  selectAllCollections(state).forEach(collection => {
+    feedIds = feedIds.concat(collection.feed_ids);
+  });
+  return feedIds;
+};

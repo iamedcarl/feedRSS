@@ -11,16 +11,19 @@ const NavBar = () => {
         <div className='navbar-tabs'>
           <Link className='navbar-link' to='/my'>
             <div className='label nav-highlight'>
+              <i className="fa fa-calendar-o" aria-hidden="true"></i>
               Today
             </div>
           </Link>
           <Link className='navbar-link' to='/later'>
             <div className='label nav-highlight'>
+              <i className="fa fa-bookmark-o" aria-hidden="true"></i>
               Read Later
             </div>
           </Link>
           <Link className='navbar-link' to='/discover'>
             <div className='label nav-highlight'>
+              <i className="fa fa-search" aria-hidden="true"></i>
               Discover
             </div>
           </Link>

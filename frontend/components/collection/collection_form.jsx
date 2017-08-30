@@ -26,9 +26,26 @@ class CollectionForm extends React.Component {
     return e => this.setState({ [property]: e.target.value });
   }
 
+  componentDidMount() {
+    this.props.fetchAllCollections();
+  }
+
   render() {
+    const collections = this.props.collections.map(collection => {
+      return(
+        <div className='menu-collection-item'>
+          <i className="fa fa-rss" aria-hidden="true"></i>
+          <span>{collection.title}</span>
+          <button>+ Add</button>
+        </div>
+      );
+    });
+
     return(
       <div className='collection-form'>
+        <div className='collection-menu'>
+          {collections}
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label>Collection name</label>
           <input
