@@ -19,6 +19,7 @@ class FollowButton extends React.Component {
   }
 
   render() {
+    const props = {positionLeft: -37, positionTop: 27, placement: 'bottom'};
     return(
       <ButtonToolbar id='button-toolbar'>
         <Button id='follow-button' onClick={this.handleOnClick}>
@@ -34,7 +35,10 @@ class FollowButton extends React.Component {
           containerPadding={20}
           rootClose={true}
         >
-          <Popover id="popover">
+          <Popover
+            id="popover"
+            {...props}
+          >
             <CollectionFormContainer feedId={this.props.feedId}/>
           </Popover>
         </Overlay>
