@@ -2,12 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CollectionIndexItem = ({collection, feeds}) => {
-  const { title, feed_ids } = collection;
-
-  const collectedFeeds = feed_ids.map(feedId => {
+  const collectedFeeds = collection.feed_ids.map(feedId => {
     let currentFeed = feeds[feedId];
+    if(currentFeed === undefined){ return null; }
     return(
-      <div className='collected-feed-list nav-highlight'>
+      <div key={feedId} className='collected-feed-list nav-highlight'>
         <Link className='navbar-link' to={`/feeds/${currentFeed.id}`}>
           <div className='navbar-feed label'>
               <img id='navbar-feed-icon' src={currentFeed.icon_url} />
@@ -20,10 +19,10 @@ const CollectionIndexItem = ({collection, feeds}) => {
 
   return(
     <div className='collection-index-item'>
-        <Link className='navbar-link' to={`/collections/${title}`}>
+        <Link className='navbar-link' to={`/collections/${collection.title}`}>
           <div className='navbar-item label nav-highlight'>
             <i className="fa fa-angle-down" aria-hidden="true"></i>
-            <div className='title'>{title}</div>
+            <div className='title'>{collection.title}</div>
           </div>
         </Link>
         {collectedFeeds}
