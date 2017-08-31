@@ -60,3 +60,23 @@
 .article-date {
   color: #9e9e9e;
 }
+
+.article-show {
+  position: absolute;
+  right: -1000px;
+  width: 1000px;
+  height: 1000px;
+  background: blue;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 2s;
+}
+
+@-webkit-keyframes slide {
+    100% { right: 0; }
+}
+
+@keyframes slide {
+    100% { right: 0; }
+}

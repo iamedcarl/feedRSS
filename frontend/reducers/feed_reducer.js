@@ -10,6 +10,7 @@ const feedReducer = (state = {}, action) => {
     case RECEIVE_ALL_FEEDS:
       return action.feeds;
     case RECEIVE_FEED:
+    debugger
       Object.assign(newState, state, { [action.feed.id]: action.feed });
       return newState;
     default:

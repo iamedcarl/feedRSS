@@ -27,6 +27,7 @@ class FeedIndexItem extends React.Component {
         feedId={id}
         feed={this.props.feed}
         collectionIds={this.props.collectionIds}
+        collections={this.props.collections}
       />
 
       </div>

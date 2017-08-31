@@ -13,9 +13,6 @@ import ReadLaterContainer from './pages/read_later_container';
 const App = () => {
   return(
     <div className='app'>
-      <AuthRoute path="/login" component={AuthModal} />
-      <AuthRoute path="/signup" component={AuthModal} />
-      <AuthRoute path="/" component={LandingPage} />
       <Switch>
         <ProtectedRoute path="/articles/:id" component={ArticleShowContainer} />
         <ProtectedRoute path="/feeds/:id" component={FeedShowContainer} />
@@ -23,6 +20,9 @@ const App = () => {
         <ProtectedRoute path="/discover" component={DiscoverPage} />
         <ProtectedRoute path="/readlater" component={ReadLaterContainer} />
         <ProtectedRoute path="/my" component={MainPageContainer} />
+        <AuthRoute path="/login" component={AuthModal} />
+        <AuthRoute path="/signup" component={AuthModal} />
+        <AuthRoute path="/" component={LandingPage} />
       </Switch>
     </div>
   );
