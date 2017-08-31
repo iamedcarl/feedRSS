@@ -15,7 +15,7 @@ const NavBar = () => {
               Today
             </div>
           </Link>
-          <Link className='navbar-link' to='/later'>
+          <Link className='navbar-link' to='/readlater'>
             <div className='label nav-highlight'>
               <i className="fa fa-bookmark-o" aria-hidden="true"></i>
               Read Later

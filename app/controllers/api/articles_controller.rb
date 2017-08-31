@@ -37,8 +37,6 @@ class Api::ArticlesController < ApplicationController
       :date,
       :url,
       :image_url,
-      :viewed,
-      :saved,
       :user_id,
       :feed_id
     )

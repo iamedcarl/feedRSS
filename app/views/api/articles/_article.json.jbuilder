@@ -7,6 +7,5 @@ json.extract! article,
               :date,
               :url,
               :image_url,
-              :viewed,
-              :saved,
-              :feed_id
+              :feed_id,
+              :user_ids

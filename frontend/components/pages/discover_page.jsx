@@ -1,6 +1,4 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import FeedIndexContainer from '../feed/feed_index_container';
 import HeaderContainer from '../header/header_container';
 import SideBar from '../sidebar/sidebar';

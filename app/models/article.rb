@@ -3,24 +3,20 @@
 # Table name: articles
 #
 #  id         :integer          not null, primary key
-#  entry_id   :string           not null
 #  title      :string           not null
-#  author     :string
-#  date       :datetime         not null
-#  image_url  :string
 #  content    :text
+#  date       :datetime         not null
 #  url        :string           not null
-#  viewed     :boolean          default(FALSE), not null
-#  saved      :boolean          default(FALSE), not null
+#  image_url  :string
 #  feed_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  author     :string
+#  entry_id   :string           not null
 #
 
 class Article < ApplicationRecord
   validates :entry_id, :title, :date, :url, presence: true
-  validates :viewed, inclusion: { in: [true, false] }
-  validates :saved, inclusion: { in: [true, false] }
   validates :feed_id, presence: true
 
   belongs_to :feed, inverse_of: :articles
@@ -42,10 +38,8 @@ class Article < ApplicationRecord
         entry_id: entry.entry_id,
         feed_id: feed.id,
         image_url: img,
-        saved: false,
         title: entry.title,
         url: entry.url,
-        viewed: false
       )
     end
   end

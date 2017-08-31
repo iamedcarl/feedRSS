@@ -18,8 +18,8 @@ class CollectionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createCollection(this.state)
-      .then(collection => {
-        this.props.history.push(`/feeds/${this.props.feedId}`);
+      .then(data => {
+        this.props.history.push(`/collections/${data.collection.title}`);
       });
   }
 
@@ -30,8 +30,8 @@ class CollectionForm extends React.Component {
   addToCollection(e) {
     this.setState({ title: e.target.value }, () => {
       this.props.updateCollection(this.state)
-        .then(collection => {
-          this.props.history.push(`/feeds/${this.props.feedId}`);
+        .then(data => {
+          this.props.history.push(`/discover`);
         });
     });
   }

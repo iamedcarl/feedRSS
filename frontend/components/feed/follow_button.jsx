@@ -36,7 +36,8 @@ class FollowButton extends React.Component {
     });
     this.setState({ collection_ids: updated }, () => {
       this.props.updateFeed(this.state)
-        .then(() => this.props.history.push(`/discover`));
+        .then(data => {
+          this.props.history.push(`/discover`);});
     });
   }
 
