@@ -2,6 +2,7 @@ import * as APIUtil from '../util/session_api_util';
 import { receiveErrors } from './error_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const LOGOUT = 'LOGOUT';
 
 export const signup = user => {
   return dispatch => {
@@ -22,7 +23,7 @@ export const login = user => {
 export const logout = () => {
   return dispatch => {
     return APIUtil.logout()
-      .then(() => dispatch(receiveCurrentUser(resetUser)),
+      .then(() => dispatch(logoutUser()),
         errors => dispatch(receiveErrors(errors.responseJSON)));
   };
 };
@@ -42,9 +43,8 @@ export const receiveCurrentUser = user => {
   });
 };
 
-const resetUser = {
-  username: '',
-  fname: '',
-  lname: '',
-  img_url: '',
+export const logoutUser = () => {
+  return({
+    type: LOGOUT,
+  });
 };

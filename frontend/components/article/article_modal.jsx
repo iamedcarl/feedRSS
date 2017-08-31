@@ -40,7 +40,6 @@ class ArticleModal extends React.Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
-    debugger
     this.props.history.push(`/my`);
   }
 

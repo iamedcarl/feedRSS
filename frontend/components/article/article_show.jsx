@@ -24,9 +24,11 @@ class ArticleShow extends React.Component {
         <div className='article-show-content'>
           { ReactHtmlParser(article.content) }
         </div>
-        <div className='article-show-url'>
-          <a href={article.url} target='_blank'> Visit Website</a>
-        </div>
+        <a id='article-url' href={article.url} target='_blank'>
+          <div className='article-show-url'>
+            Visit Website
+          </div>
+        </a>
       </div>
     );
   }

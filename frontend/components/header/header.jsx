@@ -10,7 +10,6 @@ class Header extends React.Component {
 
   handleClickLogout(e) {
     this.props.logout();
-    this.props.history.push(`/`);
   }
 
   renderLoggedIn() {
