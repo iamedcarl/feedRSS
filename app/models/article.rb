@@ -34,7 +34,7 @@ class Article < ApplicationRecord
       Article.create!(
         author: entry.author,
         content: entry.content || entry.summary,
-        date: entry.published,
+        date: entry.published || DateTime.now,
         entry_id: entry.entry_id,
         feed_id: feed.id,
         image_url: img,

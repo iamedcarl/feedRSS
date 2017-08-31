@@ -6,9 +6,10 @@ class Api::FeedsController < ApplicationController
     #   .joins(:collections)
     #   .where('collections.user_id = ?', current_user.id)
     #
-    @feeds = Feed.all.each do |feed|
-      Feed.update_feed(feed.id)
-    end
+    # @feeds = Feed.all.order(:title).each do |feed|
+    #   Feed.update_feed(feed.id)
+    # end
+    @feeds = Feed.all.order(:title)
   end
 
   def show
@@ -65,10 +66,10 @@ class Api::FeedsController < ApplicationController
     domain = feed.domain(url)
 
     @feed.title = new_feed.title
-    @feed.description = feed.description
+    @feed.description = new_feed.description
     @feed.icon_url = icon
-    @entries = feed.entries
-    @feed.url = fomain
+    @entries = new_feed.entries
+    @feed.url = domain
     nil
   end
 

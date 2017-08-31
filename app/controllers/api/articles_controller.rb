@@ -9,9 +9,9 @@ class Api::ArticlesController < ApplicationController
       .reverse_order
       .limit(20)
 
-    @articles.all.each do |article|
-      Feed.update_feed(article.feed_id)
-    end
+    # @articles.all.each do |article|
+    #   Feed.update_feed(article.feed_id)
+    # end
   end
 
   def show

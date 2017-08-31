@@ -22,10 +22,25 @@ user2 = User.create(
             lname: "Account",
 )
 
-url1 = "http://nypost.com/feed/"
-url2 = "https://www.theverge.com/rss/index.xml"
-url3 = "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-url4 = "http://feeds.feedburner.com/TechCrunch/"
+feeds = [
+  "http://hosted.ap.org/lineups/USHEADS-rss_2.0.xml?SITE=SCAND&SECTION=HOME",
+  "http://hosted.ap.org/lineups/SPORTSHEADS-rss_2.0.xml?SITE=VABRM&SECTION=HOME",
+  "http://feeds.washingtonpost.com/rss/politics",
+  "http://feeds.washingtonpost.com/rss/world",
+  "http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml?edition=int",
+  "http://rss.cnn.com/rss/cnn_topstories.rss",
+  "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+  "http://nypost.com/feed/",
+  "http://feeds.gothamistllc.com/gothamist05",
+  "https://www.theverge.com/rss/index.xml",
+  "http://feeds.feedburner.com/TechCrunch/",
+  "https://www.wired.com/feed",
+  "http://www.espn.com/espn/rss/news",
+  "https://www.si.com/rss/si_topstories.rss",
+  "https://ny.eater.com/2014/12/22/7433785/rss/index.xml"
+  # "http://www.npr.org/rss/rss.php?id=1001",
+  # "https://www.nasa.gov/rss/dyn/image_of_the_day.rss",
+]
 
 def icon(url)
   domain = /(https*:\/\/.+?\/)|(https*:\/\/.+)/.match(url).to_s
@@ -33,61 +48,24 @@ def icon(url)
 end
 
 Collection.destroy_all
-
-news1 = Collection.create!(title: "News", user_id: user1.id)
-tech = Collection.create!(title: "Tech", user_id: user1.id)
-news2 = Collection.create!(title: "News", user_id: user2.id)
-
-feed_nypost = Feedjira::Feed.fetch_and_parse(url1)
-feed_theverge = Feedjira::Feed.fetch_and_parse(url2)
-feed_nytimes = Feedjira::Feed.fetch_and_parse(url3)
-feed_techcrunch = Feedjira::Feed.fetch_and_parse(url4)
-
 Feed.destroy_all
-
-feed1 = Feed.create!(
-  title: feed_nypost.title,
-  description: feed_nypost.description,
-  rss_url: url1,
-  icon_url: icon(feed_nypost.url),
-  url: feed_nypost.url
-)
-
-feed2 = Feed.create!(
-  title: feed_theverge.title,
-  description: feed_theverge.description,
-  rss_url: url2,
-  icon_url: icon(feed_theverge.url),
-  url: feed_theverge.url
-)
-
-feed3 = Feed.create!(
-  title: feed_nytimes.title,
-  description: feed_nytimes.description,
-  rss_url: url3,
-  icon_url: icon(feed_nytimes.url),
-  url: feed_nytimes.url
-)
-
-feed4 = Feed.create!(
-  title: feed_techcrunch.title,
-  description: feed_techcrunch.description,
-  rss_url: url4,
-  icon_url: icon(feed_techcrunch.url),
-  url: feed_techcrunch.url
-)
-
 CollectedFeed.destroy_all
-
-CollectedFeed.create!(collection_id: news1.id, feed_id: feed1.id)
-CollectedFeed.create!(collection_id: tech.id, feed_id: feed2.id)
-CollectedFeed.create!(collection_id: news1.id, feed_id: feed3.id)
-CollectedFeed.create!(collection_id: news2.id, feed_id: feed1.id)
-CollectedFeed.create!(collection_id: news2.id, feed_id: feed3.id)
-
 Article.destroy_all
 
-Article.create_articles(feed_nypost.entries, feed1)
-Article.create_articles(feed_theverge.entries, feed2)
-Article.create_articles(feed_nytimes.entries, feed3)
-Article.create_articles(feed_techcrunch.entries, feed4)
+def create_feed_seed(url)
+  new_feed = Feedjira::Feed.fetch_and_parse(url)
+
+  feed = Feed.create!(
+    title: new_feed.title,
+    description: new_feed.description,
+    rss_url: url,
+    icon_url: icon(new_feed.url),
+    url: new_feed.url
+  )
+
+  Article.create_articles(new_feed.entries, feed)
+end
+
+feeds.each do |feed|
+  create_feed_seed(feed)
+end
