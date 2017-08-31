@@ -23,7 +23,7 @@ export const createCollection = (collection) => {
 export const updateCollection = (collection) => {
   return $.ajax({
     method: 'PATCH',
-    url: `/api/collections/${collection.id}`,
+    url: `/api/collections/${collection.title}`,
     data: { collection }
   });
 };

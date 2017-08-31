@@ -33,6 +33,16 @@ class Api::FeedsController < ApplicationController
     end
   end
 
+  def update
+    @feed = Feed.find(params[:id])
+    if @feed.update(feed_params)
+      @feed.collection_ids = [] if feed_params[:collection_ids].nil?
+      render :show
+    else
+      render json: @feed.errors.full_messages, status: 422
+    end
+  end
+
   def articles
     @articles = Article
       .where(feed_id: params[:id])
@@ -45,8 +55,8 @@ class Api::FeedsController < ApplicationController
 
   private
 
-  def feeds_params
-    params.require(:feed).permit(:rss_url)
+  def feed_params
+    params.require(:feed).permit(:rss_url, collection_ids: [])
   end
 
   def create_feed(url)

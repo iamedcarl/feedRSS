@@ -12,18 +12,28 @@ class CollectionForm extends React.Component {
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addToCollection = this.addToCollection.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.createCollection(this.state)
-      .then(collection => {
-        this.props.history.push(`/feeds/${this.props.feedId}`);
+      .then(data => {
+        this.props.history.push(`/collections/${data.collection.title}`);
       });
   }
 
   update(property) {
     return e => this.setState({ [property]: e.target.value });
+  }
+
+  addToCollection(e) {
+    this.setState({ title: e.target.value }, () => {
+      this.props.updateCollection(this.state)
+        .then(data => {
+          this.props.history.push(`/discover`);
+        });
+    });
   }
 
   componentDidMount() {
@@ -36,7 +46,12 @@ class CollectionForm extends React.Component {
         <div className='menu-collection-item'>
           <i className="fa fa-rss" aria-hidden="true"></i>
           <span>{collection.title}</span>
-          <button>+ Add</button>
+          <button
+            onClick={this.addToCollection}
+            value={collection.title}
+          >
+          + Add
+          </button>
         </div>
       );
     });

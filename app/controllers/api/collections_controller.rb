@@ -21,8 +21,10 @@ class Api::CollectionsController < ApplicationController
   end
 
   def update
-    @collection = current_user.collections.find(params[:id])
+    @collection = current_user.collections.find_by(title: params[:id])
+    feed_ids = @collection.feed_ids
     if @collection.update(collection_params)
+      @collection.feed_ids = @collection.feed_ids.concat(feed_ids)
       render :show
     else
       render json: @collection.errors.full_messages, status: 422

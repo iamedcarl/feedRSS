@@ -24,6 +24,7 @@ class FeedIndex extends React.Component {
           key={feed.id}
           followed={this.userFollowed(feed.id)}
           feed={feed}
+          collectionIds={this.props.collectionIds}
         />
       );
     });
