@@ -14,30 +14,18 @@ class ArticleShow extends React.Component {
     const { article } = this.props;
 
     return(
-      <div>
-        <header className='header-bar nav-open'>
-          <HeaderContainer />
-        </header>
-
-        <div className='sidebar'>
-          <SideBar />
+      <div className='article-show'>
+        <div className='article-show-header-title'>
+          <a href={article.url} target='_blank'><h1>{article.title}</h1></a>
         </div>
-
-        <div className='collection-show main nav-open'>
-          <div className='container centered'>
-            <div className='collection-show-header'>
-              <div className='collection-show-header-title'>
-                <h1>{article.title}</h1>
-              </div>
-              <div className='article-date'>
-                <Moment fromNow>{article.date}</Moment>
-              </div>
-                <div>
-                  { ReactHtmlParser(article.content) }
-                </div>
-              <a href={article.url} target='_blank'> Visit Website</a>
-            </div>
-          </div>
+        <div className='article-show-date'>
+          <Moment fromNow>{article.date}</Moment>
+        </div>
+        <div className='article-show-content'>
+          { ReactHtmlParser(article.content) }
+        </div>
+        <div className='article-show-url'>
+          <a href={article.url} target='_blank'> Visit Website</a>
         </div>
       </div>
     );
