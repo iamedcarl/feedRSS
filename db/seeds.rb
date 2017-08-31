@@ -23,10 +23,10 @@ user2 = User.create(
 )
 
 feeds = [
-  "http://hosted.ap.org/lineups/USHEADS-rss_2.0.xml?SITE=SCAND&SECTION=HOME"
+  "http://hosted.ap.org/lineups/USHEADS-rss_2.0.xml?SITE=SCAND&SECTION=HOME",
   # "http://hosted.ap.org/lineups/SPORTSHEADS-rss_2.0.xml?SITE=VABRM&SECTION=HOME",
   # "http://feeds.washingtonpost.com/rss/politics",
-  # "http://feeds.washingtonpost.com/rss/world",
+  "http://feeds.washingtonpost.com/rss/world"
   # "http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml?edition=int",
   # "http://rss.cnn.com/rss/cnn_topstories.rss",
   # "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
