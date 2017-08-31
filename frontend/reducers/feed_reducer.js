@@ -1,7 +1,6 @@
 import {
   RECEIVE_ALL_FEEDS,
   RECEIVE_FEED,
-  REMOVE_FEED
 } from '../actions/feed_actions';
 
 const feedReducer = (state = {}, action) => {
@@ -12,10 +11,6 @@ const feedReducer = (state = {}, action) => {
       return action.feeds;
     case RECEIVE_FEED:
       Object.assign(newState, state, { [action.feed.id]: action.feed });
-      return newState;
-    case REMOVE_FEED:
-      Object.assign(newState, state);
-      delete newState[action.feed.id];
       return newState;
     default:
       return state;

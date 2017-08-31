@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 
 import {
   fetchAllCollections,
-  createCollection
+  createCollection,
+  updateCollection
 } from '../../actions/collection_actions';
 
 import { selectAllCollections } from '../../reducers/selectors';
@@ -19,6 +20,7 @@ const mapDispatchToProps = dispatch => {
   return({
     fetchAllCollections: () => dispatch(fetchAllCollections()),
     createCollection: collection => dispatch(createCollection(collection)),
+    updateCollection: collection => dispatch(updateCollection(collection)),
   });
 };
 

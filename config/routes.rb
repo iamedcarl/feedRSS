@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :collections, except: [:new, :edit] do
       get :articles, on: :member
     end
-    resources :feeds, only: [:index, :show, :create] do
+    resources :feeds, only: [:index, :show, :create, :update] do
       get :articles, on: :member
     end
     resources :articles, only: [:index, :show, :create]

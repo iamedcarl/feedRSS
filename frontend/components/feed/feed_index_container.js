@@ -8,6 +8,7 @@ const maptStateToProps = state => {
   return {
     feeds: selectAllFeeds(state),
     feedIds: allCollectionFeedIds(state),
+    collectionIds: state.session.collection_ids,
   };
 };
 

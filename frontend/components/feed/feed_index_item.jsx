@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FollowButton from './follow_button';
+import FollowButtonContainer from './follow_button_container';
 
 class FeedIndexItem extends React.Component {
   render() {
@@ -22,7 +22,12 @@ class FeedIndexItem extends React.Component {
           </div>
         </div>
 
-      <FollowButton followed={this.props.followed} feedId={id}/>
+      <FollowButtonContainer
+        followed={this.props.followed}
+        feedId={id}
+        feed={this.props.feed}
+        collectionIds={this.props.collectionIds}
+      />
 
       </div>
     );

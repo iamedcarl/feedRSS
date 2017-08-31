@@ -20,9 +20,10 @@ export const createFeed = (feed) => {
   });
 };
 
-export const deleteFeed = (feedId) => {
+export const updateFeed = (feed) => {
   return $.ajax({
-    method: 'DELETE',
-    url: `/api/feeds/${feedId}`,
+    method: 'PATCH',
+    url: `/api/feeds/${feed.id}`,
+    data: { feed }
   });
 };

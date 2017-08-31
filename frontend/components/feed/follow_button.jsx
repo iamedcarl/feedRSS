@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Overlay, Popover, ButtonToolbar, Button } from 'react-bootstrap';
 import CollectionFormContainer from '../collection/collection_form_container';
 
@@ -7,9 +8,13 @@ class FollowButton extends React.Component {
     super(props);
     this.state = {
       show: false,
+      id: this.props.feed.id,
+      rss_url: this.props.feed.rss_url,
+      collection_ids: this.props.feed.collection_ids,
     };
     this.handleOnClick = this.handleOnClick.bind(this);
     this.togglePopover = this.togglePopover.bind(this);
+    this.handleUnfollow = this.handleUnfollow.bind(this);
   }
 
   handleOnClick(e) {
@@ -20,10 +25,25 @@ class FollowButton extends React.Component {
     this.setState({ show: !this.state.show });
   }
 
+  handleUnfollow(e) {
+    let updated = this.props.feed.collection_ids;
+    this.props.collectionIds.forEach(collectionId1 => {
+      updated.forEach((collectionId2, idx) => {
+        if(collectionId1 === collectionId2) {
+          updated.splice(idx,1);
+        }
+      });
+    });
+    this.setState({ collection_ids: updated }, () => {
+      this.props.updateFeed(this.state)
+        .then(() => this.props.history.push(`/discover`));
+    });
+  }
+
   followingButton() {
     return(
       <ButtonToolbar id='button-toolbar'>
-        <Button id='following-button'>
+        <Button id='following-button' onClick={this.handleUnfollow}>
           <span>Following</span>
         </Button>
       </ButtonToolbar>
@@ -66,11 +86,11 @@ class FollowButton extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className='check'>
         {this.checkButton()}
       </div>
     );
   }
 }
 
-export default FollowButton;
+export default withRouter(FollowButton);
