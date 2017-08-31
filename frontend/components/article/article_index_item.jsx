@@ -14,7 +14,7 @@ const ArticleIndexItem = ({article}) => {
 
   return(
     <div className='article-index-item'>
-      <a href={url} target='_blank'>
+      <Link to={`/articles/${id}`}>
         <div className={hidden}>
           <img src={image_url} />
         </div>
@@ -27,7 +27,7 @@ const ArticleIndexItem = ({article}) => {
             { ReactHtmlParser(content) }
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

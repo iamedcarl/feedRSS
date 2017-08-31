@@ -26,15 +26,15 @@ class FollowButton extends React.Component {
   }
 
   handleUnfollow(e) {
-    let updated = this.props.feed.collection_ids;
-    this.props.collectionIds.forEach(collectionId1 => {
-      updated.forEach((collectionId2, idx) => {
-        if(collectionId1 === collectionId2) {
-          updated.splice(idx,1);
+    let feedCollectionIds = this.props.feed.collection_ids;
+    this.props.collectionIds.forEach(collectionId => {
+      feedCollectionIds.forEach((feedCollectionId, idx) => {
+        if(collectionId === feedCollectionId) {
+          feedCollectionIds.splice(idx,1);
         }
       });
     });
-    this.setState({ collection_ids: updated }, () => {
+    this.setState({ target: "", collection_ids: feedCollectionIds }, () => {
       this.props.updateFeed(this.state)
         .then(data => {
           this.props.history.push(`/discover`);});

@@ -23,21 +23,21 @@ user2 = User.create(
 )
 
 feeds = [
-  "http://hosted.ap.org/lineups/USHEADS-rss_2.0.xml?SITE=SCAND&SECTION=HOME",
-  "http://hosted.ap.org/lineups/SPORTSHEADS-rss_2.0.xml?SITE=VABRM&SECTION=HOME",
-  "http://feeds.washingtonpost.com/rss/politics",
-  "http://feeds.washingtonpost.com/rss/world",
-  "http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml?edition=int",
-  "http://rss.cnn.com/rss/cnn_topstories.rss",
-  "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
-  "http://nypost.com/feed/",
-  "http://feeds.gothamistllc.com/gothamist05",
-  "https://www.theverge.com/rss/index.xml",
-  "http://feeds.feedburner.com/TechCrunch/",
-  "https://www.wired.com/feed",
-  "http://www.espn.com/espn/rss/news",
-  "https://www.si.com/rss/si_topstories.rss",
-  "https://ny.eater.com/2014/12/22/7433785/rss/index.xml"
+  "http://hosted.ap.org/lineups/USHEADS-rss_2.0.xml?SITE=SCAND&SECTION=HOME"
+  # "http://hosted.ap.org/lineups/SPORTSHEADS-rss_2.0.xml?SITE=VABRM&SECTION=HOME",
+  # "http://feeds.washingtonpost.com/rss/politics",
+  # "http://feeds.washingtonpost.com/rss/world",
+  # "http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml?edition=int",
+  # "http://rss.cnn.com/rss/cnn_topstories.rss",
+  # "http://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml",
+  # "http://nypost.com/feed/",
+  # "http://feeds.gothamistllc.com/gothamist05",
+  # "https://www.theverge.com/rss/index.xml",
+  # "http://feeds.feedburner.com/TechCrunch/",
+  # "https://www.wired.com/feed",
+  # "http://www.espn.com/espn/rss/news",
+  # "https://www.si.com/rss/si_topstories.rss",
+  # "https://ny.eater.com/2014/12/22/7433785/rss/index.xml"
   # "http://www.npr.org/rss/rss.php?id=1001",
   # "https://www.nasa.gov/rss/dyn/image_of_the_day.rss",
 ]

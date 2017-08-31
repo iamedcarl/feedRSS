@@ -5,6 +5,7 @@ import LandingPage from './pages/landing_page';
 import AuthModal from './auth/auth_modal';
 import MainPageContainer from './pages/main_page_container';
 import FeedShowContainer from './feed/feed_show_container';
+import ArticleShowContainer from './article/article_show_container';
 import CollectionShowContainer from './collection/collection_show_container';
 import DiscoverPage from './pages/discover_page';
 import ReadLaterContainer from './pages/read_later_container';
@@ -16,6 +17,7 @@ const App = () => {
       <AuthRoute path="/signup" component={AuthModal} />
       <AuthRoute path="/" component={LandingPage} />
       <Switch>
+        <ProtectedRoute path="/articles/:id" component={ArticleShowContainer} />
         <ProtectedRoute path="/feeds/:id" component={FeedShowContainer} />
         <ProtectedRoute path="/collections/:title" component={CollectionShowContainer} />
         <ProtectedRoute path="/discover" component={DiscoverPage} />
