@@ -3,6 +3,9 @@ import {
   RECEIVE_COLLECTION,
   REMOVE_COLLECTION
 } from '../actions/collection_actions';
+import{
+  RECEIVE_FEED,
+} from '../actions/feed_actions';
 
 const collectionReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -12,6 +15,16 @@ const collectionReducer = (state = {}, action) => {
       return action.collections;
     case RECEIVE_COLLECTION:
       Object.assign(newState, state, { [action.collection.id]: action.collection });
+      return newState;
+    case RECEIVE_FEED:
+      Object.assign(newState, state);
+      for(let props in newState) {
+        newState[props].feed_ids.forEach((feedId, idx) => {
+          if (action.feed.id === feedId) {
+            newState[props].feed_ids.splice(idx,1);
+          }
+        });
+      }
       return newState;
     case REMOVE_COLLECTION:
       Object.assign(newState, state);

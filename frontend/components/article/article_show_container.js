@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import { fetchArticle } from '../../actions/article_actions';
 import ArticleShow from './article_show';
 
-const maptStateToProps = state => {
+const mapStateToProps = (state, { match }) => {
+  const articleId = parseInt(match.params.id);
   return {
-    articles: state.articles,
-    latestArticles: state.articles.latest_articles,
+    article: state.articles[articleId],
   };
 };
 
@@ -15,4 +15,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(maptStateToProps, mapDispatchToProps)(ArticleShow);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleShow);

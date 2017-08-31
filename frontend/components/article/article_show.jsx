@@ -1,5 +1,8 @@
 import React from 'react';
-import ArticleIndexItem from './article_index_item';
+import HeaderContainer from '../header/header_container';
+import SideBar from '../sidebar/sidebar';
+import ReactHtmlParser from 'react-html-parser';
+import Moment from 'react-moment';
 
 class ArticleShow extends React.Component {
   componentDidMount() {
@@ -7,10 +10,25 @@ class ArticleShow extends React.Component {
   }
 
   render() {
+    if(this.props.article === undefined) { return null; }
+    const { article } = this.props;
 
     return(
       <div className='article-show'>
-        <h1>HELLO!</h1>
+        <div className='article-show-header-title'>
+          <a href={article.url} target='_blank'><h1>{article.title}</h1></a>
+        </div>
+        <div className='article-show-date'>
+          <Moment fromNow>{article.date}</Moment>
+        </div>
+        <div className='article-show-content'>
+          { ReactHtmlParser(article.content) }
+        </div>
+        <a id='article-url' href={article.url} target='_blank'>
+          <div className='article-show-url'>
+            Visit Website
+          </div>
+        </a>
       </div>
     );
   }

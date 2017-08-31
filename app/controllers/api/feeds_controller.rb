@@ -63,13 +63,12 @@ class Api::FeedsController < ApplicationController
   def create_feed(url)
     new_feed = Feedjira::Feed.fetch_and_parse(url)
     icon = feed.icon(url)
-    domain = feed.domain(url)
 
     @feed.title = new_feed.title
     @feed.description = new_feed.description
     @feed.icon_url = icon
     @entries = new_feed.entries
-    @feed.url = domain
+    @feed.url = new_feed.url
     nil
   end
 

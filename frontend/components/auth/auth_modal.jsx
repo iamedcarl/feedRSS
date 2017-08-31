@@ -1,7 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { withRouter, Route } from 'react-router-dom';
-import { AuthRoute } from '../../util/route_util';
 import AuthFormContainer from './auth_form_container';
 
 const customStyles = {
