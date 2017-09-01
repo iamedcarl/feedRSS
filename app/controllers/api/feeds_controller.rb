@@ -2,19 +2,11 @@ class Api::FeedsController < ApplicationController
   before_action :require_user!
 
   def index
-    # @feeds = Feed
-    #   .joins(:collections)
-    #   .where('collections.user_id = ?', current_user.id)
-    #
-    # @feeds = Feed.all.order(:title).each do |feed|
-    #   Feed.update_feed(feed.id)
-    # end
     @feeds = Feed.all.order(:title)
   end
 
   def show
     @feed = Feed.find(params[:id])
-    Feed.update_feed(@feed.id)
   end
 
   def create
