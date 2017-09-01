@@ -11,6 +11,8 @@
 
 .feed-show-header {
   margin: 24px 12px 32px 12px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .feed-show-header-title > h1 > a {

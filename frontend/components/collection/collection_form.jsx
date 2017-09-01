@@ -31,7 +31,7 @@ class CollectionForm extends React.Component {
     this.setState({ title: e.target.value }, () => {
       this.props.updateCollection(this.state)
         .then(data => {
-          this.props.history.push(`/discover`);
+          this.props.history.push(`/collections/${data.collection.title}`);
         });
     });
   }

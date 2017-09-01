@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchFeed } from '../../actions/feed_actions';
 import { fetchArticlesByFeed } from '../../actions/article_actions';
+import { allCollectionFeedIds } from '../../reducers/selectors';
 import FeedShow from './feed_show';
 
 const mapStateToProps = (state, { match }) => {
@@ -9,6 +10,9 @@ const mapStateToProps = (state, { match }) => {
     feed: state.feeds[feedId],
     articles: state.articles,
     latestArticles: state.articles.latest_articles,
+    feedIds: allCollectionFeedIds(state),
+    collectionIds: state.session.collection_ids,
+    collections: state.collections,
   });
 };
 
