@@ -34,6 +34,11 @@ const NavBar = () => {
         </div>
         <CollectionIndexContainer />
       </div>
+      <div className='navbar-footer'>
+        <a href='https://github.com/iamedcarl/feedRSS' target='_blank'>
+          <i className="fa fa-github" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
   );
 };

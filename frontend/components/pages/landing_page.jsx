@@ -1,10 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import HeaderContainer from '../header/header_container';
+import AuthModal from '../auth/auth_modal';
+
 
 const LandingPage = () => {
   return(
     <div>
+      <Route path="/login" component={AuthModal} />
+      <Route path="/signup" component={AuthModal} />
+
       <header className='header-bar'>
         <HeaderContainer />
       </header>

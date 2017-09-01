@@ -92,3 +92,21 @@ i.fa.fa-angle-down {
 .collected-feed-list {
     padding-left: 24px;
 }
+
+.navbar-footer {
+  bottom: 0;
+  position: absolute;
+  transition: bottom .2s;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid lightgrey;
+  height: 50px;
+  font-size: 35px;
+  font-weight: bold;
+  a {
+    color: #dddddd;
+    text-decoration: none;
+  }
+}

@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LandingPage from './pages/landing_page';
-import AuthModal from './auth/auth_modal';
 import MainPageContainer from './pages/main_page_container';
 import FeedShowContainer from './feed/feed_show_container';
 import ArticleShowContainer from './article/article_show_container';
@@ -21,8 +20,6 @@ const App = () => {
         <ProtectedRoute path="/discover" component={DiscoverPage} />
         <ProtectedRoute path="/readlater" component={ReadLaterContainer} />
         <ProtectedRoute path="/my" component={MainPageContainer} />
-        <AuthRoute path="/login" component={AuthModal} />
-        <AuthRoute path="/signup" component={AuthModal} />
         <AuthRoute path="/" component={LandingPage} />
       </Switch>
     </div>

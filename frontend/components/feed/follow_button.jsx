@@ -71,6 +71,12 @@ class FollowButton extends React.Component {
             id="popover"
           >
             <CollectionFormContainer feedId={this.props.feedId}/>
+            <button
+              id='collection-cancel-button'
+              onClick={this.togglePopover}
+            >
+              Cancel
+            </button>
           </Popover>
         </Overlay>
       </ButtonToolbar>

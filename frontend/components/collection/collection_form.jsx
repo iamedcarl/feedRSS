@@ -13,11 +13,6 @@ class CollectionForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addToCollection = this.addToCollection.bind(this);
-    this.handleClickCancel = this.handleClickCancel.bind(this);
-  }
-
-  handleClickCancel(e) {
-    console.log("Need to figure out how to close this");
   }
 
   handleSubmit(e) {
@@ -79,14 +74,8 @@ class CollectionForm extends React.Component {
                 placeholder='e.g. News'
                 onChange={this.update('title')}
               />
+            </div>
             <button id='collection-create-button'>Create</button>
-            <button
-              id='collection-cancel-button'
-              onClick={this.handleClickCancel}
-            >
-              Cancel
-            </button>
-          </div>
           </form>
         </div>
       </div>

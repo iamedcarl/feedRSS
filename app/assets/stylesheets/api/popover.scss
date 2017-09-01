@@ -75,7 +75,8 @@
   cursor: pointer;
   color: #757575;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  margin-left: 7px;
+  right: -80px;
+  top: -32px;
 }
 
 #collection-cancel-button:hover {
@@ -94,7 +95,7 @@
     border: 1px solid #D6D6D6;
     background-color: #FAFAFA;
     font-size: 17px;
-    padding: 8px 2px 8px 8px;
+    padding: 8px 36px 8px 8px;
     border-radius: 3px;
     margin: 8px 0px 8px 0px;
   }
