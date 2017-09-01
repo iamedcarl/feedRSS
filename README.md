@@ -85,6 +85,13 @@ When a user clicks on an article, the view page will slide out from the right to
 
 ![Article View](https://s3.us-east-2.amazonaws.com/feedrss-pro/article_show.png)
 
+## Resources
+- [Database Schema]
+- [State]
+
+[Database Schema]: https://github.com/iamedcarl/feedRSS/blob/master/docs/schema.md
+[State]: https://github.com/iamedcarl/feedRSS/blob/master/docs/sample-state.md
+
 ## Additional Notes
 
 ### Rake task for updating feeds
