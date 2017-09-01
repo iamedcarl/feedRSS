@@ -1,11 +1,11 @@
 import {
   RECEIVE_ALL_COLLECTIONS,
   RECEIVE_COLLECTION,
-  REMOVE_COLLECTION
+  REMOVE_COLLECTION,
+  RECEIVE_NEW_COLLECTION
 } from '../actions/collection_actions';
-import{
-  RECEIVE_UPDATED_FEED,
-} from '../actions/feed_actions';
+
+import{ RECEIVE_UPDATED_FEED } from '../actions/feed_actions';
 
 const collectionReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -14,7 +14,18 @@ const collectionReducer = (state = {}, action) => {
     case RECEIVE_ALL_COLLECTIONS:
       return action.collections;
     case RECEIVE_COLLECTION:
-      Object.assign(newState, state, { [action.collection.id]: action.collection });
+      Object.assign(
+        newState,
+        state,
+        { [action.collection.id]: action.collection }
+      );
+      return newState;
+    case RECEIVE_NEW_COLLECTION:
+      Object.assign(
+        newState,
+        state,
+        { [action.collection.id]: action.collection }
+      );
       return newState;
     case RECEIVE_UPDATED_FEED:
       Object.assign(newState, state);

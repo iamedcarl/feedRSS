@@ -29,7 +29,7 @@ const LandingPage = () => {
             </div>
             <div className='welcome-img'>
               <div className='img-placeholder'>
-                <img src='https://s3.feedly.com/production/head/images/landing/screenshot-web@2x.png' />
+                <img src={window.screenshot} />
               </div>
             </div>
           </div>

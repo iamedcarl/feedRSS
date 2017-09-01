@@ -12,7 +12,7 @@ import CollectionForm from './collection_form';
 const mapStateToProps = state => {
   return({
     collections: selectAllCollections(state),
-    errors: state.errors,
+    errors: state.ui.errors,
   });
 };
 

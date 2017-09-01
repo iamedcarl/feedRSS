@@ -22,14 +22,21 @@
   padding-right: 24px;
 }
 
-.header-logged-out > h1, .header-logged-in > h1 {
+.header-logged-in > a {
+  display: flex;
+  color: #333333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header-logged-out > h1, .header-logged-in > a > h1 {
   height: 40px;
   padding: 0px 12px 0px 12px;
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
+  margin-left: 0;
 }
-.header-logged-in > h1 > a, .header-logged-out > h1 > a {
+.header-logged-out > h1 > a {
   color: #333333;
   text-decoration: none;
   font-weight: bold;

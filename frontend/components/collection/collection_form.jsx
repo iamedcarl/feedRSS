@@ -40,6 +40,18 @@ class CollectionForm extends React.Component {
     this.props.fetchAllCollections();
   }
 
+  renderErrors() {
+    return(
+      <ul className='auth-errors-list'>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     const collections = this.props.collections.map(collection => {
       return(
@@ -67,6 +79,7 @@ class CollectionForm extends React.Component {
         <div className='collection-create-form'>
           <form onSubmit={this.handleSubmit}>
             <label>Collection name</label>
+            {this.renderErrors()}
             <div>
               <input
                 type='text'
