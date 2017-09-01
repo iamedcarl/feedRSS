@@ -16,13 +16,14 @@ class CollectionIndex extends React.Component {
           key={collection.id}
           collection={collection}
           feeds={this.props.feeds}
+          delete={this.props.deleteCollection}
         />
       );
     });
 
     return(
       <div className='collection-index'>
-          {collections}
+        {collections}
       </div>
     );
   }

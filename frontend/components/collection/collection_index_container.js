@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchAllCollections } from '../../actions/collection_actions';
+import { fetchAllCollections, deleteCollection } from '../../actions/collection_actions';
 import { fetchAllFeeds } from '../../actions/feed_actions';
 import { selectAllCollections } from '../../reducers/selectors';
 import CollectionIndex from './collection_index';
@@ -15,6 +15,7 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchAllFeeds: () => dispatch(fetchAllFeeds()),
     fetchAllCollections: () => dispatch(fetchAllCollections()),
+    deleteCollection: collection => dispatch(deleteCollection(collection)),
   };
 };
 

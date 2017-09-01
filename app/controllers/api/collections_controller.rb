@@ -32,9 +32,9 @@ class Api::CollectionsController < ApplicationController
   end
 
   def destroy
-    collection = current_user.collections.find(params[:id])
-    collection.destroy
-    render :index
+    @collection = current_user.collections.find(params[:id])
+    @collection.destroy
+    render :show
   end
 
   def articles

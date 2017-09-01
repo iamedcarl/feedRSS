@@ -47,7 +47,7 @@
   text-align: left;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 180px;
+  width: 300px;
   overflow: hidden;
   font-size: 13px;
   text-decoration: none;
@@ -82,6 +82,32 @@ img#navbar-feed-icon {
 i.fa.fa-angle-down {
   margin-right: 6px;
   font-size: 26px;
+}
+
+.delete-collection {
+  button {
+    color: #2c3e50;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+}
+
+.delete-collection:hover {
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+}
+
+i.fa.fa-trash-o {
+  font-size: 18px;
+  margin-right: 14px;
+  padding: 3px;
+}
+
+.collection-line {
+  display: flex;
+  color: rgba(255, 255, 255, 0.85);
+  justify-content: flex-end;
 }
 
 .fa-calendar-o, .fa-bookmark-o, .fa-search {

@@ -1,33 +1,55 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
-const CollectionIndexItem = ({collection, feeds}) => {
-  const collectedFeeds = collection.feed_ids.map(feedId => {
-    let currentFeed = feeds[feedId];
-    if(currentFeed === undefined){ return null; }
-    return(
-      <div key={feedId} className='collected-feed-list nav-highlight'>
-        <Link className='navbar-link' to={`/feeds/${currentFeed.id}`}>
-          <div className='navbar-feed label'>
+class CollectionIndexItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleOnClick = this.handleOnClick.bind(this);
+  }
+
+  handleOnClick(e) {
+    this.props.delete(this.props.collection.id)
+      .then(data => {
+        this.props.history.push("/my");
+      });
+  }
+
+  render() {
+    const {collection, feeds} = this.props;
+    const collectedFeeds = collection.feed_ids.map(feedId => {
+      let currentFeed = feeds[feedId];
+      if(currentFeed === undefined){ return null; }
+      return(
+        <div key={feedId} className='collected-feed-list nav-highlight'>
+          <Link className='navbar-link' to={`/feeds/${currentFeed.id}`}>
+            <div className='navbar-feed label'>
               <img id='navbar-feed-icon' src={currentFeed.icon_url} />
               <div className='title'>{currentFeed.title}</div>
+            </div>
+          </Link>
+        </div>
+      );
+    });
+
+    return(
+      <div className='collection-index-item'>
+        <div className='collection-line nav-highlight'>
+          <Link className='navbar-link' to={`/collections/${collection.title}`}>
+            <div className='navbar-item label'>
+              <i className="fa fa-angle-down" aria-hidden="true"></i>
+              <div className='title'>{collection.title}</div>
+            </div>
+          </Link>
+          <div className='delete-collection'>
+            <button onClick={this.handleOnClick}>
+              <i className="fa fa-trash-o" aria-hidden="true"></i>
+            </button>
           </div>
-        </Link>
+        </div>
+        {collectedFeeds}
       </div>
     );
-  });
+  }
+}
 
-  return(
-    <div className='collection-index-item'>
-        <Link className='navbar-link' to={`/collections/${collection.title}`}>
-          <div className='navbar-item label nav-highlight'>
-            <i className="fa fa-angle-down" aria-hidden="true"></i>
-            <div className='title'>{collection.title}</div>
-          </div>
-        </Link>
-        {collectedFeeds}
-    </div>
-  );
-};
-
-export default CollectionIndexItem;
+export default withRouter(CollectionIndexItem);
