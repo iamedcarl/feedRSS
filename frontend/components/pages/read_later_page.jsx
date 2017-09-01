@@ -21,8 +21,9 @@ class ReadLater extends React.Component {
                 <h1>Read Later</h1>
               </div>
             </div>
-            <div className='collection-show-stream'>
-              TBD
+            <div className='read-later-stream'>
+              <iframe src="https://giphy.com/embed/3o6ZsX2OZJ8G3Tec6Y" width="480" height="361" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+              <h1>WORK IN PROGRESS</h1>
             </div>
           </div>
         </div>
