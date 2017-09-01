@@ -91,6 +91,7 @@ When a user clicks on an article, the view page will slide out from the right to
 Since this is a personal project, feeds are not being updated automatically yet. To update via command line, simply run `rake feeds:update`.
 
 ### Work in progress
+- Article view page should only overlay on top of the previous page.
 - User settings page
 - Search functionality
 - Parsing through the embedded HTML to render a cleaner article show page
