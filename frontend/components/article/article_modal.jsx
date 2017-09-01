@@ -40,7 +40,7 @@ class ArticleModal extends React.Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
-    this.props.history.push(`/my`);
+    this.props.history.goBack();
   }
 
   render() {
@@ -52,6 +52,7 @@ class ArticleModal extends React.Component {
           style={customStyles}
           animationType={"slide"}
           closeTimeoutMS={250}
+          contentLabel='Article Modal'
         >
 
           <div className='modal-header'>

@@ -14,12 +14,12 @@ const App = () => {
   return(
     <div className='app'>
       <Switch>
-        <ProtectedRoute path="/articles/:id" component={ArticleModal} />
         <ProtectedRoute path="/feeds/:id" component={FeedShowContainer} />
         <ProtectedRoute path="/collections/:title" component={CollectionShowContainer} />
         <ProtectedRoute path="/discover" component={DiscoverPage} />
         <ProtectedRoute path="/readlater" component={ReadLaterContainer} />
         <ProtectedRoute path="/my" component={MainPageContainer} />
+        <ProtectedRoute path="/articles/:id" component={ArticleModal} />
         <AuthRoute path="/" component={LandingPage} />
       </Switch>
     </div>
