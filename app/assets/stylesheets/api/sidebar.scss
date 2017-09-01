@@ -86,16 +86,17 @@ i.fa.fa-angle-down {
 
 .delete-collection {
   button {
-    color: #2c3e50;
+    color: #425b74;
     cursor: pointer;
     border: none;
     background: none;
   }
-}
-
-.delete-collection:hover {
-  color: rgba(255, 255, 255, 0.85);
-  cursor: pointer;
+  button:hover {
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
 }
 
 i.fa.fa-trash-o {
