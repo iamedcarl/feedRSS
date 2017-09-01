@@ -53,6 +53,13 @@ class ArticleModal extends React.Component {
           animationType={"slide"}
           closeTimeoutMS={250}
         >
+
+          <div className='modal-header'>
+            <div onClick={this.closeModal}>
+              <i className="fa fa-times" aria-hidden="true"></i>
+            </div>
+          </div>
+
           <Route path="/articles/:id" component={ArticleShowContainer} />
         </Modal>
       </div>

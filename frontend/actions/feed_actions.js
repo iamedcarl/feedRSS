@@ -3,6 +3,7 @@ import { receiveErrors } from './error_actions';
 
 export const RECEIVE_ALL_FEEDS = 'RECEIVE_ALL_FEEDS';
 export const RECEIVE_FEED = 'RECEIVE_FEED';
+export const RECEIVE_UPDATED_FEED = 'RECEIVE_UPDATED_FEED';
 
 export const fetchAllFeeds = () => {
   return dispatch => {
@@ -31,7 +32,7 @@ export const createFeed = feed => {
 export const updateFeed = feedId => {
   return dispatch => {
     return APIUtil.updateFeed(feedId)
-      .then(feed => dispatch(receiveFeed(feed)),
+      .then(feed => dispatch(receiveUpdatedFeed(feed)),
             errors => dispatch(receiveErrors(errors.responseJSON)));
   };
 };
@@ -46,6 +47,13 @@ export const receiveAllFeeds = feeds => {
 export const receiveFeed = feed => {
   return {
     type: RECEIVE_FEED,
+    feed,
+  };
+};
+
+export const receiveUpdatedFeed = feed => {
+  return {
+    type: RECEIVE_UPDATED_FEED,
     feed,
   };
 };

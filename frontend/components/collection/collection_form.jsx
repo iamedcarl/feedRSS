@@ -13,6 +13,11 @@ class CollectionForm extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addToCollection = this.addToCollection.bind(this);
+    this.handleClickCancel = this.handleClickCancel.bind(this);
+  }
+
+  handleClickCancel(e) {
+    console.log("Need to figure out how to close this");
   }
 
   handleSubmit(e) {
@@ -44,9 +49,12 @@ class CollectionForm extends React.Component {
     const collections = this.props.collections.map(collection => {
       return(
         <div className='menu-collection-item'>
-          <i className="fa fa-rss" aria-hidden="true"></i>
-          <span>{collection.title}</span>
+          <div>
+            <i className="fa fa-rss" aria-hidden="true"></i>
+            <span>{collection.title}</span>
+          </div>
           <button
+            id='add-button'
             onClick={this.addToCollection}
             value={collection.title}
           >
@@ -61,16 +69,26 @@ class CollectionForm extends React.Component {
         <div className='collection-menu'>
           {collections}
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Collection name</label>
-          <input
-            type='text'
-            value={this.state.title}
-            placeholder='e.g. News'
-            onChange={this.update('title')}
-          />
-        <button>Create</button>
-        </form>
+        <div className='collection-create-form'>
+          <form onSubmit={this.handleSubmit}>
+            <label>Collection name</label>
+            <div>
+              <input
+                type='text'
+                value={this.state.title}
+                placeholder='e.g. News'
+                onChange={this.update('title')}
+              />
+            <button id='collection-create-button'>Create</button>
+            <button
+              id='collection-cancel-button'
+              onClick={this.handleClickCancel}
+            >
+              Cancel
+            </button>
+          </div>
+          </form>
+        </div>
       </div>
     );
   }

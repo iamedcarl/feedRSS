@@ -4,7 +4,7 @@ import {
   REMOVE_COLLECTION
 } from '../actions/collection_actions';
 import{
-  RECEIVE_FEED,
+  RECEIVE_UPDATED_FEED,
 } from '../actions/feed_actions';
 
 const collectionReducer = (state = {}, action) => {
@@ -16,7 +16,7 @@ const collectionReducer = (state = {}, action) => {
     case RECEIVE_COLLECTION:
       Object.assign(newState, state, { [action.collection.id]: action.collection });
       return newState;
-    case RECEIVE_FEED:
+    case RECEIVE_UPDATED_FEED:
       Object.assign(newState, state);
       for(let props in newState) {
         newState[props].feed_ids.forEach((feedId, idx) => {
