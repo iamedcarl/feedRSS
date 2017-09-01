@@ -9,6 +9,25 @@ class ArticleShow extends React.Component {
     this.props.fetchArticle(this.props.match.params.id);
   }
 
+  checkContent(content) {
+    const re = /(<img.*?>|<img.*?>.+<\/img>)/;
+    const result = re.exec(content);
+    if (result === null) {
+      return(
+        <div className='article-show-content'>
+          <img src={this.props.article.image_url} />
+          { ReactHtmlParser(content) }
+        </div>
+      );
+    } else {
+      return(
+        <div className='article-show-content'>
+          { ReactHtmlParser(this.props.article.content) }
+        </div>
+      );
+    }
+  }
+
   render() {
     if(this.props.article === undefined) { return null; }
     const { article } = this.props;
@@ -21,9 +40,7 @@ class ArticleShow extends React.Component {
         <div className='article-show-date'>
           <Moment fromNow>{article.date}</Moment>
         </div>
-        <div className='article-show-content'>
-          { ReactHtmlParser(article.content) }
-        </div>
+        {this.checkContent(article.content)}
         <a id='article-url' href={article.url} target='_blank'>
           <div className='article-show-url'>
             Visit Website
