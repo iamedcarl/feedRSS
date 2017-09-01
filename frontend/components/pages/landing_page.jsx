@@ -29,7 +29,7 @@ const LandingPage = () => {
             </div>
             <div className='welcome-img'>
               <div className='img-placeholder'>
-                <img src={window.screenshot} />
+                <img src='https://s3.us-east-2.amazonaws.com/feedrss-pro/feedRSS_screen.png' />
               </div>
             </div>
           </div>
