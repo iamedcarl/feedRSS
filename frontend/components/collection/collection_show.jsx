@@ -5,6 +5,7 @@ import ArticleIndexItem from '../article/article_index_item';
 
 class CollectionShow extends React.Component {
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.fetchCollection(this.props.match.params.title);
     this.props.fetchArticlesByCollection(this.props.match.params.title);
   }

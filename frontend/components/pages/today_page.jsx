@@ -15,6 +15,10 @@ class TodayPage extends React.Component {
     this.props.fetchAllArticles();
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     return(
       <div>

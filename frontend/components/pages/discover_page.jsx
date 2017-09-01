@@ -3,8 +3,12 @@ import FeedIndexContainer from '../feed/feed_index_container';
 import HeaderContainer from '../header/header_container';
 import SideBar from '../sidebar/sidebar';
 
-const DiscoverPage = () => {
+class DiscoverPage extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
+  render() {
     return(
       <div>
         <header className='header-bar nav-open'>
@@ -33,7 +37,8 @@ const DiscoverPage = () => {
         </div>
       </div>
     );
-
-}; // end of DiscoverPage
+  }
+  
+} // end of DiscoverPage
 
 export default DiscoverPage;

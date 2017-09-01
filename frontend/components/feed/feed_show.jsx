@@ -5,6 +5,7 @@ import ArticleIndexItem from '../article/article_index_item';
 
 class FeedShow extends React.Component {
   componentDidMount() {
+    window.scrollTo(0, 0);
     const feedId = parseInt(this.props.match.params.id);
     this.props.fetchArticlesByFeed(feedId);
     this.props.fetchFeed(feedId);
@@ -12,6 +13,7 @@ class FeedShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.id !== nextProps.match.params.id) {
+      window.scrollTo(0, 0);
       this.props.fetchArticlesByFeed(nextProps.feed.id);
     }
   }
