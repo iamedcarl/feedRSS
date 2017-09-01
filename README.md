@@ -20,12 +20,12 @@ It uses [Feedjira] ruby gem for fetching and parsing the XML content from RSS fe
 
 ## Features
 
-#### Easy navigation
+### Easy navigation
 Users are immediately taken to a view of the most recent articles from all the feeds that are being followed. From here, the user is able to navigate to their collections, feeds they're subscribed to, click on articles to read them directly, or discover new feeds to follow.
 
 ![MainPage](https://s3.us-east-2.amazonaws.com/feedrss-pro/today.png)
 
-#### Creating collections and following feeds
+### Creating collections and following feeds
 Collections are a way for the user to organize the feeds that are being followed into specified categories. It can be created, edited, and deleted according to the user's preference.
 
 Clicking on the "Follow" button will bring up the options to create a collection or add the feed to an existing collection.
@@ -54,7 +54,7 @@ handleUnfollow(e) {
 }
 ```
 
-#### Article creation
+### Article creation
 Articles are created during the fetching and parsing of an RSS Feed url and stored in database with the appropriate parameters. There is also a check to make sure articles are not duplicated during the updating for feeds by [Feedjira].
 
 ```ruby
@@ -80,17 +80,17 @@ def self.create_articles(entries, feed)
 end
 ```
 
-#### Article view
+### Article view
 When a user clicks on an article, the view page will slide out from the right to provide focus on the article.
 
 ![Article View](https://s3.us-east-2.amazonaws.com/feedrss-pro/article_show.png)
 
-### Additional Notes
+## Additional Notes
 
-##### Rake task for updating feeds
+### Rake task for updating feeds
 Since this is a personal project, feeds are not being updated automatically yet. To update via command line, simply run `rake feeds:update`.
 
-##### Work in progress
+### Work in progress
 - User settings page
 - Search functionality
 - Parsing through the embedded HTML to render a cleaner article show page
