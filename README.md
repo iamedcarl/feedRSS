@@ -2,7 +2,7 @@
 
 [feedRSS live][heroku]
 
-[heroku]: https://thefeedrss.herokuapp.com/
+[heroku]: http://thefeedrss.herokuapp.com/
 
 feedRSS is an RSS reader application inspired by [Feedly].
 
