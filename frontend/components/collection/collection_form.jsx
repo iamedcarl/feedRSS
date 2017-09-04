@@ -29,10 +29,7 @@ class CollectionForm extends React.Component {
 
   addToCollection(e) {
     this.setState({ title: e.target.value }, () => {
-      this.props.updateCollection(this.state)
-        .then(data => {
-          this.props.history.push(`/collections/${data.collection.title}`);
-        });
+      this.props.updateCollection(this.state);
     });
   }
 

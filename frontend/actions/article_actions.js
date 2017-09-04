@@ -36,6 +36,14 @@ export const fetchArticlesByCollection = collectionId => {
   };
 };
 
+export const saveArticle = article => {
+  return dispatch => {
+    return APIUtil.updateArticle(article)
+      .then(savedArticle => dispatch(receiveArticle(savedArticle)),
+            errors => dispatch(receiveErrors(errors.responseJSON)));
+  };
+};
+
 export const receiveAllArticles = articles => {
   return {
     type: RECEIVE_ALL_ARTICLES,

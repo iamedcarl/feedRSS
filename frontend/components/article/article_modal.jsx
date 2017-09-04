@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import { withRouter, Route } from 'react-router-dom';
 import ArticleShowContainer from './article_show_container';
+import SaveButtonContainer from '../saved/save_button_container';
 
 const customStyles = {
   overlay : {
@@ -44,6 +45,7 @@ class ArticleModal extends React.Component {
   }
 
   render() {
+    const articleId = parseInt(this.props.match.params.id);
     return (
       <div onClick={this.closeModal} className='article-modal'>
         <Modal
@@ -58,6 +60,9 @@ class ArticleModal extends React.Component {
           <div className='modal-header'>
             <div onClick={this.closeModal}>
               <i className="fa fa-times" aria-hidden="true"></i>
+            </div>
+            <div className='modal-bookmark'>
+              <SaveButtonContainer articleId={articleId} />
             </div>
           </div>
 

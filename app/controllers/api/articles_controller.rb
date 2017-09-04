@@ -7,7 +7,7 @@ class Api::ArticlesController < ApplicationController
       .where('collections.user_id = ?', current_user.id)
       .order(:date)
       .reverse_order
-      .limit(20)
+      .limit(30)
 
     # @articles.all.each do |article|
     #   Feed.update_feed(article.feed_id)
@@ -19,8 +19,17 @@ class Api::ArticlesController < ApplicationController
   end
 
   def create
-    @article = current_user.collections.articles.new(articles_params)
+    @article = current_user.collections.articles.new(article_params)
     if @article.save
+      render :show
+    else
+      render json: @article.errors.full_messages, status: 422
+    end
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
       render :show
     else
       render json: @article.errors.full_messages, status: 422
@@ -29,7 +38,7 @@ class Api::ArticlesController < ApplicationController
 
   private
 
-  def articles_params
+  def article_params
     params.require(:article).permit(
       :title,
       :entry_id,
@@ -37,8 +46,8 @@ class Api::ArticlesController < ApplicationController
       :date,
       :url,
       :image_url,
-      :user_id,
-      :feed_id
+      :feed_id,
+      user_ids: []
     )
   end
 end

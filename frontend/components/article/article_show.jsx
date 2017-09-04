@@ -10,7 +10,7 @@ class ArticleShow extends React.Component {
   }
 
   checkContent(content) {
-    const re = /(<img.*?>|<img.*?>.+<\/img>)/;
+    const re = /(<img.*?>|<img.*?>.+<\/img>)/g;
     const result = re.exec(content);
     if (result === null) {
       return(
@@ -22,7 +22,7 @@ class ArticleShow extends React.Component {
     } else {
       return(
         <div className='article-show-content'>
-          { ReactHtmlParser(this.props.article.content) }
+          { ReactHtmlParser(content) }
         </div>
       );
     }

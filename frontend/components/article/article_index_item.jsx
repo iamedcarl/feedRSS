@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SaveButtonContainer from '../saved/save_button_container';
 import ReactHtmlParser from 'react-html-parser';
 import Moment from 'react-moment';
 
@@ -7,10 +8,23 @@ const ArticleIndexItem = ({article}) => {
   const {id, title, date, image_url, content, viewed, url} = article;
   const hidden = image_url === null ? "article-img hidden" : "article-img";
 
-  let checkContent = content;
-  if (/<[a-z][\s\S]*>/i.test(content)) {
-    checkContent = ReactHtmlParser(content);
-  }
+  const checkContent = (checkedContent) => {
+    const re = /(<img.*?>|<img.*?>.+<\/img>)/g;
+    const result = re.exec(checkedContent);
+    if (result === null) {
+      return(
+        <div className='article-summary'>
+          { ReactHtmlParser(checkedContent) }
+        </div>
+      );
+    } else {
+      return(
+        <div className='article-summary'>
+          { ReactHtmlParser(checkedContent) }
+        </div>
+      );
+    }
+  };
 
   return(
     <div className='article-index-item'>
@@ -23,11 +37,12 @@ const ArticleIndexItem = ({article}) => {
           <div className='article-date'>
             <Moment fromNow>{date}</Moment>
           </div>
-          <div className='article-summary'>
-            { ReactHtmlParser(content) }
-          </div>
+          {checkContent(content)}
         </div>
       </Link>
+      <div className='article-bookmark'>
+        <SaveButtonContainer articleId={id} />
+      </div>
     </div>
   );
 };

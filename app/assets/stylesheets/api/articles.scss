@@ -4,6 +4,7 @@
   padding: 12px;
   border-radius: 3px;
   border-left: 3px solid white;
+  position: relative;
   img {
     width: 100%;
     height: 100%;
@@ -41,6 +42,7 @@
   display: flex;
   flex-direction: column;
   padding: 1px;
+  margin-right: 8px;
 }
 
 .article-summary {
@@ -49,6 +51,18 @@
   color: #9e9e9e;
   max-height: 54px;
   overflow: hidden;
+  p, li {
+    margin-bottom: 6px;
+  }
+  img {
+    display: none;
+  }
+  a {
+    display: none;
+  }
+  iframe {
+    display: none;
+  }
 }
 
 .article-img > img {
@@ -92,9 +106,10 @@
   font-size: 16px;
   font-family: sans-serif;
   img {
-    width: 100%;
-    height: 100%;
-    box-shadow: 3px 3px 10px grey;
+    float: none !important;
+    display: block;
+    width: 600px;
+    box-shadow: 3px 3px 6px grey;
     margin: 10px 0px 10px 0px;
   }
   p, div, aside, li {
@@ -114,6 +129,7 @@
   padding: 12px 17px 10px 17px;
   width: 100%;
   margin-top: 24px;
+  margin-bottom: 120px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   font-weight: bold;
@@ -134,4 +150,17 @@
     font-size: 32px;
     font-weight: bold;
   }
+}
+
+.feedflare {
+  display: none;
+}
+
+.article-bookmark {
+  font-size: 18px;
+  color: #9e9e9e;
+  cursor: pointer;
+  right: 0;
+  top: 9px;
+  position: absolute;
 }

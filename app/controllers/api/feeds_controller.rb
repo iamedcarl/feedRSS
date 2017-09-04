@@ -7,7 +7,6 @@ class Api::FeedsController < ApplicationController
 
   def show
     @feed = Feed.find(params[:id])
-    Feed.update_feed(@feed.id)
   end
 
   def create

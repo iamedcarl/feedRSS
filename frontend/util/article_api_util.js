@@ -33,3 +33,11 @@ export const fetchArticlesByCollection = (collectionId) => {
     url: `/api/collections/${collectionId}/articles`,
   });
 };
+
+export const updateArticle = article => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `/api/articles/${article.id}`,
+    data: { article }
+  });
+};

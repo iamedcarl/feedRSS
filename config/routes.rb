@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     resources :feeds, only: [:index, :show, :create, :update] do
       get :articles, on: :member
     end
-    resources :articles, only: [:index, :show, :create]
+    resources :articles, only: [:index, :show, :create, :update]
   end
 end
