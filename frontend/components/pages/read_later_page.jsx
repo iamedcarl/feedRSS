@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import HeaderContainer from '../header/header_container';
 import SideBar from '../sidebar/sidebar';
 import ArticleIndexItem from '../article/article_index_item';
@@ -12,10 +13,9 @@ class ReadLaterPage extends React.Component {
     if(this.props.savedArticles === undefined) { return null; }
     const savedArticles = this.props.savedArticles.map(articleId => {
       return(
-        <ArticleIndexItem
-          key={articleId}
-          article={this.props.articles[articleId]}
-        />
+        <li>
+          <Link to={`/articles/${articleId}`}>{articleId}</Link>
+        </li>
       );
     });
 
@@ -33,11 +33,13 @@ class ReadLaterPage extends React.Component {
           <div className='container centered'>
             <div className='collection-show-header'>
               <div className='collection-show-header-title'>
-                <h1>Read Later</h1>
+                <h1>Read Later (Work in Progress)</h1>
               </div>
             </div>
             <div className='collection-show-stream'>
-
+              <ul>
+                {savedArticles}
+              </ul>
             </div>
           </div>
         </div>

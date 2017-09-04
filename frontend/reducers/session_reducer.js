@@ -1,5 +1,6 @@
 import { RECEIVE_CURRENT_USER, LOGOUT } from '../actions/session_actions';
 import { RECEIVE_NEW_COLLECTION } from '../actions/collection_actions';
+import { RECEIVE_SAVED_ARTICLE } from '../actions/article_actions';
 
 const initialState = {
   username: '',
@@ -19,6 +20,10 @@ const sessionReducer = (state = initialState, action) => {
       newState.collection_ids = newState
                                   .collection_ids
                                   .concat(action.collection.id);
+      return newState;
+    case RECEIVE_SAVED_ARTICLE:
+      Object.assign(newState, state);
+      newState.article_ids = newState.article_ids.concat(action.article.id);
       return newState;
     case LOGOUT:
       return {};

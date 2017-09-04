@@ -3,6 +3,7 @@ import { receiveErrors } from './error_actions';
 
 export const RECEIVE_ALL_ARTICLES = 'RECEIVE_ALL_ARTICLES';
 export const RECEIVE_ARTICLE = 'RECEIVE_ARTICLE';
+export const RECEIVE_SAVED_ARTICLE = 'RECEIVE_SAVED_ARTICLE';
 
 export const fetchAllArticles = () => {
   return dispatch => {
@@ -39,7 +40,7 @@ export const fetchArticlesByCollection = collectionId => {
 export const saveArticle = article => {
   return dispatch => {
     return APIUtil.updateArticle(article)
-      .then(savedArticle => dispatch(receiveArticle(savedArticle)),
+      .then(savedArticle => dispatch(receiveSavedArticle(savedArticle)),
             errors => dispatch(receiveErrors(errors.responseJSON)));
   };
 };
@@ -55,6 +56,13 @@ export const receiveAllArticles = articles => {
 export const receiveArticle = article => {
   return {
     type: RECEIVE_ARTICLE,
+    article,
+  };
+};
+
+export const receiveSavedArticle = article => {
+  return {
+    type: RECEIVE_SAVED_ARTICLE,
     article,
   };
 };

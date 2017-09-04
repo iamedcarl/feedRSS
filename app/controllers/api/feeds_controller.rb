@@ -14,14 +14,11 @@ class Api::FeedsController < ApplicationController
       .joins(:collections)
       .where('collections.user_id = ?', current_user.id)
       .new(feeds_params)
+      
     create_feed(@feed.rss_url)
-
-    if Feed.exists?(rss_url: @feed.rss_url)
-      Feed.find_by(rss_url: @feed.rss_url)
-    else
-      @feed.save
-      current_user.collections.articles.create_articles(@entries, @feed)
+    if @feed.save
       render :show
+    else
       render json: @feed.errors.full_messages, status: 422
     end
   end
