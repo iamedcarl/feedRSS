@@ -8,10 +8,6 @@ class Api::ArticlesController < ApplicationController
       .order(:date)
       .reverse_order
       .limit(30)
-
-    # @articles.all.each do |article|
-    #   Feed.update_feed(article.feed_id)
-    # end
   end
 
   def show
@@ -30,6 +26,7 @@ class Api::ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
+      @article.user_ids = [] if article_params[:user_ids].nil?
       render :show
     else
       render json: @article.errors.full_messages, status: 422

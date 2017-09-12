@@ -8,10 +8,24 @@ class SaveButton extends React.Component {
   }
 
   handleClickSave(e) {
-    this.props.saveArticle({
-      id: this.props.articleId,
-      user_ids: [this.props.user.id] 
-    });
+    let userIds = this.props.article.user_ids;
+    let removeCurrentUser;
+    let idx;
+
+    if (userIds.includes(this.props.userId)) {
+      idx = userIds.indexOf(this.props.userId);
+      userIds.splice(idx, 1);
+      this.props.updateArticle({
+        id: this.props.article.id,
+        user_ids: userIds
+      });
+    } else {
+      userIds = userIds.concat(this.props.userId);
+      this.props.updateArticle({
+        id: this.props.article.id,
+        user_ids: userIds
+      });
+    }
   }
 
   render() {

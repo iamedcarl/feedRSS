@@ -4,9 +4,26 @@ import SaveButtonContainer from '../saved/save_button_container';
 import ReactHtmlParser from 'react-html-parser';
 import Moment from 'react-moment';
 
-const ArticleIndexItem = ({article}) => {
-  const {id, title, date, image_url, content, viewed, url} = article;
+const ArticleIndexItem = (props) => {
+  const {
+    id,
+    title,
+    date,
+    image_url,
+    content,
+    viewed,
+    url,
+    user_ids
+  } = props.article;
+
   const hidden = image_url === null ? "article-img hidden" : "article-img";
+
+  let saveStatus = "";
+  if (user_ids.includes(props.userId)) {
+    saveStatus = "article-bookmark-saved";
+  } else {
+    saveStatus = "article-bookmark-unsaved";
+  }
 
   const checkContent = (checkedContent) => {
     const re = /(<img.*?>|<img.*?>.+<\/img>)/g;
@@ -37,13 +54,14 @@ const ArticleIndexItem = ({article}) => {
           <div className='article-date'>
             <Moment fromNow>{date}</Moment>
           </div>
-          <div className='article-summary'>
-            { ReactHtmlParser(content) }
-          </div>
+          { checkContent(content) }
         </div>
       </Link>
-      <div className='article-bookmark'>
-        <SaveButtonContainer articleId={id} />
+      <div className={saveStatus}>
+        <SaveButtonContainer
+          article={props.article}
+          userId={props.userId}
+        />
       </div>
     </div>
   );

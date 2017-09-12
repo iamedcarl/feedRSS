@@ -5,7 +5,7 @@ import LandingPage from './pages/landing_page';
 import MainPageContainer from './pages/main_page_container';
 import FeedShowContainer from './feed/feed_show_container';
 import ArticleShowContainer from './article/article_show_container';
-import ArticleModal from './article/article_modal';
+import ArticleModalContainer from './article/article_modal_container';
 import FeedFormContainer from './feed/feed_form_container';
 import CollectionShowContainer from './collection/collection_show_container';
 import DiscoverPage from './pages/discover_page';
@@ -21,7 +21,7 @@ const App = () => {
         <ProtectedRoute path="/discover" component={DiscoverPage} />
         <ProtectedRoute path="/readlater" component={ReadLaterContainer} />
         <ProtectedRoute path="/my" component={MainPageContainer} />
-        <ProtectedRoute path="/articles/:id" component={ArticleModal} />
+        <ProtectedRoute path="/articles/:id" component={ArticleModalContainer} />
         <AuthRoute path="/" component={LandingPage} />
       </Switch>
     </div>

@@ -24,8 +24,8 @@ const customStyles = {
 };
 
 class ArticleModal extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
     this.state = {
       modalIsOpen: true,
@@ -44,8 +44,11 @@ class ArticleModal extends React.Component {
     this.props.history.goBack();
   }
 
+  componentDidMount() {
+    this.props.fetchArticle(this.props.match.params.id);
+  }
+
   render() {
-    const articleId = parseInt(this.props.match.params.id);
     return (
       <div onClick={this.closeModal} className='article-modal'>
         <Modal
@@ -62,7 +65,10 @@ class ArticleModal extends React.Component {
               <i className="fa fa-times" aria-hidden="true"></i>
             </div>
             <div className='modal-bookmark'>
-              <SaveButtonContainer articleId={articleId} />
+              <SaveButtonContainer
+                userId={this.props.userId}
+                article={this.props.article}
+              />
             </div>
           </div>
 

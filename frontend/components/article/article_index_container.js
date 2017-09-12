@@ -6,6 +6,7 @@ const maptStateToProps = state => {
   return {
     articles: state.articles,
     latestArticles: state.articles.latest_articles,
+    userId: state.session.id,
   };
 };
 
