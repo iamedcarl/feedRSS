@@ -26,6 +26,7 @@ const LandingPage = () => {
             </div>
             <div className='welcome-button'>
               <Link to="/signup">Get started for free</Link>
+              <Link to="/login">Try the demo</Link>
             </div>
             <div className='welcome-img'>
               <div className='img-placeholder'>
@@ -85,6 +86,7 @@ const LandingPage = () => {
             </div>
             <div className='footer-button'>
               <Link to="/signup">Get started for free</Link>
+              <Link to="/login">Try the demo</Link>
             </div>
           </div>
         </div>

@@ -37,7 +37,9 @@ const ArticleIndexItem = ({article}) => {
           <div className='article-date'>
             <Moment fromNow>{date}</Moment>
           </div>
-          {checkContent(content)}
+          <div className='article-summary'>
+            { ReactHtmlParser(content) }
+          </div>
         </div>
       </Link>
       <div className='article-bookmark'>

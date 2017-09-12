@@ -30,6 +30,10 @@
   color: #757575;
 }
 
+.welcome-button, .footer-button {
+  display: flex;
+}
+
 .welcome-button > a, .footer-button > a {
   background-color: #d7694c;
   border-radius: 4px;
@@ -46,6 +50,7 @@
   text-decoration: none;
   text-align: center;
   min-width: 240px;
+  margin: auto 5px;
 }
 
 .welcome-button > a:hover, .footer-button > a:hover {
