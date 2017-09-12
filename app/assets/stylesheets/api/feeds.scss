@@ -95,8 +95,9 @@
   border: 1px solid lightgrey;
 }
 
-.feed-form-component {
-
+.feed-form, .feed-form-errors {
+  padding-left: 12px;
+  margin-bottom: 5px;
 }
 
 .feed-header > h2 {

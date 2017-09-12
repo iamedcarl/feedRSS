@@ -62,7 +62,6 @@ class FeedForm extends React.Component {
             </div>
             <div className='feed-form'>
               <form onSubmit={this.handleSubmit}>
-                {this.renderErrors()}
                 <input
                   type='text'
                   value={this.state.url}
@@ -71,6 +70,9 @@ class FeedForm extends React.Component {
                 />
                 <button id='feed-add-button'>Add</button>
               </form>
+            </div>
+            <div className='feed-form-errors'>
+              {this.renderErrors()}
             </div>
           </div>
 
