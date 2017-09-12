@@ -35,7 +35,7 @@
   border: 1px solid black;
 }
 
-.auth-form > button, .demo-login > form > button {
+.auth-form > button, .demo-login > form > button, .feed-form > form > button {
   background-color: #d7694c;
   border-radius: 4px;
   border: 1px solid #d7694c;
@@ -54,7 +54,7 @@
   margin-top: 17px;
 }
 
-.auth-form > button:hover, .demo-login > form > button:hover {
+.auth-form > button:hover, .demo-login > form > button:hover, .feed-form > form > button:hover {
   background-color: #9a3e27;
   border: 1px solid #9a3e27;
 }

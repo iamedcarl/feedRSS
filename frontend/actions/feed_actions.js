@@ -23,7 +23,7 @@ export const fetchFeed = feedId => {
 
 export const createFeed = feed => {
   return dispatch => {
-    return APIUtil.fetchFeeds(feed)
+    return APIUtil.createFeed(feed)
         .then(newFeed => dispatch(receiveFeed(newFeed)),
           errors => dispatch(receiveErrors(errors.responseJSON)));
   };

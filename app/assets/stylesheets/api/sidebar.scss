@@ -130,10 +130,13 @@ i.fa.fa-trash-o {
   align-items: center;
   border-top: 0.5px solid lightgrey;
   height: 50px;
-  font-size: 35px;
-  font-weight: bold;
+  font-size: 14px;
   a {
     color: #dddddd;
     text-decoration: none;
+  }
+
+  a:hover {
+    color: #d7694c;
   }
 }

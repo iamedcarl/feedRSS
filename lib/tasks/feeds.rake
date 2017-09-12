@@ -1,6 +1,7 @@
 namespace :feeds do
   desc "TODO"
   task update: :environment do
+    Feedjira.logger.level = Logger::FATAL
     feeds = Feed.all
 
     feeds.each do |feed|

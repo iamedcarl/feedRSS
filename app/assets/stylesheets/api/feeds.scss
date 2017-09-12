@@ -94,3 +94,30 @@
   color: lightgrey;
   border: 1px solid lightgrey;
 }
+
+.feed-form-component {
+  margin: auto;
+  text-align: center;
+  width: 400px;
+  height: 150px;
+}
+
+.feed-header > h2 {
+  display: block;
+  color: black;
+  font-size: 19px;
+  font-weight: bold;
+  margin-top: 26px;
+}
+
+.feed-form > form > input {
+  box-sizing: border-box;
+  height: 44px;
+  width: 100%;
+  border: 1px solid #D6D6D6;
+  background-color: #FAFAFA;
+  font-size: 17px;
+  padding: 8px;
+  border-radius: 3px;
+  margin: 13px 0px 2px 0px;
+}
