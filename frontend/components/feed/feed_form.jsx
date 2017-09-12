@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import HeaderContainer from '../header/header_container';
+import SideBar from '../sidebar/sidebar';
 
 class FeedForm extends React.Component {
   constructor(props) {
@@ -40,21 +42,38 @@ class FeedForm extends React.Component {
   render() {
 
     return(
-      <div className='feed-form-component'>
-        <div className='feed-header'>
-          <h2>Add New Feed</h2>
+      <div>
+        <header className='header-bar nav-open'>
+          <HeaderContainer />
+        </header>
+
+        <div className='sidebar'>
+          <SideBar />
         </div>
-        <div className='feed-form'>
-          <form onSubmit={this.handleSubmit}>
-            {this.renderErrors()}
-            <input
-              type='text'
-              value={this.state.url}
-              placeholder='e.g. http://www.somefeed.com/rss'
-              onChange={this.update('rss_url')}
-            />
-            <button id='feed-add-button'>Add</button>
-          </form>
+
+        <div className='feed-form-component main nav-open'>
+          <div className='container centered'>
+            <div className='feed-header'>
+              <i className="fa fa-rss" aria-hidden="true"></i>
+              <h1>Add a feed</h1>
+            </div>
+            <div className='discover-sub'>
+              What source do you want to follow?
+            </div>
+            <div className='feed-form'>
+              <form onSubmit={this.handleSubmit}>
+                {this.renderErrors()}
+                <input
+                  type='text'
+                  value={this.state.url}
+                  placeholder='e.g. http://www.somefeed.com/rss'
+                  onChange={this.update('rss_url')}
+                />
+                <button id='feed-add-button'>Add</button>
+              </form>
+            </div>
+          </div>
+
         </div>
       </div>
     );

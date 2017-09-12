@@ -35,7 +35,10 @@ const NavBar = () => {
         <CollectionIndexContainer />
       </div>
       <div className='navbar-footer'>
-        <Link to="/feeds">+ Add Feed</Link>
+        <Link to="/feeds">
+          <i className="fa fa-plus-square-o" aria-hidden="true"></i>
+            Add Feed
+        </Link>
       </div>
     </div>
   );

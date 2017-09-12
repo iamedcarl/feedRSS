@@ -6,7 +6,7 @@ import MainPageContainer from './pages/main_page_container';
 import FeedShowContainer from './feed/feed_show_container';
 import ArticleShowContainer from './article/article_show_container';
 import ArticleModal from './article/article_modal';
-import FeedModal from './feed/feed_modal';
+import FeedFormContainer from './feed/feed_form_container';
 import CollectionShowContainer from './collection/collection_show_container';
 import DiscoverPage from './pages/discover_page';
 import ReadLaterContainer from './pages/read_later_container';
@@ -16,7 +16,7 @@ const App = () => {
     <div className='app'>
       <Switch>
         <ProtectedRoute path="/feeds/:id" component={FeedShowContainer} />
-        <ProtectedRoute path="/feeds" component={FeedModal} />
+        <ProtectedRoute path="/feeds" component={FeedFormContainer} />
         <ProtectedRoute path="/collections/:title" component={CollectionShowContainer} />
         <ProtectedRoute path="/discover" component={DiscoverPage} />
         <ProtectedRoute path="/readlater" component={ReadLaterContainer} />

@@ -134,9 +134,14 @@ i.fa.fa-trash-o {
   a {
     color: #dddddd;
     text-decoration: none;
+    text-transform: uppercase;
   }
 
   a:hover {
     color: #d7694c;
+  }
+
+  i {
+    margin-right: 8px;
   }
 }

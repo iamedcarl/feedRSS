@@ -96,10 +96,7 @@
 }
 
 .feed-form-component {
-  margin: auto;
-  text-align: center;
-  width: 400px;
-  height: 150px;
+
 }
 
 .feed-header > h2 {
@@ -113,11 +110,51 @@
 .feed-form > form > input {
   box-sizing: border-box;
   height: 44px;
-  width: 100%;
+  width: 50%;
   border: 1px solid #D6D6D6;
   background-color: #FAFAFA;
   font-size: 17px;
   padding: 8px;
   border-radius: 3px;
   margin: 13px 0px 2px 0px;
+}
+
+.feed-form > form > input:focus {
+  border: 1px solid #d7694c;
+}
+
+#feed-add-button {
+  position: relative;
+  padding: 4px 7px 2px 7px;
+  border: 1px solid #d7694c;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: bold;
+  min-width: 58px;
+  height: 44px;
+  text-transform: uppercase;
+  background-color: white;
+  cursor: pointer;
+  color: #d7694c;
+  margin-left: 12px;
+}
+
+#feed-add-button:hover {
+  color: #9a3e27;
+  border: 1px solid #9a3e27;
+}
+
+.feed-header {
+  display: flex;
+  margin-top: 36px;
+  margin-bottom: 12px;
+  i{
+    color: #d7694c;
+    font-size: 34px;
+    padding: 0px 12px 0px 12px;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: bold;
+  }
 }
