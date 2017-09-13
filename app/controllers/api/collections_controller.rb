@@ -11,7 +11,7 @@ class Api::CollectionsController < ApplicationController
 
   def create
     @collection = current_user.collections.new(collection_params)
-    if Collection.exists?(title: @collection.title)
+    if current_user.collections.exists?(title: @collection.title)
       render json: ['Collection already exists'], status: 422
     elsif @collection.save
       render :show
