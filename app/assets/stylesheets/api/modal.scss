@@ -35,9 +35,17 @@
   }
 }
 
-i.fa.fa-times, .modal-bookmark {
+i.fa.fa-times, .modal-bookmark-unsaved {
   font-size: 18px;
   color: #9e9e9e;
+  cursor: pointer;
+  margin-left: 28px;
+  margin-right: 135px;
+}
+
+.modal-bookmark-saved {
+  font-size: 18px;
+  color: #d7694c;
   cursor: pointer;
   margin-left: 28px;
   margin-right: 135px;

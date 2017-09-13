@@ -20,9 +20,9 @@ const ArticleIndexItem = (props) => {
 
   let saveStatus = "";
   if (user_ids.includes(props.userId)) {
-    saveStatus = "article-bookmark-saved";
+    saveStatus = "bookmark-saved";
   } else {
-    saveStatus = "article-bookmark-unsaved";
+    saveStatus = "bookmark-unsaved";
   }
 
   const checkContent = (checkedContent) => {

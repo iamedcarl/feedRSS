@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import { fetchArticle } from '../../actions/article_actions';
 import ArticleModal from './article_modal';
 
-const maptStateToProps = state => {
+const maptStateToProps = (state, ownProps) => {
   return {
-    article: state.article,
+    article: state.articles[ownProps.match.params.id],
     userId: state.session.id,
   };
 };

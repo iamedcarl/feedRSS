@@ -44,11 +44,16 @@ class ArticleModal extends React.Component {
     this.props.history.goBack();
   }
 
-  componentDidMount() {
-    this.props.fetchArticle(this.props.match.params.id);
-  }
-
   render() {
+    if (this.props.article === undefined) { return null; }
+
+    let saveStatus = "";
+    if (this.props.article.user_ids.includes(this.props.userId)) {
+      saveStatus = "modal-bookmark-saved";
+    } else {
+      saveStatus = "modal-bookmark-unsaved";
+    }
+
     return (
       <div onClick={this.closeModal} className='article-modal'>
         <Modal
@@ -64,7 +69,7 @@ class ArticleModal extends React.Component {
             <div onClick={this.closeModal}>
               <i className="fa fa-times" aria-hidden="true"></i>
             </div>
-            <div className='modal-bookmark'>
+            <div className={saveStatus}>
               <SaveButtonContainer
                 userId={this.props.userId}
                 article={this.props.article}
