@@ -13,15 +13,17 @@ class SaveButton extends React.Component {
     let idx;
 
     if (userIds.includes(this.props.userId)) {
+      console.log(userIds);
       idx = userIds.indexOf(this.props.userId);
       userIds.splice(idx, 1);
-      this.props.updateArticle({
+      console.log(userIds);
+      this.props.unsaveArticle({
         id: this.props.article.id,
         user_ids: userIds
       });
     } else {
       userIds = userIds.concat(this.props.userId);
-      this.props.updateArticle({
+      this.props.saveArticle({
         id: this.props.article.id,
         user_ids: userIds
       });

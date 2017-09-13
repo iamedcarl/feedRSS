@@ -3,7 +3,8 @@ import { receiveErrors } from './error_actions';
 
 export const RECEIVE_ALL_ARTICLES = 'RECEIVE_ALL_ARTICLES';
 export const RECEIVE_ARTICLE = 'RECEIVE_ARTICLE';
-export const RECEIVE_UPDATED_ARTICLE = 'RECEIVE_UPDATED_ARTICLE';
+export const RECEIVE_SAVED_ARTICLE = 'RECEIVE_SAVED_ARTICLE';
+export const RECEIVE_UNSAVED_ARTICLE = 'RECEIVE_UNSAVED_ARTICLE';
 
 export const fetchAllArticles = () => {
   return dispatch => {
@@ -37,10 +38,18 @@ export const fetchArticlesByCollection = collectionId => {
   };
 };
 
-export const updateArticle = article => {
+export const saveArticle = article => {
   return dispatch => {
     return APIUtil.updateArticle(article)
-      .then(savedArticle => dispatch(receiveUpdatedArticle(savedArticle)),
+      .then(savedArticle => dispatch(receiveSavedArticle(savedArticle)),
+            errors => dispatch(receiveErrors(errors.responseJSON)));
+  };
+};
+
+export const unsaveArticle = article => {
+  return dispatch => {
+    return APIUtil.updateArticle(article)
+      .then(savedArticle => dispatch(receiveUnsavedArticle(savedArticle)),
             errors => dispatch(receiveErrors(errors.responseJSON)));
   };
 };
@@ -60,9 +69,16 @@ export const receiveArticle = article => {
   };
 };
 
-export const receiveUpdatedArticle = article => {
+export const receiveSavedArticle = article => {
   return {
-    type: RECEIVE_UPDATED_ARTICLE,
+    type: RECEIVE_SAVED_ARTICLE,
+    article,
+  };
+};
+
+export const receiveUnsavedArticle = article => {
+  return {
+    type: RECEIVE_UNSAVED_ARTICLE,
     article,
   };
 };

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateArticle } from '../../actions/article_actions';
+import { saveArticle, unsaveArticle } from '../../actions/article_actions';
 import SaveButton from './save_button';
 
 const mapStateToProps = state => {
@@ -10,7 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return({
-    updateArticle: article => dispatch(updateArticle(article)),
+    saveArticle: article => dispatch(saveArticle(article)),
+    unsaveArticle: article => dispatch(unsaveArticle(article)),
   });
 };
 

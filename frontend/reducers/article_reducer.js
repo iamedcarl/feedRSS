@@ -1,7 +1,8 @@
 import {
   RECEIVE_ALL_ARTICLES,
   RECEIVE_ARTICLE,
-  RECEIVE_UPDATED_ARTICLE
+  RECEIVE_SAVED_ARTICLE,
+  RECEIVE_UNSAVED_ARTICLE
 } from '../actions/article_actions';
 
 const initialState = {
@@ -20,7 +21,10 @@ const articleReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_ALL_ARTICLES:
       return action.articles;
-    case RECEIVE_UPDATED_ARTICLE:
+    case RECEIVE_SAVED_ARTICLE:
+      Object.assign(newState, state, { [action.article.id]: action.article});
+      return newState;
+    case RECEIVE_UNSAVED_ARTICLE:
       Object.assign(newState, state, { [action.article.id]: action.article});
       return newState;
     case RECEIVE_ARTICLE:

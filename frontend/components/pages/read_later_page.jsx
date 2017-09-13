@@ -10,12 +10,16 @@ class ReadLaterPage extends React.Component {
   }
 
   render() {
-    if(this.props.savedArticles === undefined) { return null; }
+    if(Object.keys(this.props.articles).length === 0) { return null; }
+    const { articles } = this.props;
+
     const savedArticles = this.props.savedArticles.map(articleId => {
       return(
-        <li>
-          <Link to={`/articles/${articleId}`}>{articleId}</Link>
-        </li>
+        <ArticleIndexItem
+          key={articleId}
+          article={articles[articleId]}
+          userId={this.props.userId}
+        />
       );
     });
 
@@ -29,11 +33,14 @@ class ReadLaterPage extends React.Component {
           <SideBar />
         </div>
 
-        <div className='collection-show main nav-open'>
+        <div className='main nav-open'>
           <div className='container centered'>
-            <div className='collection-show-header'>
-              <div className='collection-show-header-title'>
-                <h1>Read Later (Work in Progress)</h1>
+            <div className='today-header'>
+              <div>
+                <h1>Read Later</h1>
+                <div className='today-sub'>
+                  Articles you saved
+                </div>
               </div>
             </div>
             <div className='collection-show-stream'>
