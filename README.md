@@ -1,8 +1,8 @@
 # feedRSS
 
-[feedRSS live][heroku]
+[feedRSS live][live]
 
-[heroku]: http://thefeedrss.herokuapp.com/
+[live]: http://www.feedrss.pw/
 
 feedRSS is an RSS reader application inspired by [Feedly].
 
