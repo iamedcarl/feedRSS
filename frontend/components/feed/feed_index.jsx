@@ -16,14 +16,14 @@ class FeedIndex extends React.Component {
   }
 
   render() {
-    if(this.props.feeds === undefined) { return null; }
+    if(this.props.sortedFeeds === undefined) { return null; }
 
-    const feeds = this.props.feeds.map(feed => {
+    const feeds = this.props.sortedFeeds.map(feedId => {
       return(
         <FeedIndexItem
-          key={feed.id}
-          followed={this.userFollowed(feed.id)}
-          feed={feed}
+          key={feedId}
+          followed={this.userFollowed(feedId)}
+          feed={this.props.feeds[feedId]}
           collectionIds={this.props.collectionIds}
           collections={this.props.collections}
         />

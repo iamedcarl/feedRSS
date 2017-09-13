@@ -6,8 +6,9 @@ import FeedIndex from './feed_index';
 
 const maptStateToProps = state => {
   return {
-    feeds: selectAllFeeds(state),
+    feeds: state.feeds,
     feedIds: allCollectionFeedIds(state),
+    sortedFeeds: state.feeds.sorted_feeds,
     collectionIds: state.session.collection_ids,
     collections: state.collections,
   };
