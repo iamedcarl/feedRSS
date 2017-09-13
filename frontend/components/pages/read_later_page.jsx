@@ -6,6 +6,7 @@ import ArticleIndexItem from '../article/article_index_item';
 
 class ReadLaterPage extends React.Component {
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.fetchSavedArticles();
   }
 

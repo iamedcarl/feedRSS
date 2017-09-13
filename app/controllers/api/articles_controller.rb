@@ -8,6 +8,17 @@ class Api::ArticlesController < ApplicationController
       .order(:date)
       .reverse_order
       .limit(30)
+
+    update_articles = Article
+      .joins(:feed, :collection)
+      .where('collections.user_id = ?', current_user.id)
+      .order(:date)
+      .reverse_order
+
+    feed_ids = update_articles.pluck(:feed_id).uniq
+    feed_ids.each do |feed_id|
+      Feed.update_feed(feed_id)
+    end
   end
 
   def show
