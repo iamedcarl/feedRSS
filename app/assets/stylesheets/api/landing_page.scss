@@ -187,6 +187,19 @@
   height: 50px;
   font-size: 16px;
   color: white;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  a {
+    margin: 9px 0px 0px 14px;
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+  }
+  a:hover {
+    color: #9a3e27;
+  }
 }
 
 .footer-info {

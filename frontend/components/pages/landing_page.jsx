@@ -94,6 +94,15 @@ const LandingPage = () => {
         <div className='landing-footer'>
           <div className='footer-info container centered'>
             <p>Created by Edcarl Adraincem for educational purposes only</p>
+            <a href='http://edcarladraincem.com/'>
+              <i className="fa fa-home" aria-hidden="true"></i>
+            </a>
+            <a href='https://github.com/iamedcarl/feedRSS'>
+              <i className="fa fa-github" aria-hidden="true"></i>
+            </a>
+            <a href='https://www.linkedin.com/in/edcarladraincem/'>
+              <i className="fa fa-linkedin-square" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </div>
