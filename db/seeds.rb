@@ -119,6 +119,5 @@ def create_feed_seed(url)
 end
 
 feeds.each do |feed|
-  # debugger
   create_feed_seed(feed)
 end

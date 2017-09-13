@@ -10,6 +10,7 @@ const mapStateToProps = (state, { match }) => {
     collection: selectCollection(state, collectionTitle),
     articles: state.articles,
     latestArticles: state.articles.latest_articles,
+    userId: state.session.id,
   });
 };
 

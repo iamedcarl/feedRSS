@@ -14,6 +14,12 @@ class Api::UsersController < ApplicationController
     render "api/users/show"
   end
 
+  def saved_articles
+    user = User.find(current_user.id)
+    @articles = user.articles.order(:date).reverse_order
+    render 'api/articles/index'
+  end
+
   private
 
   def user_params

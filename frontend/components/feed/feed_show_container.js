@@ -13,6 +13,7 @@ const mapStateToProps = (state, { match }) => {
     feedIds: allCollectionFeedIds(state),
     collectionIds: state.session.collection_ids,
     collections: state.collections,
+    userId: state.session.id,
   });
 };
 

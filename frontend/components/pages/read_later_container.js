@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import { fetchAllArticles, fetchArticle } from '../../actions/article_actions';
+import { fetchSavedArticles } from '../../actions/session_actions';
 import ReadLaterPage from './read_later_page';
 
 const mapStateToProps = state => {
   return({
     articles: state.articles,
+    latestArticles: state.articles.latest_articles,
     savedArticles: state.session.article_ids,
     userId: state.session.id,
   });
@@ -12,8 +13,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAllArticles: ()  => dispatch(fetchAllArticles()),
-    fetchArticle: articleId => dispatch(fetchArticle(articleId)),
+    fetchSavedArticles: ()  => dispatch(fetchSavedArticles()),
   };
 };
 

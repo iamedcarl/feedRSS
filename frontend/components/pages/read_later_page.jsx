@@ -6,14 +6,21 @@ import ArticleIndexItem from '../article/article_index_item';
 
 class ReadLaterPage extends React.Component {
   componentDidMount() {
-    this.props.fetchAllArticles();
+    this.props.fetchSavedArticles();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(this.props.latestArticles === undefined) { return null; }
+    if(this.props.latestArticles.length !== nextProps.savedArticles.length) {
+      this.props.fetchSavedArticles();
+    }
   }
 
   render() {
-    if(Object.keys(this.props.articles).length === 0) { return null; }
     const { articles } = this.props;
 
-    const savedArticles = this.props.savedArticles.map(articleId => {
+    if(this.props.latestArticles === undefined) { return null; }
+    const savedArticles = this.props.latestArticles.map(articleId => {
       return(
         <ArticleIndexItem
           key={articleId}

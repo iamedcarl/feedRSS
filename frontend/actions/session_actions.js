@@ -1,5 +1,6 @@
 import * as APIUtil from '../util/session_api_util';
 import { receiveErrors } from './error_actions';
+import { receiveAllArticles } from './article_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT = 'LOGOUT';
@@ -32,6 +33,14 @@ export const fetchUser = () => {
   return dispatch => {
     return APIUtil.fetchUser()
       .then(user => dispatch(receiveCurrentUser(user)),
+            errors => dispatch(receiveErrors(errors.responseJSON)));
+  };
+};
+
+export const fetchSavedArticles = () => {
+  return dispatch => {
+    return APIUtil.fetchSavedArticles()
+      .then(articles => dispatch(receiveAllArticles(articles)),
             errors => dispatch(receiveErrors(errors.responseJSON)));
   };
 };

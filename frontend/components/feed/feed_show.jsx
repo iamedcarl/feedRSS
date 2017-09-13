@@ -37,6 +37,7 @@ class FeedShow extends React.Component {
         <ArticleIndexItem
           key={articleId}
           article={this.props.articles[articleId]}
+          userId={this.props.userId}
         />
       );
     });

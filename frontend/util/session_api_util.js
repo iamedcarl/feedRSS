@@ -27,3 +27,10 @@ export const fetchUser = () => {
     url: `api/user`,
   });
 };
+
+export const fetchSavedArticles = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/user/saved_articles`,
+  });
+};
