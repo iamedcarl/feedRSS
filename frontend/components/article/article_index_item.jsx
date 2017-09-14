@@ -37,7 +37,7 @@ const ArticleIndexItem = (props) => {
     } else {
       return(
         <div className='article-summary'>
-          { ReactHtmlParser(parsedContent.join("")) }
+          { ReactHtmlParser(parsedContent[0]) }
         </div>
       );
     }
