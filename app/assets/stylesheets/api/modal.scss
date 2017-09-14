@@ -36,34 +36,39 @@
 }
 
 i.fa.fa-times, .modal-bookmark-unsaved {
+  position: absolute;
+  right: 28px;
   font-size: 18px;
   color: #9e9e9e;
   cursor: pointer;
-  margin-left: 28px;
-  margin-right: 135px;
 }
 
 .modal-bookmark-saved {
+  position: absolute;
+  right: 28px;
   font-size: 18px;
   color: #d7694c;
   cursor: pointer;
-  margin-left: 28px;
-  margin-right: 135px;
 }
 
 i.fa.fa-bookmark-o:hover {
   color: #d7694c;
 }
 
-.modal-header {
-  display: flex;
-  justify-content: space-between;
+.icon-close {
   position: absolute;
+  left: 73px;
+}
+
+.modal-header {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
   box-shadow: 1px 0 0 1px rgba(0, 0, 0, 0.05);
-  width: 1081px;
   height: 30px;
   left: 0;
   top: 0;
+  right: 0;
   padding-top: 14px;
   padding-bottom: 7px;
 }

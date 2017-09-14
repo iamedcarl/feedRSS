@@ -66,7 +66,7 @@ class ArticleModal extends React.Component {
         >
 
           <div className='modal-header'>
-            <div onClick={this.closeModal}>
+            <div className='icon-close' onClick={this.closeModal}>
               <i className="fa fa-times" aria-hidden="true"></i>
             </div>
             <div className={saveStatus}>
