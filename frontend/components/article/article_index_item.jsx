@@ -26,9 +26,9 @@ const ArticleIndexItem = (props) => {
   }
 
   const checkContent = (checkedContent) => {
-    const re = /(<img.*?>|<img.*?>.+<\/img>)/g;
-    const result = re.exec(checkedContent);
-    if (result === null) {
+    const re = /<p>.+?<\/p>/g;
+    const parsedContent = checkedContent.match(re);
+    if (parsedContent === null) {
       return(
         <div className='article-summary'>
           { ReactHtmlParser(checkedContent) }
@@ -37,7 +37,7 @@ const ArticleIndexItem = (props) => {
     } else {
       return(
         <div className='article-summary'>
-          { ReactHtmlParser(checkedContent) }
+          { ReactHtmlParser(parsedContent.join("")) }
         </div>
       );
     }

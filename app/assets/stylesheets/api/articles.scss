@@ -54,13 +54,7 @@
   p, li {
     margin-bottom: 6px;
   }
-  img {
-    display: none;
-  }
-  a {
-    display: none;
-  }
-  iframe {
+  img, a, iframe, div, aside, section, html {
     display: none;
   }
 }
