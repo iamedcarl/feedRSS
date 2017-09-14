@@ -27,7 +27,7 @@ class Article < ApplicationRecord
 
   def self.create_articles(entries, feed)
     entries.each do |entry|
-      next if Article.find_by(entry_id: entry.id)
+      next if Article.find_by(entry_id: entry.id) || entry.id == nil
       img = entry.image ||
             Article.parse_img_from_content(entry.content) ||
             Article.parse_img_from_content(entry.summary)
@@ -39,7 +39,7 @@ class Article < ApplicationRecord
         feed_id: feed.id,
         image_url: img,
         title: entry.title,
-        url: entry.url,
+        url: entry.url || feed.url
       )
     end
     feed
