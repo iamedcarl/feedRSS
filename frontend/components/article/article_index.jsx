@@ -11,6 +11,7 @@ class ArticleIndex extends React.Component {
     if (this.props.loading) {
       return <div><LoadingIcon /></div>;
     }
+    
     if(this.props.latestArticles === undefined) { return null; }
     const articles = this.props.latestArticles.map(articleId => {
       return(

@@ -2,6 +2,7 @@ import React from 'react';
 import HeaderContainer from '../header/header_container';
 import SideBar from '../sidebar/sidebar';
 import ArticleIndexItem from '../article/article_index_item';
+import LoadingIcon from '../loading/loading_icon';
 
 class CollectionShow extends React.Component {
   componentDidMount() {
@@ -16,7 +17,31 @@ class CollectionShow extends React.Component {
     }
   }
 
+  renderLoading() {
+    return(
+      <div>
+        <header className='header-bar nav-open'>
+          <HeaderContainer />
+        </header>
+
+        <div className='sidebar'>
+          <SideBar />
+        </div>
+
+        <div className='main nav-open'>
+          <div className='container centered'>
+            <LoadingIcon />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   render() {
+    if (this.props.loading) {
+      return this.renderLoading();
+    }
+
     if(this.props.collection === undefined) { return null; }
     const { collection } = this.props;
 
