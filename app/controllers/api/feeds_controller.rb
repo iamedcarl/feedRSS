@@ -7,7 +7,6 @@ class Api::FeedsController < ApplicationController
 
   def show
     @feed = Feed.find(params[:id])
-    Feed.update_feed(@feed.id)
   end
 
   def create
@@ -42,6 +41,7 @@ class Api::FeedsController < ApplicationController
   end
 
   def articles
+    Feed.update_feed(params[:id])
     @articles = Article
       .where(feed_id: params[:id])
       .order(:date)

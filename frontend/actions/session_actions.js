@@ -1,6 +1,7 @@
 import * as APIUtil from '../util/session_api_util';
 import { receiveErrors } from './error_actions';
 import { receiveAllArticles } from './article_actions';
+import { startLoading } from './loading_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT = 'LOGOUT';

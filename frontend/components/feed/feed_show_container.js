@@ -14,6 +14,7 @@ const mapStateToProps = (state, { match }) => {
     collectionIds: state.session.collection_ids,
     collections: state.collections,
     userId: state.session.id,
+    loading: state.ui.loading.pageLoading,
   });
 };
 

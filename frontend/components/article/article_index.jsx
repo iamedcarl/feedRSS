@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingIcon from '../loading/loading_icon';
 import ArticleIndexItem from './article_index_item';
 
 class ArticleIndex extends React.Component {
@@ -7,8 +8,10 @@ class ArticleIndex extends React.Component {
   }
 
   render() {
+    if (this.props.loading) {
+      return <div><LoadingIcon /></div>;
+    }
     if(this.props.latestArticles === undefined) { return null; }
-
     const articles = this.props.latestArticles.map(articleId => {
       return(
         <ArticleIndexItem

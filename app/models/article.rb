@@ -42,6 +42,7 @@ class Article < ApplicationRecord
         url: entry.url,
       )
     end
+    feed
   end
 
   def self.parse_img_from_content(content)

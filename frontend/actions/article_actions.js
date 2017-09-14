@@ -1,5 +1,6 @@
 import * as APIUtil from '../util/article_api_util';
 import { receiveErrors } from './error_actions';
+import { startLoading } from './loading_actions';
 
 export const RECEIVE_ALL_ARTICLES = 'RECEIVE_ALL_ARTICLES';
 export const RECEIVE_ARTICLE = 'RECEIVE_ARTICLE';
@@ -8,6 +9,7 @@ export const RECEIVE_UNSAVED_ARTICLE = 'RECEIVE_UNSAVED_ARTICLE';
 
 export const fetchAllArticles = () => {
   return dispatch => {
+    dispatch(startLoading());
     return APIUtil.fetchAllArticles()
       .then(articles => dispatch(receiveAllArticles(articles)),
         errors => dispatch(receiveErrors(errors.responseJSON)));
@@ -24,6 +26,7 @@ export const fetchArticle = articleId => {
 
 export const fetchArticlesByFeed = feedId => {
   return dispatch => {
+    dispatch(startLoading());
     return APIUtil.fetchArticlesByFeed(feedId)
       .then(articles => dispatch(receiveAllArticles(articles)),
       errors => dispatch(receiveErrors(errors.responseJSON)));
@@ -32,6 +35,7 @@ export const fetchArticlesByFeed = feedId => {
 
 export const fetchArticlesByCollection = collectionId => {
   return dispatch => {
+    dispatch(startLoading());
     return APIUtil.fetchArticlesByCollection(collectionId)
       .then(articles => dispatch(receiveAllArticles(articles)),
       errors => dispatch(receiveErrors(errors.responseJSON)));
