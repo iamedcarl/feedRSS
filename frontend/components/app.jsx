@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import LandingPage from './pages/landing_page';
+import LandingPageContainer from './pages/landing_page_container';
 import MainPageContainer from './pages/main_page_container';
 import FeedShowContainer from './feed/feed_show_container';
 import ArticleShowContainer from './article/article_show_container';
@@ -22,7 +22,7 @@ const App = () => {
         <ProtectedRoute path="/readlater" component={ReadLaterContainer} />
         <ProtectedRoute path="/my" component={MainPageContainer} />
         <ProtectedRoute path="/articles/:id" component={ArticleModalContainer} />
-        <AuthRoute path="/" component={LandingPage} />
+        <AuthRoute path="/" component={LandingPageContainer} />
       </Switch>
     </div>
   );

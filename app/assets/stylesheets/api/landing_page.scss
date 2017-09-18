@@ -53,7 +53,31 @@
   margin: auto 5px;
 }
 
+.welcome-button > button, .footer-button > button {
+  background-color: #d7694c;
+  border-radius: 4px;
+  border: 1px solid #d7694c;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 28px;
+  padding: 12px 12px 10px 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  min-width: 240px;
+  margin: auto 5px;
+  margin-top: 0px;
+}
+
 .welcome-button > a:hover, .footer-button > a:hover {
+  background-color: #9a3e27;
+  border: 1px solid #9a3e27;
+}
+
+.welcome-button > button:hover, .footer-button > button:hover {
   background-color: #9a3e27;
   border: 1px solid #9a3e27;
 }
